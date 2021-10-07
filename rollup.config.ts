@@ -16,7 +16,7 @@ const componentsConfig = components
     input: `${__dirname}/src/components/${file}/${file}.vue`,
     external: [
       'vue',
-      'feather-icons',
+      'feather-img',
       'inputmask',
       'vue-quill-editor',
     ],
