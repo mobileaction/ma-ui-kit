@@ -1,29 +1,9 @@
 <template>
-  <el-tabs
-      type="border-card"
-      class="ma-tabs"
-      v-model="selectedTab"
-  >
-    <el-tab-pane
-        v-for="(tab,i) in tabPanelList"
-        :key="tab+i"
-        :name="`${ tab.type }`"
-        lazy
-    >
-      <span slot="label">
-        {{ tab.label }}
-        <span v-if="showCount && tab.totalElements">
-          ({{ tab.totalElements }})
-        </span>
-        <img alt="new" v-if="tab.isNew" src="../../../assets/img/new-icon-red.png" class="is-new-img">
-      </span>
-      <slot></slot>
-    </el-tab-pane>
-  </el-tabs>
+  <el-pagination/>
 </template>
 
 <script>
-import { Tabs, TabPane } from 'element-ui';
+import { Pagination,  } from 'element-ui';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
@@ -35,8 +15,7 @@ library.add(faDownload, faSpinner);
 export default {
   name: 'ma-tabs',
   components: {
-    ElTabs: Tabs,
-    ElTabPane: TabPane,
+    ElPagination: Pagination,
     FontAwesomeIcon,
     MaPropValidator,
   },
@@ -74,7 +53,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '~element-ui/lib/theme-chalk/tabs.css';
+  @import '~element-ui/lib/theme-chalk/pagination.css';
   .el-tabs__item {
     margin: 0 4px;
     font-size: 0.9rem;
