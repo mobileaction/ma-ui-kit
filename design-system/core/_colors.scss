@@ -12,7 +12,7 @@
   }
 }
 
-.g-text {
+.m-text {
   @include color-modifiers;
   &-white {
     color: white;
@@ -22,7 +22,7 @@
   }
 }
 
-.g-bg {
+.m-bg {
   @include color-modifiers('background-color');
   &-white {
     background-color: white;
@@ -32,7 +32,7 @@
   }
 }
 
-.g-border {
+.m-border {
   @include color-modifiers('border-color');
   &-white {
     border-color: white;

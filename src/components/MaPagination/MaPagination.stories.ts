@@ -9,93 +9,37 @@ storiesOf('MaPagination', module)
     components: { MaPagination },
     data () {
         return {
-            list: [
-                {
-                    type: 'item1',
-                    label: 'Item 1',
-                    active: true,
-                },
-                {
-                    type: 'item2',
-                    label: 'Item 2',
-                },
-                {
-                    type: 'item3',
-                    label: 'Item 3',
-                },
-            ],
+            pagination: {
+                pageSize: 10,
+                total: 100,
+                currentPage: 1,
+            },
         }
     },
     template: `
        <div class="m-p-15 m-bg-main-purple-800">
             <ma-pagination
-              :tab-panel-list="list"
-              show-count
+              :pagination="pagination"
             />
        </div>
       `,
   }))
-  .add('newTab', () => ({
+  .add('onePage', () => ({
     components: { MaPagination },
       data () {
           return {
-              list: [
-                  {
-                      type: 'item1',
-                      label: 'Item 1',
-                  },
-                  {
-                      type: 'item2',
-                      label: 'Item 2',
-                      totalElements: '4',
-                  },
-                  {
-                      type: 'item3',
-                      label: 'Item 3',
-                      isNew: true,
-                      active: true,
-                  },
-              ],
+              pagination: {
+                  pageSize: 10,
+                  total: 0,
+                  currentPage: 1,
+              },
           }
       },
     template: `
-      <div class="m-p-15 m-bg-main-purple-800">
+      <div class="m-p-15">
         <ma-pagination
-            :tab-panel-list="list"
+            :pagination="pagination"
         />
       </div>
     `,
   }))
-  .add('showCount', () => ({
-    components: { MaPagination },
-      data () {
-          return {
-              list: [
-                  {
-                      type: 'item1',
-                      label: 'Item 1',
-                      active: true,
-                      totalElements: '4',
-                  },
-                  {
-                      type: 'item2',
-                      label: 'Item 2',
-                      totalElements: '10',
-                  },
-                  {
-                      type: 'item3',
-                      label: 'Item 3',
-                      totalElements: '40',
-                  },
-              ],
-          }
-      },
-    template: `
-      <div class="m-p-15 m-bg-main-purple-800">
-        <ma-pagination
-            :tab-panel-list="list"
-            show-count
-        />
-       </div>
-    `,
-  }));

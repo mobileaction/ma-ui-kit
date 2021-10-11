@@ -27,7 +27,7 @@ storiesOf('MaTabs', module)
         }
     },
     template: `
-       <div class="m-p-15 m-bg-main-purple-800">
+       <div class="m-p-15 m-bg-purple-800">
             <ma-tabs
               :tab-panel-list="list"
               show-count
@@ -59,7 +59,7 @@ storiesOf('MaTabs', module)
           }
       },
     template: `
-      <div class="m-p-15 m-bg-main-purple-800">
+      <div class="m-p-15 m-bg-purple-800">
         <ma-tabs
             :tab-panel-list="list"
         />
@@ -91,7 +91,7 @@ storiesOf('MaTabs', module)
           }
       },
     template: `
-      <div class="m-p-15 m-bg-main-purple-800">
+      <div class="m-p-15 m-bg-purple-800">
         <ma-tabs
             :tab-panel-list="list"
             show-count
