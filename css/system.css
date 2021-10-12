@@ -303,7 +303,7 @@ template {
 *, :after, :before {
   box-sizing: border-box; }
 
-/* http://meyerweb.com/eric/tools/css/reset/
+/* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -957,7 +957,7 @@ table {
   color: #ba95ff; }
 
 .m-text-purple-800 {
-  color: #d1b8ff; }
+  color: #202348; }
 
 .m-text-purple-900 {
   color: #e8dcff; }
@@ -1260,7 +1260,7 @@ table {
   background-color: #ba95ff; }
 
 .m-bg-purple-800 {
-  background-color: #292C52; }
+  background-color: #202348; }
 
 .m-bg-purple-900 {
   background-color: #e8dcff; }
@@ -1563,7 +1563,7 @@ table {
   border-color: #ba95ff; }
 
 .m-border-purple-800 {
-  border-color: #d1b8ff; }
+  border-color: #202348; }
 
 .m-border-purple-900 {
   border-color: #e8dcff; }

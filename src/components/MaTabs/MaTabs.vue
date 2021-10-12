@@ -10,12 +10,14 @@
         :name="`${ tab.type }`"
         lazy
     >
-      <span slot="label">
+      <span slot="label" class="ma-tab-name">
         {{ tab.label }}
         <span v-if="showCount && tab.totalElements">
           ({{ tab.totalElements }})
         </span>
-        <img alt="new" v-if="tab.isNew" src="../../../assets/img/new-icon-red.png" class="is-new-img">
+        <div v-if="tab.isNew" class="ma-new-icon">
+            NEW
+        </div>
       </span>
       <slot></slot>
     </el-tab-pane>
@@ -76,7 +78,7 @@ export default {
     font-size: 0.9rem;
     font-weight:400;
     border-radius: 5px 5px 0 0;
-    background-color: var(--purple-800);
+    background-color: var(--ma-main-color);
   }
   .el-tabs--border-card {
     background: none;
@@ -84,11 +86,8 @@ export default {
     box-shadow: none;
   }
   .el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active {
-    color: var(--purple-800);
+    color: var(--ma-main-color);
     background-color: var(--white);
-    //border-top: 2px solid #D6E0EA;
-    //border-left: 2px solid #D6E0EA;
-    //border-radius: 5px 5px 0 0;
   }
   .el-tabs--border-card>.el-tabs__header .el-tabs__item {
     color: var(--white);
@@ -110,5 +109,21 @@ export default {
     width: 40px;
     margin-left: 1px;
     margin-top: -1px;
+  }
+  .ma-tab-name {
+    display: flex;
+    align-items: center;
+  }
+  .ma-new-icon {
+    margin-top: -2px;
+    margin-left: 3px;
+    line-height: 0;
+    color: white;
+    padding-right: 0.3rem;
+    font-weight: bold;
+    font-size: 10px;
+    display: inline-block;
+    border: 0.5rem solid red;
+    border-right-color: transparent;
   }
 </style>

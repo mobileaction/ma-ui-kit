@@ -17,7 +17,7 @@ storiesOf('MaPagination', module)
         }
     },
     template: `
-       <div class="m-p-15 m-bg-main-purple-800">
+       <div class="m-p-15">
             <ma-pagination
               :pagination="pagination"
             />

@@ -30,7 +30,7 @@ storiesOf('MaExportButton', module)
     components: { MaExportButton },
     template: `
        <div class="m-p-10">
-        <ma-export-button :loading="true"/>
+        <ma-export-button loading/>
        </div>
     `,
   }));

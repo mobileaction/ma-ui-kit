@@ -4,7 +4,6 @@
     :class="classes"
     :disabled="disabled"
     :size="size"
-    :loading="loading"
     type="type"
     @click="handleClick"
   >
