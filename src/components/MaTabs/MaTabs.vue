@@ -74,11 +74,10 @@ export default {
 <style lang="scss">
   @import '~element-ui/lib/theme-chalk/tabs.css';
   .el-tabs__item {
-    margin: 0 4px;
     font-size: 0.9rem;
     font-weight:400;
     border-radius: 5px 5px 0 0;
-    background-color: var(--ma-main-color);
+    background-color: #202348;
   }
   .el-tabs--border-card {
     background: none;
@@ -86,24 +85,34 @@ export default {
     box-shadow: none;
   }
   .el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active {
-    color: var(--ma-main-color);
-    background-color: var(--white);
+    color: #202348;
+    background-color: #fff;
+    border-bottom: none;
   }
   .el-tabs--border-card>.el-tabs__header .el-tabs__item {
-    color: var(--white);
+    color: #fff;
     border-width: 1px;
-    border-color: var(--white);;
+    border-color: #D6E0EA;
+    margin-top:0;
   }
   .el-tabs--border-card>.el-tabs__header .el-tabs__item:hover {
     color: #202347 !important;
-    background-color: var(--white);
+    background-color: #fff;
   }
   .el-tabs--border-card>.el-tabs__header {
     background:none;
     border: none;
   }
+  .el-tabs__nav .is-top:first-child{
+    margin-left:0px !important;
+  }
   .el-tabs__nav .is-top{
-    margin:1px !important;
+    margin-left:5px !important;
+    padding: 0 20px !important;
+  }
+  .el-tabs--border-card > .el-tabs__content {
+    padding: 0;
+    margin: 0;
   }
   .is-new-img {
     width: 40px;
