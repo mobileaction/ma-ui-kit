@@ -1,30 +1,37 @@
 <template>
-  <el-pagination
-      v-bind="$attrs"
-      v-on="listeners"
-      background
-      :page-sizes="[20, 30, 50, 100, 200]"
-      :current-page.sync="pagination.currentPage"
-      :page-size="pagination.pageSize"
+  <a-pagination
+      v-model="current"
+      show-size-changer
+      :default-current="0"
       :total="pagination.total"
-      layout="prev, pager, next, sizes, total"
-      @current-change="v => pagination.currentPage = v"
-      @size-change="v => pagination.pageSize = v"
+      @showSizeChange="onShowSizeChange"
   />
 </template>
 
 <script>
-import { Pagination } from 'element-ui';
+import { Pagination } from 'ant-design-vue';
+import 'ant-design-vue/lib/pagination/style/index.css'
 import lang from 'element-ui/lib/locale/lang/en'
 import locale from 'element-ui/lib/locale'
 locale.use(lang);
 export default {
   name: 'ma-pagination',
+  data() {
+    return {
+      pageSize: 20,
+      current: 4,
+    };
+  },
   components: {
-    ElPagination: Pagination,
+   APagination: Pagination,
   },
   props: {
     pagination: { type: Object, default: () => null },
+  },
+  methods: {
+    onShowSizeChange(current, pageSize) {
+      console.log(current, pageSize);
+    },
   },
 };
 </script>
