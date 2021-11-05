@@ -67,7 +67,7 @@
     "@storybook/storybook-deployer": "^2.8.10",
     "@storybook/vue": "5.3.18",
     "@types/feather-icons": "4.7.0",
-    "@types/jest": "23.3.14",
+    "@types/jest": "27.0.2",
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
     "@vue/cli-plugin-babel": "^4.3.1",
