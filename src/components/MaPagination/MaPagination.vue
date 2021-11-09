@@ -33,7 +33,7 @@ export default {
   @import '~element-ui/lib/theme-chalk/pagination.css';
   @import '~element-ui/lib/theme-chalk/icon.css';
   .el-pagination.is-background .el-pager li:not(.disabled).active {
-    background-color: #4356B5 !important;
+    background-color: #292C52 !important;
   }
   .el-pager li {
     min-width: 28px!important;
