@@ -18,6 +18,15 @@
         <div v-if="tab.isNew" class="ma-new-icon">
             NEW
         </div>
+        <el-tooltip
+            v-if="tab.tooltip"
+            :content="tab.tooltip"
+            :placement="top"
+            :enterable="false"
+            class="ma-tab-label-popper"
+        >
+          <i class="fas fa-question-circle"/>
+        </el-tooltip>
       </span>
       <slot></slot>
     </el-tab-pane>
@@ -25,19 +34,21 @@
 </template>
 
 <script>
-import { Tabs, TabPane } from 'element-ui';
+import { Tabs, TabPane, Tooltip } from 'element-ui';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import '@fortawesome/fontawesome-free/css/all.css'
+import { faSpinner, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import MaPropValidator from '../../base/MaPropValidator.mjs';
 
-library.add(faSpinner);
+library.add(faSpinner, faQuestionCircle);
 
 export default {
   name: 'ma-tabs',
   components: {
     ElTabs: Tabs,
     ElTabPane: TabPane,
+    ElTooltip: Tooltip,
     FontAwesomeIcon,
     MaPropValidator,
   },
@@ -73,11 +84,27 @@ export default {
 
 <style lang="scss">
   @import '~element-ui/lib/theme-chalk/tabs.css';
+  .fa-question-circle:hover {
+    color: black;
+  }
+  .ma-tab-label-popper {
+    max-width: 400px;
+    text-align: center;
+  }
+  .fa-question-circle {
+    margin: 0 5px;
+    visibility: hidden;
+  }
   .el-tabs__item {
     font-size: 0.9rem;
-    font-weight:400;
+    font-weight: 400;
     border-radius: 5px 5px 0 0;
     background-color: #202348;
+    &:hover {
+      .fa-question-circle {
+        visibility: visible;
+      }
+    }
   }
   .el-tabs--border-card {
     background: none;
@@ -135,4 +162,17 @@ export default {
     border: 0.5rem solid red;
     border-right-color: transparent;
   }
+  .el-tooltip__popper {
+    position: absolute;
+    border-radius: 4px;
+    padding: 10px;
+    z-index: 2000;
+    font-size: 12px;
+    line-height: 1.2;
+    min-width: 10px;
+    word-wrap: break-word;
+    background: #303133;
+    color: #fff;
+  }
+
 </style>

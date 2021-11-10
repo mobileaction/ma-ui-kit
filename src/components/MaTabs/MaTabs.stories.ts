@@ -43,6 +43,7 @@ storiesOf('MaTabs', module)
                   {
                       type: 'item1',
                       label: 'Item 1',
+                      tooltip: 'Test Tooltip Text'
                   },
                   {
                       type: 'item2',
