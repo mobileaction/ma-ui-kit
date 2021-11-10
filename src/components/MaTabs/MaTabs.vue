@@ -92,7 +92,7 @@ export default {
     text-align: center;
   }
   .fa-question-circle {
-    margin: 0 5px;
+    margin: 0 -10px 0 5px;
     visibility: hidden;
   }
   .el-tabs__item {

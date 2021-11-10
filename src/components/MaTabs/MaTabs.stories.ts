@@ -43,7 +43,6 @@ storiesOf('MaTabs', module)
                   {
                       type: 'item1',
                       label: 'Item 1',
-                      tooltip: 'Test Tooltip Text'
                   },
                   {
                       type: 'item2',
@@ -99,4 +98,35 @@ storiesOf('MaTabs', module)
         />
        </div>
     `,
-  }));
+  }))
+.add('tooltipTab', () => ({
+    components: { MaTabs },
+    data () {
+        return {
+            list: [
+                {
+                    type: 'item1',
+                    label: 'Item 1',
+                    tooltip: 'Test Tooltip Text'
+                },
+                {
+                    type: 'item2',
+                    label: 'Item 2',
+                    totalElements: '4',
+                },
+                {
+                    type: 'item3',
+                    label: 'Item 3',
+                    active: true,
+                },
+            ],
+        }
+    },
+    template: `
+      <div class="m-p-15 m-bg-purple-800">
+        <ma-tabs
+            :tab-panel-list="list"
+        />
+      </div>
+    `,
+}))
