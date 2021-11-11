@@ -30,7 +30,6 @@
     "docs": "bash ./generateDocs.sh"
   },
   "dependencies": {
-    "ant-design-vue": "^1.7.8",
     "core-js": "3.6.5",
     "dayjs": "^1.8.28",
     "feather-icons": "^4.28.0",
@@ -81,6 +80,7 @@
     "@vue/test-utils": "^1.0.3",
     "@vuedoc/md": "^3.2.0",
     "@vuedoc/parser": "^3.3.0",
+    "ant-design-vue": "^1.7.8",
     "babel-eslint": "^10.1.0",
     "babel-plugin-transform-builtin-classes": "^0.6.1",
     "babel-preset-vue": "^2.0.2",

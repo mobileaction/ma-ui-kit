@@ -22,7 +22,8 @@ addParameters({
 });
 addParameters({
   options: {
-    hierarchyRootSeparator: /\|/,
+    showPanel: true,
+    panelPosition: "bottom",
   },
   docs: {
     inlineStories: true,
