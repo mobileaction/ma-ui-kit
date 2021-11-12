@@ -13,6 +13,7 @@ module.exports = {
         },
       },
     },
+    '@storybook/addon-essentials',
     '@storybook/addon-storysource',
     '@storybook/addon-actions',
     '@storybook/addon-links',
