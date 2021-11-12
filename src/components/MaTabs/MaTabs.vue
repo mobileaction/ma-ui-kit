@@ -121,10 +121,12 @@ export default {
     border-width: 1px;
     border-color: #D6E0EA;
     margin-top:0;
+    border-bottom: none;
   }
   .el-tabs--border-card>.el-tabs__header .el-tabs__item:hover {
     color: #202347 !important;
     background-color: #fff;
+    border-bottom: none;
   }
   .el-tabs--border-card>.el-tabs__header {
     background:none;
