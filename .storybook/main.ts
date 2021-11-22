@@ -22,6 +22,7 @@ module.exports = {
     '@storybook/addon-backgrounds',
     '@storybook/addon-a11y',
     '@storybook/addon-contexts',
+    '@storybook/addon-postcss',
     'storybook-design-token'
   ],
 };

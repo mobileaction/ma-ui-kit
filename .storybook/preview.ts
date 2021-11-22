@@ -5,7 +5,7 @@ import '../css/system.css';
 import {configure, addDecorator, addParameters} from '@storybook/vue'
 import {withA11y} from '@storybook/addon-a11y';
 
-const req = require.context('../src', true, /.stories.(j|t)s$/);
+const req = require.context('../src', true, /.stories.[jt]s$/);
 
 const cssReq = require.context('!!raw-loader!../design-system', true, /.\.css$/);
 const cssTokenFiles = cssReq
