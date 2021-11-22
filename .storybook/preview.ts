@@ -2,8 +2,7 @@ import 'loki/configure-vue';
 import '../css/root.css';
 import '../css/system.css';
 
-import {configure, addDecorator, addParameters} from '@storybook/vue'
-import {withA11y} from '@storybook/addon-a11y';
+import {addParameters, configure} from '@storybook/vue'
 
 const req = require.context('../src', true, /.stories.[jt]s$/);
 
@@ -12,14 +11,13 @@ const cssTokenFiles = cssReq
   .keys()
   .map(filename => ({ filename, content: cssReq(filename).default }));
 
-addDecorator(withA11y);
 addParameters({
   designToken: {
     files: {
       css: cssTokenFiles,
     }
   }
-});
+} as any);
 addParameters({
   options: {
     showPanel: true,
@@ -34,4 +32,4 @@ function loadStories() {
   req.keys().forEach(filename => req(filename))
 }
 
-configure(loadStories, module);
+// configure(loadStories, module);

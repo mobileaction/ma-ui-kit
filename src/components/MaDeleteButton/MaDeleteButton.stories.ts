@@ -1,29 +1,40 @@
-import { storiesOf } from '@storybook/vue';
 import MaDeleteButton from './MaDeleteButton.vue';
 
-storiesOf('MaDeleteButton', module)
-  .addParameters({ component: MaDeleteButton })
-  .add('Base', () => ({
-    components: { MaDeleteButton },
-    template: `
+export default {
+  title: 'MaDeleteButton',
+
+  parameters: {
+    component: MaDeleteButton,
+  },
+};
+
+export const Base = () => ({
+  components: { MaDeleteButton },
+  template: `
       <div class="m-p-10">
         <ma-delete-button/>
       </div>
     `,
-  }))
-  .add('disabled', () => ({
-    components: { MaDeleteButton },
-    template: `
+});
+
+export const Disabled = () => ({
+  components: { MaDeleteButton },
+  template: `
     <div class="m-p-10">
       <ma-delete-button disabled/>
     </div>
     `,
-  }))
-  .add('loading', () => ({
-    components: { MaDeleteButton },
-    template: `
+});
+
+Disabled.storyName = 'disabled';
+
+export const Loading = () => ({
+  components: { MaDeleteButton },
+  template: `
     <div class="m-p-10">
       <ma-delete-button loading/>
     </div>
     `,
-  }));
+});
+
+Loading.storyName = 'loading';
