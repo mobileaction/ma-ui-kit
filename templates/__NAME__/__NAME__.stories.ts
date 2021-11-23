@@ -1,15 +1,15 @@
-import __name__ from './{__name__}.vue';
+import __NAME__ from './__NAME__.vue';
 
 export default { // this defines story
-  title: '{__name__}',
+  title: '__NAME__',
 
   parameters: {
-    component: { __name__ },
+    component: { __name__: __NAME__ },
   },
 };
 
 export const Base = () => ({ // this is where story template exists, think of it like a small vue app
-  components: { __name__ },
+  components: { __NAME__ },
   data() {
     return {};
   },

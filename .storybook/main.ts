@@ -20,6 +20,7 @@ module.exports = {
     '@storybook/addon-viewport',
     '@storybook/addon-backgrounds',
     '@storybook/addon-postcss',
+    '@storybook/addon-a11y',
     'storybook-design-token'
   ],
 };

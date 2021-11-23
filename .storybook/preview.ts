@@ -1,24 +1,29 @@
+/**
+ * This file extends the preview of stories and allows adding global parameters, decorators, etc.
+ * For more information see: https://storybook.js.org/docs/react/configure/overview#configure-story-rendering
+ */
 import 'loki/configure-vue';
 import '../css/root.css';
 import '../css/system.css';
 
-import {addParameters, configure} from '@storybook/vue'
+const tokenContext = require.context( // get context for design system files
+    '!!raw-loader!../design-system',
+    true,
+    /.\.(css|less|scss|svg)$/
+);
 
-const req = require.context('../src', true, /.stories.[jt]s$/);
+const tokenFiles = tokenContext.keys().map(filename => ({
+  filename: filename,
+  content: tokenContext(filename).default
+}));
 
-const cssReq = require.context('!!raw-loader!../design-system', true, /.\.css$/);
-const cssTokenFiles = cssReq
-  .keys()
-  .map(filename => ({ filename, content: cssReq(filename).default }));
-
-addParameters({
+/** an object of global parameters:
+ *  https://storybook.js.org/docs/react/writing-stories/parameters#global-parameters
+ */
+export const parameters = {
   designToken: {
-    files: {
-      css: cssTokenFiles,
-    }
-  }
-} as any);
-addParameters({
+    files: tokenFiles,
+  },
   options: {
     showPanel: true,
     panelPosition: "bottom",
@@ -26,10 +31,4 @@ addParameters({
   docs: {
     inlineStories: true,
   },
-} as any);
-
-function loadStories() {
-  req.keys().forEach(filename => req(filename))
-}
-
-// configure(loadStories, module);
+};

@@ -303,7 +303,7 @@ template {
 *, :after, :before {
   box-sizing: border-box; }
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -2357,8 +2357,8 @@ table {
   border-radius: var(--radius-full); }
 
 /**
-* @tokens Sizing
-* @presenter Sizing
+* @tokens Spacing
+* @presenter Spacing
 */
 :root {
   --size-full: 100%;
