@@ -24,6 +24,7 @@ const componentsConfig = components
     ],
     output: [
       {
+        exports: 'auto',
         format: 'cjs',
         dir: `${__dirname}/core`,
         entryFileNames: '[name].js',
