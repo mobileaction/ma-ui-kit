@@ -13,7 +13,7 @@ module.exports = {
         },
       },
     },
-    '@storybook/addon-storysource',
+    // '@storybook/addon-storysource', // see https://github.com/storybookjs/storybook/issues/13362#issuecomment-779804329
     '@storybook/addon-actions',
     '@storybook/addon-links',
     '@storybook/addon-knobs',
