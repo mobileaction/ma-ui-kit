@@ -2357,8 +2357,8 @@ table {
   border-radius: var(--radius-full); }
 
 /**
-* @tokens Sizing
-* @presenter Sizing
+* @tokens Spacing
+* @presenter Spacing
 */
 :root {
   --size-full: 100%;

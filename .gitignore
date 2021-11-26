@@ -3,6 +3,7 @@ node_modules/
 /core
 /directives
 /storybook-static
+/coverage
 
 # local env files
 .env.local

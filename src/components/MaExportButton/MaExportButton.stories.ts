@@ -1,36 +1,48 @@
-import { storiesOf } from '@storybook/vue';
 import { withKnobs } from '@storybook/addon-knobs';
 import MaExportButton from './MaExportButton.vue';
 
-storiesOf('MaExportButton', module)
-  .addDecorator(withKnobs)
-  .addParameters({ component: MaExportButton })
-  .add('base', () => ({
-    components: { MaExportButton },
-    data () {
-      return {
-      };
-    },
-    template: `
+export default {
+  title: 'MaExportButton',
+  decorators: [withKnobs],
+
+  parameters: {
+    component: MaExportButton,
+  },
+};
+
+export const Base = () => ({
+  components: { MaExportButton },
+  data() {
+    return {};
+  },
+  template: `
        <div class="m-p-10">
             <ma-export-button/>
        </div>
        
       `,
-  }))
-  .add('disabled', () => ({
-    components: { MaExportButton },
-    template: `
+});
+
+Base.storyName = 'base';
+
+export const Disabled = () => ({
+  components: { MaExportButton },
+  template: `
       <div class="m-p-10">
         <ma-export-button disabled/>
       </div>
     `,
-  }))
-  .add('loading', () => ({
-    components: { MaExportButton },
-    template: `
+});
+
+Disabled.storyName = 'disabled';
+
+export const Loading = () => ({
+  components: { MaExportButton },
+  template: `
        <div class="m-p-10">
         <ma-export-button loading/>
        </div>
     `,
-  }));
+});
+
+Loading.storyName = 'loading';
