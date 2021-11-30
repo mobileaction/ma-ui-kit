@@ -31,6 +31,6 @@
 };
 </script>
 
-<style lang="scss">
-  @import '~ant-design-vue/lib/pagination/style'
+<style>
+  @import '~ant-design-vue/lib/pagination/style/index.css';
 </style>

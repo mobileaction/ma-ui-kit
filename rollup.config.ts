@@ -2,6 +2,8 @@ import { readdirSync } from 'fs';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import babel from '@rollup/plugin-babel';
+import scss from 'rollup-plugin-scss';
+import postcss from 'rollup-plugin-postcss';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import vue from 'rollup-plugin-vue';
 import { terser } from 'rollup-plugin-terser';
@@ -22,6 +24,7 @@ const componentsConfig = components
     ],
     output: [
       {
+        exports: 'auto',
         format: 'cjs',
         dir: `${__dirname}/core`,
         entryFileNames: '[name].js',
@@ -31,7 +34,11 @@ const componentsConfig = components
     ],
     plugins: [
       nodeResolve(),
-      vue(),
+      vue({
+        preprocessStyles: true,
+      }),
+      scss(),
+      postcss(),
       typescript(),
       babel({
         babelHelpers: 'runtime',
@@ -71,32 +78,4 @@ const directivesConfig = directives
     ],
   }));
 
-const plugins = readdirSync(`${__dirname}/src/plugins`);
-const pluginsConfig = plugins
-  .map(file => file.split('.')[0])
-  .map(file => ({
-    input: `${__dirname}/src/plugins/${file}.plugin.ts`,
-    output: [
-      {
-        format: 'cjs',
-        dir: `${__dirname}/plugins`,
-        entryFileNames: '[name].js',
-        exports: 'default',
-        sourcemap: false,
-      },
-    ],
-    plugins: [
-      nodeResolve(),
-      vue(),
-      typescript(),
-      babel({
-        babelHelpers: 'runtime',
-        exclude: 'node_modules/**',
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
-      }),
-      commonjs(),
-      terser(),
-    ],
-  }));
-
-export default [...componentsConfig, ...directivesConfig, ...pluginsConfig];
+export default [...componentsConfig, ...directivesConfig];
