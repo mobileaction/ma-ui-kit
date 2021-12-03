@@ -1,5 +1,5 @@
 <template>
-  <el-button
+  <a-button
     class="ma-export-button"
     :class="classes"
     :disabled="disabled"
@@ -7,30 +7,26 @@
     type="type"
     @click="handleClick"
   >
-    <span v-if="loading" class="m-p-12">
-      <font-awesome-icon icon="spinner" spin />
+    <span v-if="loading" class="m-p-3">
+      <ma-icon icon="spinner" spin/>
     </span>
     <span v-else>
-        <font-awesome-icon icon="download"/>
+       <ma-icon icon="download"/>
        {{ text }}
     </span>
-  </el-button>
+  </a-button>
 </template>
 
 <script>
-import { Button } from 'element-ui';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
-
-library.add(faDownload, faSpinner);
+import { Button } from 'ant-design-vue';
+import 'ant-design-vue/lib/button/style/index.css'
+import MaIcon from '../MaIcon/MaIcon.vue';
 
 export default {
   name: 'MaExportButton',
   components: {
-    ElButton: Button,
-    FontAwesomeIcon,
+    AButton: Button,
+    MaIcon,
   },
   props: {
     text: { type: String, default: 'CSV' },
@@ -48,7 +44,6 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '~element-ui/lib/theme-chalk/button.css';
   .ma-export-button {
     height: 32px;
     padding: 5px 15px;

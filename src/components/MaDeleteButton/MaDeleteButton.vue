@@ -1,26 +1,24 @@
 <template>
-  <el-button
+  <a-button
     class="ma-delete-button"
     :disabled="disabled"
     @click="$emit('click',$event)"
   >
-    <font-awesome-icon v-if="loading" icon="spinner" spin/>
-    <font-awesome-icon v-else icon="trash-alt"/>
-  </el-button>
+    <ma-icon v-if="loading" icon="spinner" spin/>
+    <ma-icon v-else icon="trash-alt"/>
+  </a-button>
 </template>
 
 <script lang="ts">
-import { Button } from 'element-ui';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faTrashAlt, faSpinner } from '@fortawesome/free-solid-svg-icons';
-library.add(faTrashAlt, faSpinner);
+import { Button } from 'ant-design-vue';
+import 'ant-design-vue/lib/button/style/index.css'
+import MaIcon from '../MaIcon/MaIcon.vue';
 
 export default {
   name: 'ma-delete-button',
   components: {
-    ElButton: Button,
-    FontAwesomeIcon,
+    MaIcon,
+    AButton: Button,
   },
   props: {
     loading: { type: Boolean, default:false },
@@ -30,7 +28,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import '~element-ui/lib/theme-chalk/button.css';
     .ma-delete-button {
       height: 32px;
       width: 32px;
