@@ -25,8 +25,7 @@ export const parameters = {
     files: tokenFiles,
   },
   options: {
-    showPanel: true,
-    panelPosition: "bottom",
+    hierarchyRootSeparator: /\|/,
   },
   docs: {
     inlineStories: true,
