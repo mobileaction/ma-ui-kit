@@ -8,10 +8,10 @@
     @click="handleClick"
   >
     <span v-if="loading" class="m-p-3">
-      <font-awesome-icon icon="spinner" spin />
+      <ma-icon icon="spinner" spin/>
     </span>
     <span v-else>
-        <font-awesome-icon icon="download"/>
+       <ma-icon icon="download"/>
        {{ text }}
     </span>
   </a-button>
@@ -20,18 +20,13 @@
 <script>
 import { Button } from 'ant-design-vue';
 import 'ant-design-vue/lib/button/style/index.css'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
-
-library.add(faDownload, faSpinner);
+import MaIcon from '../MaIcon/MaIcon.vue';
 
 export default {
   name: 'MaExportButton',
   components: {
     AButton: Button,
-    FontAwesomeIcon,
+    MaIcon,
   },
   props: {
     text: { type: String, default: 'CSV' },

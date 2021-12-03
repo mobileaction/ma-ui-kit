@@ -4,24 +4,21 @@
     :disabled="disabled"
     @click="$emit('click',$event)"
   >
-    <font-awesome-icon v-if="loading" icon="spinner" spin/>
-    <font-awesome-icon v-else icon="trash-alt"/>
+    <ma-icon v-if="loading" icon="spinner" spin/>
+    <ma-icon v-else icon="trash-alt"/>
   </a-button>
 </template>
 
 <script lang="ts">
 import { Button } from 'ant-design-vue';
 import 'ant-design-vue/lib/button/style/index.css'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faTrashAlt, faSpinner } from '@fortawesome/free-solid-svg-icons';
-library.add(faTrashAlt, faSpinner);
+import MaIcon from '../MaIcon/MaIcon.vue';
 
 export default {
   name: 'ma-delete-button',
   components: {
+    MaIcon,
     AButton: Button,
-    FontAwesomeIcon,
   },
   props: {
     loading: { type: Boolean, default:false },
