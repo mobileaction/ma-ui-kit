@@ -94,6 +94,23 @@ export const Download = () => ({
 });
 Download.storyName = 'download';
 
+export const QuestionCircle = () => ({
+  components: { MaIcon },
+  template: `
+    <div>
+      <div class="m-p-10">
+        <ma-icon icon="question-circle" size="xs"/>
+        <ma-icon icon="question-circle"/>
+        <ma-icon icon="question-circle" size="2x"/>
+        <ma-icon icon="question-circle" size="3x"/>
+        <ma-icon icon="question-circle" size="5x"/>
+        <ma-icon icon="question-circle" size="7x"/>
+      </div>
+    </div>
+    `,
+});
+QuestionCircle.storyName = 'question-circle';
+
 export const Colors = () => ({
   components: { MaIcon },
   template: `

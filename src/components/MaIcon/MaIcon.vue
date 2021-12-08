@@ -15,6 +15,8 @@ import {
   faInfoCircle,
   faTrashAlt,
   faSpinner,
+  faDownload,
+  faQuestionCircle,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -22,6 +24,8 @@ library.add(
     faInfoCircle,
     faTrashAlt,
     faSpinner,
+    faDownload,
+    faQuestionCircle,
 );
 
 export default {

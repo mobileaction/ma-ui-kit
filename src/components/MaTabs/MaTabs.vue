@@ -1,45 +1,55 @@
 <template>
-  <el-tabs
-      type="border-card"
+  <a-tabs
+      type="card"
+      :size="size"
       class="ma-tabs"
+      tab-position="top"
       v-model="selectedTab"
+      :class="classNames"
   >
-    <el-tab-pane
+    <a-tab-pane
         v-for="(tab,i) in tabPanelList"
-        :key="tab+i"
-        :name="`${ tab.type }`"
+        :key="tab.type"
         lazy
     >
-      <span slot="label" class="ma-tab-name">
+      <span slot="tab" class="ma-tab-name">
         {{ tab.label }}
-        <span v-if="showCount && tab.totalElements">
+        <span v-if="showCount && tab.totalElements" class="ma-count">
           ({{ tab.totalElements }})
         </span>
+         <div v-if="tab.tooltip" class="ma-tooltip">
+            <a-tooltip>
+              <template slot="title">
+                   {{ tab.tooltip }}
+              </template>
+                 <ma-icon icon="question-circle"/>
+            </a-tooltip>
+        </div>
         <div v-if="tab.isNew" class="ma-new-icon">
             NEW
         </div>
       </span>
-      <slot></slot>
-    </el-tab-pane>
-  </el-tabs>
+    </a-tab-pane>
+    <slot slot="tabBarExtraContent"></slot>
+  </a-tabs>
 </template>
 
 <script>
-import { Tabs, TabPane } from 'element-ui';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import MaPropValidator from '../../base/MaPropValidator.mjs';
+import Tabs  from 'ant-design-vue/lib/tabs';
+import Tooltip  from 'ant-design-vue/lib/tooltip';
+import MaIcon from '../MaIcon/MaIcon.vue';
 
-library.add(faSpinner);
+const { TabPane } = Tabs;
+import MaPropValidator from '../../base/MaPropValidator.mjs';
 
 export default {
   name: 'ma-tabs',
   components: {
-    ElTabs: Tabs,
-    ElTabPane: TabPane,
-    FontAwesomeIcon,
+    ATooltip: Tooltip,
+    ATabs: Tabs,
+    ATabPane: TabPane,
     MaPropValidator,
+    MaIcon,
   },
   data() {
     return {
@@ -52,9 +62,24 @@ export default {
       default: () => [],
       validator: MaPropValidator.listItemsHasFields(['type']),
     },
+    variant: {
+      type: String,
+      default: 'module',
+    },
     showCount: {
       type: Boolean,
       default: false,
+    },
+    size: {
+      type: String,
+      default: 'default'
+    }
+  },
+  computed: {
+    classNames () {
+      return {
+        [`-${this.variant}`]: true,
+      };
     },
   },
   methods: {
@@ -72,56 +97,47 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '~element-ui/lib/theme-chalk/tabs.css';
-  .el-tabs__item {
-    font-size: 0.9rem;
-    font-weight:400;
-    border-radius: 5px 5px 0 0;
-    background-color: #202348;
+@import '~ant-design-vue/lib/tabs/style/index.css';
+@import '~ant-design-vue/lib/tooltip/style/index.css';
+.ma-tabs {
+    font-family: Roboto,serif;
+    letter-spacing: 0.020em;
+    &.hover {
+      color: #333 !important;
+    }
+    .ant-tabs-tab{
+      margin-right: 5px!important;
+    }
+    &.-header {
+      .ant-tabs-tab{
+        color: #fff;
+        background-color: #202348 !important;
+        border: 1px solid #202348;
+      }
+      .ant-tabs-tab-active{
+        color: #fff;
+        background-color: #fff !important;
+        border: 1px solid #202348;
+      }
+    }
+    .ant-tabs-tab-active{
+      color: #333 !important;
+    }
+    .is-new-img {
+      width: 40px;
+      margin-left: 1px;
+      margin-top: -1px;
+    }
+  .ma-tooltip {
+    margin-left:3px;
   }
-  .el-tabs--border-card {
-    background: none;
-    border: none;
-    box-shadow: none;
-  }
-  .el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active {
-    color: #202348;
-    background-color: #fff;
-    border-bottom: none;
-  }
-  .el-tabs--border-card>.el-tabs__header .el-tabs__item {
-    color: #fff;
-    border-width: 1px;
-    border-color: #D6E0EA;
-    margin-top:0;
-  }
-  .el-tabs--border-card>.el-tabs__header .el-tabs__item:hover {
-    color: #202347 !important;
-    background-color: #fff;
-  }
-  .el-tabs--border-card>.el-tabs__header {
-    background:none;
-    border: none;
-  }
-  .el-tabs__nav .is-top:first-child{
-    margin-left:0px !important;
-  }
-  .el-tabs__nav .is-top{
-    margin-left:5px !important;
-    padding: 0 20px !important;
-  }
-  .el-tabs--border-card > .el-tabs__content {
-    padding: 0;
-    margin: 0;
-  }
-  .is-new-img {
-    width: 40px;
-    margin-left: 1px;
-    margin-top: -1px;
   }
   .ma-tab-name {
     display: flex;
     align-items: center;
+    &:not(.is-disabled):hover {
+      color: #333 !important;
+    }
   }
   .ma-new-icon {
     margin-top: -2px;
@@ -134,5 +150,8 @@ export default {
     display: inline-block;
     border: 0.5rem solid red;
     border-right-color: transparent;
+  }
+  .ma-count {
+    margin-left: 2px;
   }
 </style>
