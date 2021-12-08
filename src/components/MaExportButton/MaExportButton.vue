@@ -18,8 +18,7 @@
 </template>
 
 <script>
-import { Button } from 'ant-design-vue';
-import 'ant-design-vue/lib/button/style/index.css'
+import Button from 'ant-design-vue/lib/button';
 import MaIcon from '../MaIcon/MaIcon.vue';
 
 export default {
@@ -44,12 +43,13 @@ export default {
 </script>
 
 <style lang="scss">
-  .ma-export-button {
+@import '~ant-design-vue/lib/button/style/index.css';
+.ma-export-button {
     height: 32px;
     padding: 5px 15px;
     margin: 0;
     background-color: #fff;
-    &:not(.is-disabled):hover {
+    &:not(.disabled):hover {
       background-color: var(--white);
     }
   }

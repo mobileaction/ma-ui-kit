@@ -10,8 +10,7 @@
 </template>
 
 <script lang="ts">
-import { Button } from 'ant-design-vue';
-import 'ant-design-vue/lib/button/style/index.css'
+import Button from 'ant-design-vue/lib/button';
 import MaIcon from '../MaIcon/MaIcon.vue';
 
 export default {
@@ -28,6 +27,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import '~ant-design-vue/lib/button/style/index.css';
     .ma-delete-button {
       height: 32px;
       width: 32px;
@@ -36,9 +36,7 @@ export default {
       margin: 0;
       background-color: #fff;
       &:not(.is-disabled):hover {
-        color:var(--red-500);
-        border: 1px solid #DCDFE6;
-        background-color: var(--white);
+        background-color: #fff;
       }
     }
 </style>
