@@ -98,24 +98,3 @@ export const LightRed = () => ({
     `,
 });
 LightRed.storyName = 'light-red';
-
-export const Loading = () => ({
-  components: { MaTrackButton },
-  template: `
-    <div class="m-p-10">
-    <ma-track-button icon="spinner" spin> Button </ma-track-button>
-    </div>
-    `,
-});
-Loading.storyName = 'loading';
-
-export const Disabled = () => ({
-  components: { MaTrackButton },
-  template: `
-    <div class="m-p-10">
-    <ma-track-button left-icon="plus" disabled>Button </ma-track-button>
-    </div>
-    `,
-});
-
-Disabled.storyName = 'disabled';
