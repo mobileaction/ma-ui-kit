@@ -32,6 +32,7 @@ const VALID_BUTTON_VARIANT = [
   'warning',
   'danger',
   'link',
+  'orange',
 ];
 export default {
   name: 'ma-button',
@@ -70,6 +71,7 @@ export default {
     .ma-button {
       font-family: Roboto,serif;
       align-items: center;
+      border-radius: 2px;
       //display: inline-flex;
       &.-secondary {
         &:not([disabled]){
@@ -85,6 +87,9 @@ export default {
         &.icon {
           color: white;
         }
+      }
+      &.-orange {
+        background: #F2935F;
       }
       .ma-left-btn {
         margin-right: 2px;

@@ -12,7 +12,7 @@ export const Plus = () => ({
   components: { MaIcon },
   template: `
     <div>
-      <div class="m-p-10">
+      <div class="m-2">
         <ma-icon icon="plus" size="xs"/>
         <ma-icon icon="plus"/>
         <ma-icon icon="plus" size="2x"/>
@@ -29,7 +29,7 @@ export const Spinner = () => ({
   components: { MaIcon },
   template: `
     <div>
-      <div class="m-p-10">
+      <div class="m-2">
         <ma-icon icon="spinner" size="xs"/>
         <ma-icon icon="spinner" spin/>
         <ma-icon icon="spinner" size="2x"/>
@@ -46,7 +46,7 @@ export const InfoCircle = () => ({
   components: { MaIcon },
   template: `
     <div>
-      <div class="m-p-10">
+      <div class="m-2">
         <ma-icon icon="info-circle" size="xs"/>
         <ma-icon icon="info-circle"/>
         <ma-icon icon="info-circle" size="2x"/>
@@ -64,7 +64,7 @@ export const TrashAlt = () => ({
   components: { MaIcon },
   template: `
     <div>
-      <div class="m-p-10">
+      <div class="m-2">
         <ma-icon icon="trash-alt" size="xs"/>
         <ma-icon icon="trash-alt"/>
         <ma-icon icon="trash-alt" size="2x"/>
@@ -81,7 +81,7 @@ export const Download = () => ({
   components: { MaIcon },
   template: `
     <div>
-      <div class="m-p-10">
+      <div class="m-2">
         <ma-icon icon="download" size="xs"/>
         <ma-icon icon="download"/>
         <ma-icon icon="download" size="2x"/>
@@ -98,7 +98,7 @@ export const QuestionCircle = () => ({
   components: { MaIcon },
   template: `
     <div>
-      <div class="m-p-10">
+      <div class="m-2">
         <ma-icon icon="question-circle" size="xs"/>
         <ma-icon icon="question-circle"/>
         <ma-icon icon="question-circle" size="2x"/>

@@ -1,9 +1,14 @@
 <template>
-  <pagination
-      v-model="current"
-      :total="50"
-      show-less-items
-  />
+    <a-pagination
+        v-bind="$attrs"
+        v-on="$listeners"
+        :page-sizes="[20, 30, 50, 100, 200]"
+        :current-page.sync="pagination.currentPage"
+        :page-size="pagination.pageSize"
+        :total="pagination.total"
+        @change="v => pagination.currentPage = v"
+        @show-size-change="v => pagination.pageSize = v"
+    />
 </template>
 
 <script>
@@ -12,7 +17,7 @@
   export default {
     name: 'ma-pagination',
     components: {
-      Pagination,
+      APagination: Pagination,
   },
   data() {
     return {
@@ -20,11 +25,7 @@
     };
   },
   props: {
-    text: { type: String, default: 'CSV' },
-    size: { type: String, default: 'small' },
-    loading: { type: Boolean },
-    disabled: { type: Boolean },
-    classes: { type: [Array, String, Object], default: '' },
+    pagination: { type: Object, default: () => ({}) },
   },
   methods: {
   },
@@ -33,4 +34,8 @@
 
 <style>
   @import '~ant-design-vue/lib/pagination/style/index.css';
+  @import '~ant-design-vue/lib/icon/style/index.css';
+  .anticon {
+    display: inline-block;
+  }
 </style>

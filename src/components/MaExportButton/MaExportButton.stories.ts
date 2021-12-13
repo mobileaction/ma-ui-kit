@@ -16,7 +16,7 @@ export const Base = () => ({
     return {};
   },
   template: `
-       <div class="m-p-10">
+       <div class="m-2">
             <ma-export-button/>
        </div>
        
@@ -28,7 +28,7 @@ Base.storyName = 'base';
 export const Disabled = () => ({
   components: { MaExportButton },
   template: `
-      <div class="m-p-10">
+      <div class="m-2">
         <ma-export-button disabled/>
       </div>
     `,
@@ -39,7 +39,7 @@ Disabled.storyName = 'disabled';
 export const Loading = () => ({
   components: { MaExportButton },
   template: `
-       <div class="m-p-10">
+       <div class="m-2">
         <ma-export-button loading/>
        </div>
     `,
