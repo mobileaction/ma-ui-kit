@@ -5,6 +5,7 @@
 import 'loki/configure-vue';
 import '../css/root.css';
 import '../css/system.css';
+import '../css/base.css';
 
 const tokenContext = require.context( // get context for design system files
     '!!raw-loader!../design-system',

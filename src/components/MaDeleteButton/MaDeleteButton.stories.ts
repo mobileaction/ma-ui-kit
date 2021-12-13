@@ -11,7 +11,7 @@ export default {
 export const Base = () => ({
   components: { MaDeleteButton },
   template: `
-      <div class="m-p-10">
+      <div class="m-2">
         <ma-delete-button/>
       </div>
     `,
@@ -20,7 +20,7 @@ export const Base = () => ({
 export const Disabled = () => ({
   components: { MaDeleteButton },
   template: `
-    <div class="m-p-10">
+    <div class="m-2">
       <ma-delete-button disabled/>
     </div>
     `,
@@ -31,7 +31,7 @@ Disabled.storyName = 'disabled';
 export const Loading = () => ({
   components: { MaDeleteButton },
   template: `
-    <div class="m-p-10">
+    <div class="m-2">
       <ma-delete-button loading/>
     </div>
     `,

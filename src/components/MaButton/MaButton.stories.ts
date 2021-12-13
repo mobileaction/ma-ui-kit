@@ -11,7 +11,7 @@ export default {
 export const Base = () => ({
   components: { MaButton },
   template: `
-      <div class="m-p-10">
+      <div class="m-2">
         <ma-button> Button </ma-button>
       </div>
     `,
@@ -20,7 +20,7 @@ export const Base = () => ({
 export const Secondary = () => ({
   components: { MaButton },
   template: `
-      <div class="m-p-10">
+      <div class="m-2">
         <ma-button variant="secondary" left-icon="plus"> Button </ma-button>
         <ma-button variant="secondary" left-icon="plus" disabled> Button </ma-button>
       </div>
@@ -30,7 +30,7 @@ export const Secondary = () => ({
 export const LeftIcon = () => ({
   components: { MaButton },
   template: `
-    <div class="m-p-10">
+    <div class="m-2">
       <ma-button left-icon="plus"> Button </ma-button>
     </div>
     `,
@@ -40,7 +40,7 @@ LeftIcon.storyName = 'Left Icon';
 export const Loading = () => ({
   components: { MaButton },
   template: `
-    <div class="m-p-10">
+    <div class="m-2">
     <ma-button icon="spinner" spin> Button </ma-button>
     </div>
     `,
@@ -50,7 +50,7 @@ Loading.storyName = 'loading';
 export const Disabled = () => ({
   components: { MaButton },
   template: `
-    <div class="m-p-10">
+    <div class="m-2">
     <ma-button left-icon="plus" disabled>Button </ma-button>
     </div>
     `,

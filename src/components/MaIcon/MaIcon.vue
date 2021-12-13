@@ -17,6 +17,9 @@ import {
   faSpinner,
   faDownload,
   faQuestionCircle,
+  faCheckCircle,
+  faPlusCircle,
+  faCheck,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -26,6 +29,9 @@ library.add(
     faSpinner,
     faDownload,
     faQuestionCircle,
+    faCheckCircle,
+    faPlusCircle,
+    faCheck,
 );
 
 export default {

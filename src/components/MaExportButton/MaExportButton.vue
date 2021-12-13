@@ -45,7 +45,8 @@ export default {
 <style lang="scss">
 @import '~ant-design-vue/lib/button/style/index.css';
 .ma-export-button {
-    height: 32px;
+  border-radius: 2px;
+  height: 32px;
     padding: 5px 15px;
     margin: 0;
     background-color: #fff;
