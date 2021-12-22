@@ -99,29 +99,47 @@ export default {
 <style lang="scss">
 @import '~ant-design-vue/lib/tabs/style/index.css';
 @import '~ant-design-vue/lib/tooltip/style/index.css';
+.ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab-active{
+  color: #333;
+}
+.ant-tabs-tab:active {
+  color: #333;
+}
 .ma-tabs {
     font-family: Roboto,serif;
     letter-spacing: 0.020em;
-    &.hover {
-      color: #333 !important;
-    }
+  &.hover {
+    color: red;
+  }
     .ant-tabs-tab{
       margin-right: 5px!important;
+      &.hover {
+        color: red;
+      }
+    }
+
+    .ant-tabs-bar {
+      margin:0;
     }
     &.-header {
       .ant-tabs-tab{
-        color: #fff;
         background-color: #202348 !important;
         border: 1px solid #202348;
+        color: #fff;
       }
       .ant-tabs-tab-active{
-        color: #fff;
+        color: #333;
         background-color: #fff !important;
         border: 1px solid #202348;
+        &.hover {
+          color: #333;
+        }
       }
-    }
-    .ant-tabs-tab-active{
-      color: #333 !important;
+      .ma-tab-name {
+        &:not(.is-disabled):hover {
+          color: #c7c5c5;
+        }
+      }
     }
     .is-new-img {
       width: 40px;
@@ -136,7 +154,7 @@ export default {
     display: flex;
     align-items: center;
     &:not(.is-disabled):hover {
-      color: #333 !important;
+      color: #333;
     }
   }
   .ma-new-icon {

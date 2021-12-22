@@ -72,7 +72,7 @@ export const Header = () => ({
             :tab-panel-list="list"
             variant="header"
         >
-          <ma-button name="tabBarExtraContent">1
+          <ma-button name="tabBarExtraContent">
             Extra
           </ma-button>
         </ma-tabs>

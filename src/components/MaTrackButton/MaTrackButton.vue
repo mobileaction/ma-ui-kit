@@ -7,8 +7,8 @@
       :disabled="disabled"
       @click="$emit('click',$event)"
   >
-     <span class="flex">
-       <span class="flex-wrap content-center">
+     <span class="ma-btn-content items-center">
+       <span class="flex flex-wrap content-center mr-1">
          <span>
            <span v-if="!loading">
              <ma-icon v-if="tracked" icon="check" class="ma-btn-icon"/>
@@ -19,8 +19,13 @@
            </span>
          </span>
          </span>
-       <span class="text-left">
-         {{ keyword }}
+       <span class="text-left leading-tight">
+         <p>
+          {{ keyword }}
+         </p>
+         <span v-if="translatedKeyword" class="translatedKw text-xs">
+            (en) {{ translatedKeyword }}
+         </span>
        </span>
      </span>
   </a-button>
@@ -87,10 +92,23 @@ export default {
 
 <style lang="scss" scoped>
   @import '~ant-design-vue/lib/button/style/index.css';
+    .ant-btn:hover:not([disabled]),
+    .ant-btn:focus {
+      background-color: #FAFAFA;
+      border-color: #656565;
+      color: #656565;
+    }
     .ma-button {
       font-family: Roboto,serif;
       align-items: center;
       border-radius: 2px;
+      min-height: 33px;
+      height: auto;
+      font-size:13px;
+      padding: 5px 10px;
+      .ma-btn-content {
+        display: flex;
+      }
       &.-secondary {
         &:not([disabled]){
           color: #fff;
@@ -198,9 +216,16 @@ export default {
       }
 
       &.-size-s {
-        height: 24px;
+        height: auto;
+        min-height: 24px;
         padding:0 8px;
         font-size: 12px;
+        .ma-btn-content {
+          padding: 2px 0;
+        }
+        .translatedKw {
+          font-size: 0.70rem;
+        }
       }
       .ma-btn-icon {
         margin-top: 4px;

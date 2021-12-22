@@ -12,7 +12,7 @@ export const Orange = () => ({
   components: { MaTrackButton },
   template: `
       <div class="m-2">
-        <ma-track-button keyword="keyword" color="orange"/>
+        <ma-track-button keyword="keyword" translated-keyword="translated" color="orange"/>
         <ma-track-button keyword="long keyword" color="orange" loading/>
         <ma-track-button keyword="keyword" color="orange" tracked/>
         <ma-track-button keyword="keyword" disabled/>
@@ -27,7 +27,7 @@ export const LightGreen = () => ({
   components: { MaTrackButton },
   template: `
       <div class="m-2">
-        <ma-track-button keyword="keyword" color="light-green"/>
+        <ma-track-button keyword="keyword" translated-keyword="translated" color="light-green"/>
         <ma-track-button keyword="long keyword" color="light-green" loading/>
         <ma-track-button keyword="keyword" color="light-green" tracked/>
         <ma-track-button keyword="keyword" disabled/>
@@ -43,7 +43,7 @@ export const LightBlue = () => ({
   components: { MaTrackButton },
   template: `
     <div class="m-2">
-    <ma-track-button keyword="keyword" color="light-blue"/>
+    <ma-track-button keyword="keyword" translated-keyword="translated" color="light-blue"/>
     <ma-track-button keyword="long keyword" color="light-blue" loading/>
     <ma-track-button keyword="keyword" color="light-blue" tracked/>
     <ma-track-button keyword="keyword" disabled/>
@@ -58,7 +58,7 @@ export const DrakBlue = () => ({
   components: { MaTrackButton },
   template: `
     <div class="m-2">
-    <ma-track-button keyword="keyword" color="dark-blue"/>
+    <ma-track-button keyword="keyword" translated-keyword="translated" color="dark-blue"/>
     <ma-track-button keyword="long keyword" color="dark-blue" loading/>
     <ma-track-button keyword="keyword" color="dark-blue" tracked/>
     <ma-track-button keyword="keyword" disabled/>
@@ -73,7 +73,7 @@ export const Grey = () => ({
   components: { MaTrackButton },
   template: `
     <div class="m-2">
-    <ma-track-button keyword="keyword" color="grey"/>
+    <ma-track-button keyword="keyword" translated-keyword="translated keyword" color="grey"/>
     <ma-track-button keyword="long keyword" color="grey" loading/>
     <ma-track-button keyword="keyword" color="grey" tracked/>
     <ma-track-button keyword="keyword" disabled/>
@@ -88,7 +88,7 @@ export const LightRed = () => ({
   components: { MaTrackButton },
   template: `
     <div class="m-2">
-    <ma-track-button keyword="keyword" color="light-red"/>
+    <ma-track-button keyword="keyword" translated-keyword="translated" color="light-red"/>
     <ma-track-button keyword="loading" color="light-red"loading/>
     <ma-track-button keyword="keyword" color="light-red" tracked/>
     <ma-track-button keyword="keyword" disabled/>
