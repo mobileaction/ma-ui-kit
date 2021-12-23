@@ -27,12 +27,6 @@ export default {
     showZero: { type: Boolean },
   },
   computed: {
-    classNames () {
-      return {
-        '-icon': this.icon || this.leftIcon,
-        [`-${this.variant}`]: true,
-      };
-    },
   },
 };
 </script>

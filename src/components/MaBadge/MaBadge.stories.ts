@@ -66,7 +66,7 @@ export const Offset = () => ({
   components: { MaBadge },
   template: `
       <div class="m-2">
-        <ma-badge count="90" :offset="[15,0]">
+        <ma-badge count="90" :offset="[15,5]">
           <a href="#" class="head-example">COUNT</a>
         </ma-badge>
       </div>
