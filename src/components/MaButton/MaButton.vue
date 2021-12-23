@@ -7,7 +7,7 @@
       :disabled="disabled"
       @click="$emit('click',$event)"
   >
-    <ma-icon :icon="icon" v-if="icon === 'spinner'" spin class="ma-btn-icon"/>
+    <ma-icon :icon="icon" v-if="icon === 'spinner'" spin/>
     <ma-icon :icon="leftIcon" v-else-if="leftIcon" class="ma-left-btn"/>
     <slot/>
   </a-button>
@@ -104,9 +104,6 @@ export default {
         .-medium {
           padding: 8px 20px;
         }
-      }
-      .ma-btn-icon {
-        margin-right: 2px;
       }
     }
 </style>
