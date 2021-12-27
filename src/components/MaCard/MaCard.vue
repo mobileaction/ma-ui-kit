@@ -1,5 +1,14 @@
 <template>
-    <a-card :size="size" :loading="loading" :title="title" :bordered="!noBorder">
+    <a-card
+        :size="size"
+        :loading="loading"
+        :bordered="!noBorder"
+        class="ma-card"
+    >
+      <template v-if="title !== null" slot="title">
+        {{ title }}
+      </template>
+      <slot name="title" slot="title"/>
       <slot name="extra" slot="extra"/>
       <slot/>
       <slot name="actions" slot="actions" class="ant-card-actions"/>
@@ -21,16 +30,18 @@ export default {
     noBorder: { type: Boolean, default: false },
   },
   computed: {
-    classNames () {
-      return {
-        '-icon': this.icon || this.leftIcon,
-        [`-${this.variant}`]: true,
-      };
-    },
   },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import '~ant-design-vue/lib/card/style/index.css';
+  .ma-card {
+    .ant-card-head {
+      padding: 0 15px;
+    }
+    .ant-card-body{
+      padding: 15px;
+    }
+  }
 </style>

@@ -106,7 +106,7 @@ export default {
   color: #333;
 }
 .ma-tabs {
-    font-family: Roboto,serif;
+    font-family: Roboto;
     letter-spacing: 0.020em;
   &.hover {
     color: red;

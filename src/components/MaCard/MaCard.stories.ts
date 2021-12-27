@@ -63,3 +63,17 @@ export const NoTitle= () => ({
 });
 NoTitle.storyName = 'no-title';
 
+export const Loading= () => ({
+  components: { MaCard },
+  template: `
+      <div class="p-8 bg-gray-200">
+        <ma-card title="Card Title" no-border loading>
+          <p>Content</p>
+          <p>Content</p>
+          <p>Content</p>
+        </ma-card>
+      </div>
+    `,
+});
+Loading.storyName = 'loading';
+
