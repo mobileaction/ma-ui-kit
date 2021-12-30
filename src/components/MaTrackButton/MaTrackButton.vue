@@ -99,7 +99,6 @@ export default {
       color: #656565;
     }
     .ma-button {
-      font-family: Roboto,serif;
       align-items: center;
       border-radius: 2px;
       min-height: 33px;

@@ -69,7 +69,6 @@ export default {
 <style lang="scss" scoped>
   @import '~ant-design-vue/lib/button/style/index.css';
     .ma-button {
-      font-family: Roboto,serif;
       align-items: center;
       border-radius: 2px;
       //display: inline-flex;

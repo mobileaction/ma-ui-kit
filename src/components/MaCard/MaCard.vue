@@ -43,5 +43,8 @@ export default {
     .ant-card-body{
       padding: 15px;
     }
+    .ant-card-actions > li {
+      font-weight: bold;
+    }
   }
 </style>
