@@ -5,6 +5,7 @@
       class="ma-button"
       :class="classNames"
       :disabled="disabled"
+      :size="size"
       @click="$emit('click',$event)"
   >
     <ma-icon :icon="icon" v-if="icon === 'spinner'" spin class="ma-btn-icon"/>
@@ -54,6 +55,7 @@ export default {
     },
     loading: { type: Boolean, default:false },
     disabled: { type: Boolean, default:false },
+    size: { type: String, default:'default' },
   },
   computed: {
     classNames () {
@@ -71,6 +73,7 @@ export default {
     .ma-button {
       align-items: center;
       border-radius: 2px;
+      margin: auto;
       //display: inline-flex;
       &.-secondary {
         &:not([disabled]){

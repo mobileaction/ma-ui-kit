@@ -2,6 +2,8 @@
   <a-button
     class="ma-delete-button"
     :disabled="disabled"
+    :type="type === 'circle' ? 'danger' : 'default'"
+    :shape="type"
     @click="$emit('click',$event)"
   >
     <ma-icon v-if="loading" icon="spinner" spin/>
@@ -22,6 +24,7 @@ export default {
   props: {
     loading: { type: Boolean, default:false },
     disabled: { type: Boolean, default:false },
+    type: { type: String, default: 'default' },
   },
 };
 </script>
@@ -34,9 +37,10 @@ export default {
       font-size: 11px;
       padding: 9px;
       margin: 0;
-      background-color: #fff;
-      &:not(.is-disabled):hover {
-        background-color: #fff;
-      }
+        &:not([disabled]):not(.ant-btn-danger):focus,
+        &:not([disabled]):not(.ant-btn-danger):hover{
+          color: #202348;
+          border-color: #202348;
+        }
     }
 </style>

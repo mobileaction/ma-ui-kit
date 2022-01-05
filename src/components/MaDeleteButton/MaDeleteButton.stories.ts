@@ -17,6 +17,15 @@ export const Base = () => ({
     `,
 });
 
+export const Circle = () => ({
+  components: { MaDeleteButton },
+  template: `
+      <div class="m-2">
+        <ma-delete-button type="circle"/>
+      </div>
+    `,
+});
+
 export const Disabled = () => ({
   components: { MaDeleteButton },
   template: `

@@ -56,4 +56,15 @@ export const Disabled = () => ({
     `,
 });
 
+export const Sizes = () => ({
+  components: { MaButton },
+  template: `
+    <div class="m-2">
+    <ma-button size="small"> Button </ma-button>
+    <ma-button> Button </ma-button>
+    <ma-button size="large"> Button </ma-button>
+    </div>
+    `,
+});
+
 Disabled.storyName = 'disabled';
