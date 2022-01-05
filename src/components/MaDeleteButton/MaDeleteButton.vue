@@ -1,13 +1,15 @@
 <template>
   <a-button
     class="ma-delete-button"
+    :class="classNames"
     :disabled="disabled"
     :type="type === 'circle' ? 'danger' : 'default'"
     :shape="type"
+    :size="size"
     @click="$emit('click',$event)"
   >
-    <ma-icon v-if="loading" icon="spinner" spin/>
-    <ma-icon v-else icon="trash-alt"/>
+    <ma-icon :size="iconSize" v-if="loading" icon="spinner" spin/>
+    <ma-icon :size="iconSize" v-else icon="trash-alt"/>
   </a-button>
 </template>
 
@@ -25,6 +27,23 @@ export default {
     loading: { type: Boolean, default:false },
     disabled: { type: Boolean, default:false },
     type: { type: String, default: 'default' },
+    size: { type: String },
+  },
+  computed: {
+   iconSize () {
+      if(this.size === "small"){
+        return 'xs';
+      }
+      else if(this.size === "large"){
+        return 'lg';
+      }
+      else return 'default';
+    },
+    classNames () {
+      return {
+        [`-size-${this.size}`]: true,
+      };
+    },
   },
 };
 </script>
@@ -32,11 +51,13 @@ export default {
 <style lang="scss" scoped>
   @import '~ant-design-vue/lib/button/style/index.css';
     .ma-delete-button {
-      height: 32px;
-      width: 32px;
-      font-size: 11px;
-      padding: 9px;
-      margin: 0;
+      &:not(.-size-small):not(.-size-large){
+        height: 32px;
+        width: 32px;
+        font-size: 11px;
+        padding: 9px;
+        margin: 0;
+      }
         &:not([disabled]):not(.ant-btn-danger):focus,
         &:not([disabled]):not(.ant-btn-danger):hover{
           color: #202348;

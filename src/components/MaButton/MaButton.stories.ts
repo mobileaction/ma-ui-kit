@@ -45,7 +45,7 @@ export const Loading = () => ({
     </div>
     `,
 });
-Loading.storyName = 'loading';
+Loading.storyName = 'Loading';
 
 export const Disabled = () => ({
   components: { MaButton },
@@ -55,6 +55,24 @@ export const Disabled = () => ({
     </div>
     `,
 });
+
+Disabled.storyName = 'Disabled';
+
+export const Variants = () => ({
+  components: { MaButton },
+  template: `
+    <div class="m-2">
+    <p>Info</p>
+    <ma-button variant="info" icon="user"/>
+    <p>Danger</p>
+    <ma-button variant="danger" icon="trash-alt"/>
+    <p>Warning</p>
+    <ma-button variant="warning" icon="envelope"/>
+    </div>
+    `,
+});
+
+Variants.storyName = 'Variants';
 
 export const Sizes = () => ({
   components: { MaButton },
@@ -67,4 +85,4 @@ export const Sizes = () => ({
     `,
 });
 
-Disabled.storyName = 'disabled';
+Sizes.storyName = 'Sizes';

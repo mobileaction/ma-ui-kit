@@ -9,6 +9,7 @@
       @click="$emit('click',$event)"
   >
     <ma-icon :icon="icon" v-if="icon === 'spinner'" spin class="ma-btn-icon"/>
+    <ma-icon :icon="icon" v-else-if="icon && icon !== 'spinner'" class="ma-btn-icon"/>
     <ma-icon :icon="leftIcon" v-else-if="leftIcon" class="ma-left-btn"/>
     <slot/>
   </a-button>
@@ -92,6 +93,45 @@ export default {
       }
       &.-orange {
         background: #F2935F;
+      }
+      &.-danger {
+        &:not([disabled]) {
+          background: #F56C6C;
+          color: white;
+          border: 1px solid #F56C6C;
+        }
+        &:hover {
+          &:not([disabled]){
+            background: #f78989;
+            color: white;
+          }
+        }
+      }
+      &.-info {
+        &:not([disabled]) {
+          background: #4356B5;
+          color: white;
+          border: 1px solid #4356B5;
+        }
+        &:hover {
+          &:not([disabled]){
+            background: #6978c4;
+            color: white;
+          }
+        }
+      }
+      &.-warning {
+        &:not([disabled]) {
+          background: #E6A23C;
+          color: white;
+          border: 1px solid #E6A23C;
+        }
+        &:hover {
+          &:not([disabled]){
+            background: #ebb563;
+            color: white;
+          }
+        }
       }
       .ma-left-btn {
         margin-right: 2px;
