@@ -27,7 +27,7 @@ export default {
     loading: { type: Boolean, default:false },
     disabled: { type: Boolean, default:false },
     type: { type: String, default: 'default' },
-    size: { type: String },
+    size: { type: String, default: 'default' },
   },
   computed: {
    iconSize () {
@@ -37,7 +37,7 @@ export default {
       else if(this.size === "large"){
         return 'lg';
       }
-      else return 'default';
+      else return '';
     },
     classNames () {
       return {

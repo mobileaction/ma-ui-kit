@@ -45,7 +45,7 @@ export default {
   },
   props: {
     icon: { type: String },
-    size: { type: String },
+    size: { type: String, default: '1x' },
     color: { type: String },
     spin: { type: Boolean, default: false },
   },
