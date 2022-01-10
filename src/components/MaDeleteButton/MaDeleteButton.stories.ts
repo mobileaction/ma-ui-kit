@@ -17,6 +17,19 @@ export const Base = () => ({
     `,
 });
 
+Base.storyName = 'Base';
+
+export const Circle = () => ({
+  components: { MaDeleteButton },
+  template: `
+      <div class="m-2">
+        <ma-delete-button type="circle"/>
+      </div>
+    `,
+});
+
+Circle.storyName = 'Circle';
+
 export const Disabled = () => ({
   components: { MaDeleteButton },
   template: `
@@ -26,7 +39,7 @@ export const Disabled = () => ({
     `,
 });
 
-Disabled.storyName = 'disabled';
+Disabled.storyName = 'Disabled';
 
 export const Loading = () => ({
   components: { MaDeleteButton },
@@ -37,4 +50,17 @@ export const Loading = () => ({
     `,
 });
 
-Loading.storyName = 'loading';
+Loading.storyName = 'Loading';
+
+export const Sizes = () => ({
+  components: { MaDeleteButton },
+  template: `
+      <div class="m-2">
+        <ma-delete-button size="small"/>
+        <ma-delete-button/>
+        <ma-delete-button size="large"/>
+      </div>
+    `,
+});
+
+Sizes.storyName = 'Sizes';

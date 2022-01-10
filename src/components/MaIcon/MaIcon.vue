@@ -20,6 +20,8 @@ import {
   faCheckCircle,
   faPlusCircle,
   faCheck,
+    faEnvelope,
+    faUser,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -32,6 +34,8 @@ library.add(
     faCheckCircle,
     faPlusCircle,
     faCheck,
+    faEnvelope,
+    faUser,
 );
 
 export default {
@@ -41,7 +45,7 @@ export default {
   },
   props: {
     icon: { type: String },
-    size: { type: String },
+    size: { type: String, default: '1x' },
     color: { type: String },
     spin: { type: Boolean, default: false },
   },

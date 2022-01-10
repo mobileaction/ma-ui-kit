@@ -111,6 +111,41 @@ export const QuestionCircle = () => ({
 });
 QuestionCircle.storyName = 'question-circle';
 
+export const Envelope = () => ({
+  components: { MaIcon },
+  template: `
+    <div>
+      <div class="m-2">
+        <ma-icon icon="envelope" size="xs"/>
+        <ma-icon icon="envelope"/>
+        <ma-icon icon="envelope" size="2x"/>
+        <ma-icon icon="envelope" size="3x"/>
+        <ma-icon icon="envelope" size="5x"/>
+        <ma-icon icon="envelope" size="7x"/>
+      </div>
+    </div>
+    `,
+});
+Envelope.storyName = 'envelope';
+
+export const User = () => ({
+  components: { MaIcon },
+  template: `
+    <div>
+      <div class="m-2">
+        <ma-icon icon="user" size="xs"/>
+        <ma-icon icon="user"/>
+        <ma-icon icon="user" size="2x"/>
+        <ma-icon icon="user" size="3x"/>
+        <ma-icon icon="user" size="5x"/>
+        <ma-icon icon="user" size="7x"/>
+      </div>
+    </div>
+    `,
+});
+User.storyName = 'user';
+
+
 export const Colors = () => ({
   components: { MaIcon },
   template: `
