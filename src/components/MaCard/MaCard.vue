@@ -46,5 +46,10 @@ export default {
     .ant-card-head-title {
       font-weight: bold;
     }
+    .ant-card-extra {
+      align-items: center;
+      display: flex;
+      padding: 0;
+    }
   }
 </style>
