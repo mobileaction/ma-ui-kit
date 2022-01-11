@@ -26,7 +26,7 @@ export default {
   props: {
     loading: { type: Boolean, default:false },
     disabled: { type: Boolean, default:false },
-    type: { type: String, default: 'default' },
+    type: { type: String, default: null },
     size: { type: String, default: 'default' },
   },
   computed: {
@@ -37,7 +37,7 @@ export default {
       else if(this.size === "large"){
         return 'lg';
       }
-      else return '';
+      else return '1x';
     },
     classNames () {
       return {
@@ -51,7 +51,7 @@ export default {
 <style lang="scss" scoped>
   @import '~ant-design-vue/lib/button/style/index.css';
     .ma-delete-button {
-      &:not(.-size-small):not(.-size-large){
+      &.-size-default{
         height: 32px;
         width: 32px;
         font-size: 11px;
