@@ -12,12 +12,20 @@ export default {
 
 export const Base = () => ({
   components: { MaExportButton },
-  data() {
-    return {};
-  },
   template: `
        <div class="m-2">
             <ma-export-button/>
+       </div>
+       
+      `,
+});
+
+export const Tooltip = () => ({
+  components: { MaExportButton },
+  template: `
+       <div class="m-2">
+            <ma-export-button tooltip="Export CSV" />
+            <ma-export-button tooltip="Export CSV" tooltip-placement="right"/>
        </div>
        
       `,
