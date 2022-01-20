@@ -10,7 +10,7 @@
   >
     <ma-icon :icon="icon" v-if="icon === 'spinner'" spin class="ma-btn-icon"/>
     <ma-icon :icon="icon" v-else-if="icon && icon !== 'spinner'" class="ma-btn-icon"/>
-    <ma-icon :icon="leftIcon" v-else-if="leftIcon" class="ma-left-btn"/>
+    <ma-icon :icon="leftIcon" size="xs" v-else-if="leftIcon" class="ma-left-btn"/>
     <slot/>
   </a-button>
 </template>
@@ -56,7 +56,7 @@ export default {
     },
     loading: { type: Boolean, default:false },
     disabled: { type: Boolean, default:false },
-    size: { type: String, default:'default' },
+    size: { type: String, default:'xs' },
   },
   computed: {
     classNames () {
@@ -133,8 +133,8 @@ export default {
         }
       }
       .ma-left-btn {
-        margin-right: 2px;
-        margin-top: 4px;
+        margin-right: 7px;
+        margin-top: 5px;
       }
       &.-icon {
         .-big {
