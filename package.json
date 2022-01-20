@@ -1,6 +1,6 @@
 {
   "name": "@mobileaction/ma-ui-kit",
-  "version": "1.1.16",
+  "version": "1.1.17",
   "description": "MobileAction UI Components with Vue.js",
   "license": "MIT",
   "main": ".eslintrc.js",
@@ -138,5 +138,6 @@
   "author": "MobileAction",
   "bugs": {
     "url": "https://github.com/mobileaction/ma-ui-kit/issues"
-  }
+  },
+  "homepage": "https://github.com/mobileaction/ma-ui-kit#readme"
 }

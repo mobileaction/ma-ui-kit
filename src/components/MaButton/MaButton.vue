@@ -133,8 +133,8 @@ export default {
         }
       }
       .ma-left-btn {
-        margin-right: 2px;
-        margin-top: 4px;
+        margin-right: 7px;
+        margin-top: 5px;
       }
       &.-icon {
         .-big {
