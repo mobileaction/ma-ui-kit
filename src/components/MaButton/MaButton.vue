@@ -74,7 +74,6 @@ export default {
     .ma-button {
       align-items: center;
       border-radius: 2px;
-      //display: inline-flex;
       &.-secondary {
         &:not([disabled]){
           color: #fff;

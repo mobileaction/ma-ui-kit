@@ -9,6 +9,7 @@ import vue from 'rollup-plugin-vue';
 import { terser } from 'rollup-plugin-terser';
 
 const components = readdirSync(`${__dirname}/src/components`);
+// @ts-ignore
 const componentsConfig = components
   .map(file => {
     console.log(file);
