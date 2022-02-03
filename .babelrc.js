@@ -2,6 +2,17 @@ module.exports = {
     sourceType: 'unambiguous',
     presets: [
         [
+            '@babel/preset-env',
+            {
+                targets: {
+                    node: 'current'
+                }
+            }
+            ],
+        '@babel/preset-typescript',
+    ],
+    /*presets: [
+        [
             '@babel/env',
             {
                 useBuiltIns: 'usage',
@@ -9,7 +20,7 @@ module.exports = {
                 modules: false,
             },
         ],
-    ],
+    ],*/
     plugins: [
         '@babel/plugin-transform-runtime',
         '@babel/plugin-syntax-dynamic-import',

@@ -14,4 +14,8 @@ module.exports = {
     '!src/**/*.stories.ts',
     '!src/vue-shims.d.ts',
   ],
+  transform: {
+    "^.+\\.js$": "babel-jest",
+    '^.+\\.vue$': 'vue-jest',
+  },
 };
