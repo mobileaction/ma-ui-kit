@@ -32,7 +32,7 @@ describe('MaTrackButton', () => {
 
   it('emits click event', async () => {
     trackButtonWrapper.vm.$emit('click', 123);
-    await button.trigger('click')
+    await trackButtonWrapper.vm.$nextTick() // Wait until $emits have been handled
     expect(button.emitted().click[0]).toEqual([123])
   });
 });
