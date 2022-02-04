@@ -28,5 +28,9 @@ describe('MaTrackButton', () => {
     await button.trigger('click');
     expect(trackButtonWrapper.emitted()).toHaveProperty('click');
   })
+  it('emits click event', async () => {
+    await button.trigger('click')
+    expect(button.emitted('click')).toBeTruthy()
+  })
 
 });
