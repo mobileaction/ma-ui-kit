@@ -5,7 +5,11 @@ describe('MaButton', () => {
   let wrapper: any;
 
   beforeEach(() => {
-    wrapper = mount(MaButton);
+    wrapper = mount(MaButton,{
+      propsData: {
+        size: 'large'
+      },
+    });
   });
   it('works', () => {
     expect(true).toEqual(true)

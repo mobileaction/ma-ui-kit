@@ -5,7 +5,11 @@ describe('MaTrackButton', () => {
   let wrapper: any;
 
   beforeEach(() => {
-    wrapper = mount(MaTrackButton);
+    wrapper = mount(MaTrackButton, {
+      propsData: {
+        keyword: 'test'
+      },
+    });
   });
   it('works', () => {
     expect(true).toEqual(true)
