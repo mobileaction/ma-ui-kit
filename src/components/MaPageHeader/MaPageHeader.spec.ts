@@ -7,4 +7,7 @@ describe('MaPageHeader', () => {
   beforeEach(() => {
     wrapper = mount(MaPageHeader);
   });
+  it('works', () => {
+    expect(true).toEqual(true)
+  })
 });

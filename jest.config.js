@@ -1,5 +1,5 @@
 module.exports = {
-  preset: '@vue/cli-plugin-unit-jest/presets/typescript-and-babel',
+  preset: '@vue/cli-plugin-unit-jest',
   testEnvironment: 'jest-environment-jsdom-sixteen',
   testMatch: [
     '**/tests/unit/**/*.spec.[jt]s?(x)',
@@ -14,4 +14,9 @@ module.exports = {
     '!src/**/*.stories.ts',
     '!src/vue-shims.d.ts',
   ],
+  moduleFileExtensions: [ "js", "ts", "json", "vue"],
+  transform: {
+    ".*\\.(vue)$": "vue-jest",
+    "^.+\\.tsx?$": "babel-jest"
+  },
 };

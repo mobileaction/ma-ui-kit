@@ -7,4 +7,7 @@ describe('MaBadge', () => {
   beforeEach(() => {
     wrapper = mount(MaBadge);
   });
+  it('works', () => {
+    expect(true).toEqual(true)
+  })
 });

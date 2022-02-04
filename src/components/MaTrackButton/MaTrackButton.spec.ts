@@ -7,4 +7,7 @@ describe('MaTrackButton', () => {
   beforeEach(() => {
     wrapper = mount(MaTrackButton);
   });
+  it('works', () => {
+    expect(true).toEqual(true)
+  })
 });

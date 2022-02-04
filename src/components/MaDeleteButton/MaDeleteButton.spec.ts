@@ -7,4 +7,7 @@ describe('MaDeleteButton', () => {
   beforeEach(() => {
     wrapper = mount(MaDeleteButton);
   });
+  it('works', () => {
+    expect(true).toEqual(true)
+  })
 });

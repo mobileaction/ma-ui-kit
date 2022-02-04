@@ -7,4 +7,7 @@ describe('MaIcon', () => {
   beforeEach(() => {
     wrapper = mount(MaIcon);
   });
+  it('works', () => {
+    expect(true).toEqual(true)
+  })
 });

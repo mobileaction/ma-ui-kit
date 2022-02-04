@@ -7,4 +7,7 @@ describe('MaTabs', () => {
   beforeEach(() => {
     wrapper = mount(MaTabs);
   });
+  it('works', () => {
+    expect(true).toEqual(true)
+  })
 });

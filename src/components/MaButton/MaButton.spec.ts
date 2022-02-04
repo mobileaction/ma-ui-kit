@@ -7,4 +7,7 @@ describe('MaButton', () => {
   beforeEach(() => {
     wrapper = mount(MaButton);
   });
+  it('works', () => {
+    expect(true).toEqual(true)
+  })
 });
