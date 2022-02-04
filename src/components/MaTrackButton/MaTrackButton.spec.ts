@@ -18,19 +18,19 @@ describe('MaTrackButton', () => {
 
   it('is disabled', () => {
     expect(button.attributes('disabled')).toBeFalsy();
-  })
+  });
 
   it('prints keyword to button', () => {
     expect(button.text()).toBe("calm")
-  })
+  });
 
   it('triggers a click', async () => {
     await button.trigger('click');
     expect(trackButtonWrapper.emitted()).toHaveProperty('click');
-  })
+  });
+
   it('emits click event', async () => {
     await button.trigger('click')
     expect(button.emitted('click')).toBeTruthy()
-  })
-
+  });
 });
