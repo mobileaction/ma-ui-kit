@@ -28,8 +28,7 @@
     "storybook:start": "yarn scss && start-storybook -s ./ -p 6006",
     "deploy-storybook": "storybook-to-ghpages -- --source-branch=main",
     "docs": "bash ./generateDocs.sh",
-    "jest:clear": "jest --clearCache",
-    "jest:update": "jest -u"
+    "jest:clear": "jest --clearCache"
   },
   "dependencies": {
     "core-js": "3.19.1",
