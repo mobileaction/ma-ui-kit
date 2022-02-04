@@ -13,6 +13,7 @@ describe('MaTrackButton', () => {
         disabled: false,
       },
     });
+
     button = trackButtonWrapper.find("button");
   });
 
@@ -30,7 +31,8 @@ describe('MaTrackButton', () => {
   });
 
   it('emits click event', async () => {
+    trackButtonWrapper.vm.$emit('click', 123);
     await button.trigger('click')
-    expect(button.emitted('click')).toBeTruthy()
+    expect(button.emitted().click[0]).toEqual([123])
   });
 });
