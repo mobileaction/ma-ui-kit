@@ -1,17 +1,32 @@
-import { mount } from '@vue/test-utils';
+import { mount, Wrapper } from '@vue/test-utils';
 import MaTrackButton from './';
+import Vue from 'vue'
 
 describe('MaTrackButton', () => {
-  let wrapper: any;
+  let trackButtonWrapper: Wrapper<Vue>;
+  let button:Wrapper<Vue>;
 
   beforeEach(() => {
-    wrapper = mount(MaTrackButton, {
+    trackButtonWrapper = mount(MaTrackButton, {
       propsData: {
-        keyword: 'test'
+        keyword: 'calm',
+        disabled: false,
       },
     });
+    button = trackButtonWrapper.find("button");
   });
-  it('works', () => {
-    expect(true).toEqual(true)
+
+  it('is disabled', () => {
+    expect(button.attributes('disabled')).toBeFalsy();
   })
+
+  it('prints keyword to button', () => {
+    expect(button.text()).toBe("calm")
+  })
+
+  it('triggers a click', async () => {
+    await button.trigger('click');
+    expect(trackButtonWrapper.emitted()).toHaveProperty('click');
+  })
+
 });

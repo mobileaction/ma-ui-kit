@@ -7,9 +7,13 @@ module.exports = {
     '**/__tests__/*.[jt]s?(x)',
   ],
   collectCoverage: true,
+  verbose: true,
   moduleFileExtensions: [ "js", "ts", "json", "vue"],
   transform: {
     ".*\\.(vue)$": "vue-jest",
     "^.+\\.tsx?$": "babel-jest"
   },
+  setupFiles: [
+    "<rootDir>/jest.init.js"
+  ],
 };
