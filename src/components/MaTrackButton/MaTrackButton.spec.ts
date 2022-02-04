@@ -9,12 +9,15 @@ describe('MaTrackButton', () => {
   beforeEach(() => {
     trackButtonWrapper = mount(MaTrackButton, {
       propsData: {
-        keyword: 'calm',
+        keyword: 'cal',
         disabled: false,
       },
     });
 
     button = trackButtonWrapper.find("button");
+  });
+  it("returns the same output", () => {
+    expect(trackButtonWrapper).toMatchSnapshot();
   });
 
   it('is disabled', () => {
@@ -22,7 +25,7 @@ describe('MaTrackButton', () => {
   });
 
   it('prints keyword to button', () => {
-    expect(button.text()).toBe("calm")
+    expect(button.text()).toBe("cal")
   });
 
   it('triggers a click', async () => {
