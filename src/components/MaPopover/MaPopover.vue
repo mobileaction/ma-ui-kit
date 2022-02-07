@@ -38,19 +38,4 @@ export default {
 
 <style lang="scss">
 @import '~ant-design-vue/lib/popover/style/index.css';
-  .ma-popover {
-    &.ant-switch-checked {
-      background-color: #10ce66;
-    }
-    &.ma-yellow {
-      &.ant-switch-checked {
-        background-color: #FFB146;
-      }
-    }
-    &.ma-turquoise {
-      &.ant-switch-checked {
-        background-color: #00A592;
-      }
-    }
-  }
 </style>
