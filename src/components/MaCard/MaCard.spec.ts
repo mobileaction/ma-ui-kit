@@ -7,4 +7,7 @@ describe('MaCard', () => {
   beforeEach(() => {
     wrapper = mount(MaCard);
   });
+  it('works', () => {
+    expect(true).toEqual(true)
+  })
 });

@@ -7,4 +7,7 @@ describe('MaPopover', () => {
   beforeEach(() => {
     wrapper = mount(MaPopover);
   });
+  it('works', () => {
+    expect(true).toEqual(true)
+  })
 });

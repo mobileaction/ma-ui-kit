@@ -1,3 +1,3 @@
-import BaBadge from './BaBadge.vue';
+import MaBadge from './MaBadge.vue';
 
-export default BaBadge;
+export default MaBadge;

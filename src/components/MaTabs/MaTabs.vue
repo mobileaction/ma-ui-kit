@@ -40,7 +40,7 @@ import Tooltip  from 'ant-design-vue/lib/tooltip';
 import MaIcon from '../MaIcon/MaIcon.vue';
 
 const { TabPane } = Tabs;
-import MaPropValidator from '../../base/MaPropValidator.mjs';
+import MaPropValidator from '../../base/MaPropValidator.js';
 
 export default {
   name: 'ma-tabs',
