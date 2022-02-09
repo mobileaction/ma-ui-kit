@@ -6,6 +6,7 @@
       :class="classNames"
       :disabled="disabled"
       :size="size"
+      :shape="shape"
       @click="$emit('click',$event)"
   >
     <ma-icon :icon="icon" v-if="icon === 'spinner'" spin class="ma-btn-icon"/>
@@ -57,12 +58,17 @@ export default {
     loading: { type: Boolean, default:false },
     disabled: { type: Boolean, default:false },
     size: { type: String, default:'xs' },
+    shape: {
+      type: String,
+      default: 'default',
+    },
   },
   computed: {
     classNames () {
       return {
         '-icon': this.icon || this.leftIcon,
         [`-${this.variant}`]: true,
+        'rounded-[2px]': this.shape !== 'circle' && this.shape !== 'round',
       };
     },
   },
@@ -73,7 +79,6 @@ export default {
   @import '~ant-design-vue/lib/button/style/index.css';
     .ma-button {
       align-items: center;
-      border-radius: 2px;
       &.-secondary {
         &:not([disabled]){
           color: #fff;
