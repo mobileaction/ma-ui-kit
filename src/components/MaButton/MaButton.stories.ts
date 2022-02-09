@@ -86,3 +86,16 @@ export const Sizes = () => ({
 });
 
 Sizes.storyName = 'Sizes';
+
+export const Shapes = () => ({
+  components: { MaButton },
+  template: `
+    <div class="m-2">
+    <ma-button> Default </ma-button>
+    <ma-button shape="round"> Round </ma-button>
+    <ma-button shape="circle" icon="info-circle"/>
+    </div>
+    `,
+});
+
+Shapes.storyName = 'Shapes';
