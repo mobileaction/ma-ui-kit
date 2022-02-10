@@ -20,8 +20,13 @@ import {
   faCheckCircle,
   faPlusCircle,
   faCheck,
-    faEnvelope,
-    faUser,
+  faEnvelope,
+  faUser,
+  faInfo,
+  faSync,
+  faEye,
+  faEyeSlash,
+  faCopy,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -36,6 +41,11 @@ library.add(
     faCheck,
     faEnvelope,
     faUser,
+    faInfo,
+    faSync,
+    faEye,
+    faEyeSlash,
+    faCopy,
 );
 
 export default {
