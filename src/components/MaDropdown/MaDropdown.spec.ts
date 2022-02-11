@@ -7,4 +7,7 @@ describe('MaDropdown', () => {
   beforeEach(() => {
     wrapper = mount(MaDropdown);
   });
+  it('works', () => {
+    expect(true).toEqual(true)
+  });
 });
