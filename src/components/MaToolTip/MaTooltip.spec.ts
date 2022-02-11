@@ -7,4 +7,7 @@ describe('MaTooltip', () => {
   beforeEach(() => {
     wrapper = mount(MaTooltip);
   });
+  it('works', () => {
+    expect(true).toEqual(true)
+  });
 });
