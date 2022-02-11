@@ -1,6 +1,7 @@
 <template>
   <a-tooltip
       class="ma-tooltip"
+      v-bind="$attrs"
       :placement="placement"
   >
     <template slot="title">

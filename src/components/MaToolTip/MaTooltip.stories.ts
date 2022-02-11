@@ -1,4 +1,5 @@
 import MaTooltip from './MaTooltip.vue';
+import { Input as AInput} from 'ant-design-vue';
 
 export default {
   title: 'MaTooltip',
@@ -66,3 +67,19 @@ export const Sizes = () => ({
 });
 
 Sizes.storyName = 'Sizes';
+
+export const Trigger = () => ({
+  components: { MaTooltip, AInput },
+  template: `
+      <div class="m-2">
+        <ma-tooltip title="Triggered" trigger="click">
+          <span class="mr-10">Click me</span>
+        </ma-tooltip>
+        <ma-tooltip title="Triggered by focus" trigger="focus">
+          <a-input placeholder="Focus me"></a-input>
+        </ma-tooltip>
+      </div>
+    `,
+});
+
+Trigger.storyName = 'Trigger';
