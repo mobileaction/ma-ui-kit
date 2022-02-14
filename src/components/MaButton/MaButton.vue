@@ -53,14 +53,13 @@ export default {
       type: String,
     },
     icon: {
-      type: String
+      type: String,
     },
     loading: { type: Boolean, default:false },
     disabled: { type: Boolean, default:false },
-    size: { type: String, default:'xs' },
+    size: { type: String, default:'default' },
     shape: {
       type: String,
-      default: 'default',
     },
   },
   computed: {
@@ -75,10 +74,13 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import '~ant-design-vue/lib/button/style/index.css';
     .ma-button {
       align-items: center;
+      & > svg + span {
+        margin-left: 5px;
+      }
       &.-secondary {
         &:not([disabled]){
           color: #fff;
@@ -137,7 +139,6 @@ export default {
         }
       }
       .ma-left-btn {
-        margin-right: 7px;
         margin-top: 5px;
       }
       &.-icon {
@@ -149,7 +150,6 @@ export default {
         }
       }
       .ma-btn-icon {
-        margin-right: 2px;
         margin-top: 4px;
       }
     }
