@@ -27,11 +27,37 @@ export const Secondary = () => ({
     `,
 });
 
+export const Success = () => ({
+  components: { MaButton },
+  template: `
+    <div class="m-2">
+      <ma-button variant="success" size="small">Success</ma-button>
+      <ma-button variant="success" >Success</ma-button>
+    </div>
+    
+    `,
+});
+Success.storyName = 'success';
+
+export const Danger = () => ({
+  components: { MaButton },
+  template: `
+    <div class="m-2">
+      <ma-button variant="danger" size="small">Danger</ma-button>
+      <ma-button variant="danger">Danger</ma-button>
+    </div>
+    
+    `,
+});
+Danger.storyName = 'danger';
+
 export const LeftIcon = () => ({
   components: { MaButton },
   template: `
     <div class="m-2">
-      <ma-button left-icon="plus"> Button </ma-button>
+      <ma-button icon="plus" size="s"> Button </ma-button>
+      <ma-button icon="plus" size="sm"> Button </ma-button>
+      <ma-button icon="plus" size="large"> Button </ma-button>
     </div>
     `,
 });
@@ -62,12 +88,12 @@ export const Variants = () => ({
   components: { MaButton },
   template: `
     <div class="m-2">
-    <p>Info</p>
-    <ma-button variant="info" icon="user"/>
-    <p>Danger</p>
-    <ma-button variant="danger" icon="trash-alt"/>
-    <p>Warning</p>
-    <ma-button variant="warning" icon="envelope"/>
+      <p>Info</p>
+      <ma-button variant="info" icon="user"/>
+      <p>Danger</p>
+      <ma-button variant="danger" icon="trash-alt"/>
+      <p>Warning</p>
+      <ma-button variant="warning" icon="envelope"/>     
     </div>
     `,
 });
@@ -78,9 +104,9 @@ export const Sizes = () => ({
   components: { MaButton },
   template: `
     <div class="m-2">
-    <ma-button size="small"> Button </ma-button>
-    <ma-button> Button </ma-button>
-    <ma-button size="large"> Button </ma-button>
+    <ma-button size="small"> small </ma-button>
+    <ma-button> Default </ma-button>
+    <ma-button size="large">Large </ma-button>
     </div>
     `,
 });
@@ -93,7 +119,7 @@ export const Shapes = () => ({
     <div class="m-2">
     <ma-button> Default </ma-button>
     <ma-button shape="round"> Round </ma-button>
-    <ma-button shape="circle" icon="info-circle"/>
+    <ma-button shape="circle" icon="info-circle" only-icon/>
     </div>
     `,
 });

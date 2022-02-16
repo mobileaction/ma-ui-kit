@@ -11,7 +11,6 @@
   >
     <ma-icon :icon="icon" v-if="icon === 'spinner'" spin class="ma-btn-icon"/>
     <ma-icon :icon="icon" v-else-if="icon && icon !== 'spinner'" class="ma-btn-icon"/>
-    <ma-icon :icon="leftIcon" size="xs" v-else-if="leftIcon" class="ma-left-btn"/>
     <span v-if="onlyIconWithText" class="ma-btn-span-with-icon">
       <slot/>
     </span>
@@ -60,7 +59,7 @@ export default {
     },
     loading: { type: Boolean, default:false },
     disabled: { type: Boolean, default:false },
-    size: { type: String, default:'default' },
+    size: { type: String, default:'xs' },
     shape: {
       type: String,
     },
@@ -73,6 +72,7 @@ export default {
       return {
         '-icon': this.icon || this.leftIcon,
         [`-${this.variant}`]: true,
+        [`-size-${this.size}`]: true,
         'rounded-[2px]': this.shape !== 'circle' && this.shape !== 'round',
       };
     },
@@ -92,6 +92,21 @@ export default {
         &:hover {
           &:not([disabled]){
             background-color: #62C3B2;
+          }
+        }
+        &.icon {
+          color: white;
+        }
+      }
+      &.-success {
+        &:not([disabled]){
+          color: #fff;
+          background-color: #11b95c;
+          border: 1px solid #11b95c;
+        }
+        &:hover {
+          &:not([disabled]){
+            background-color: #11a853;
           }
         }
         &.icon {
@@ -155,7 +170,19 @@ export default {
         margin-top: 4px;
       }
       .ma-btn-span-with-icon {
-        margin-left: 8px;
+        margin-left: 4px;
+      }
+      &.-size-small {
+        height: auto;
+        min-height: 24px;
+        padding:0 8px;
+        font-size: 12px;
+        .ma-btn-content {
+          padding: 2px 0;
+        }
+        .translatedKw {
+          font-size: 0.70rem;
+        }
       }
     }
 </style>
