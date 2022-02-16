@@ -59,7 +59,7 @@ export default {
     },
     loading: { type: Boolean, default:false },
     disabled: { type: Boolean, default:false },
-    size: { type: String, default:'xs' },
+    size: { type: String, default:'default' },
     shape: {
       type: String,
     },
