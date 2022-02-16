@@ -77,7 +77,7 @@ export const Disabled = () => ({
   components: { MaButton },
   template: `
     <div class="m-2">
-    <ma-button left-icon="plus" disabled>Button </ma-button>
+    <ma-button icon="plus" disabled>Button </ma-button>
     </div>
     `,
 });
