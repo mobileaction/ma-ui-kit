@@ -12,7 +12,12 @@
     <ma-icon :icon="icon" v-if="icon === 'spinner'" spin class="ma-btn-icon"/>
     <ma-icon :icon="icon" v-else-if="icon && icon !== 'spinner'" class="ma-btn-icon"/>
     <ma-icon :icon="leftIcon" size="xs" v-else-if="leftIcon" class="ma-left-btn"/>
-    <slot/>
+    <span v-if="onlyIconWithText" class="ma-btn-span-with-icon">
+      <slot/>
+    </span>
+    <span v-else>
+      <slot/>
+    </span>
   </a-button>
 </template>
 
@@ -63,6 +68,9 @@ export default {
     },
   },
   computed: {
+    onlyIconWithText() {
+      return (this.icon || this.leftIcon) && this.$slots.default;
+    },
     classNames () {
       return {
         '-icon': this.icon || this.leftIcon,
@@ -73,13 +81,6 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-  .ma-button {
-    & > svg + span {
-      margin-left: 5px;
-    }
-  }
-</style>
 <style lang="scss" scoped>
   @import '~ant-design-vue/lib/button/style/index.css';
     .ma-button {
@@ -154,6 +155,9 @@ export default {
       }
       .ma-btn-icon {
         margin-top: 4px;
+      }
+      .ma-btn-span-with-icon {
+        margin-left: 2px;
       }
     }
 </style>
