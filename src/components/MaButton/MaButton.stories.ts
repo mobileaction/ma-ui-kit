@@ -55,8 +55,8 @@ export const LeftIcon = () => ({
   components: { MaButton },
   template: `
     <div class="m-2">
-      <ma-button icon="plus" size="s"> Button </ma-button>
-      <ma-button icon="plus" size="sm"> Button </ma-button>
+      <ma-button icon="plus" size="small"> Button </ma-button>
+      <ma-button icon="plus"> Button </ma-button>
       <ma-button icon="plus" size="large"> Button </ma-button>
     </div>
     `,
