@@ -119,7 +119,7 @@ export const Shapes = () => ({
     <div class="m-2">
     <ma-button> Default </ma-button>
     <ma-button shape="round"> Round </ma-button>
-    <ma-button shape="circle" icon="info-circle" only-icon/>
+    <ma-button shape="circle" icon="info-circle"/>
     </div>
     `,
 });
