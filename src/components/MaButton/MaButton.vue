@@ -15,9 +15,7 @@
     <span v-if="onlyIconWithText" class="ma-btn-span-with-icon">
       <slot/>
     </span>
-    <span v-else>
-      <slot/>
-    </span>
+    <slot v-else/>
   </a-button>
 </template>
 
@@ -157,7 +155,7 @@ export default {
         margin-top: 4px;
       }
       .ma-btn-span-with-icon {
-        margin-left: 2px;
+        margin-left: 8px;
       }
     }
 </style>
