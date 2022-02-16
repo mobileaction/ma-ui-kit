@@ -73,14 +73,17 @@ export default {
   },
 };
 </script>
-
 <style lang="scss">
+  .ma-button {
+    & > svg + span {
+      margin-left: 5px;
+    }
+  }
+</style>
+<style lang="scss" scoped>
   @import '~ant-design-vue/lib/button/style/index.css';
     .ma-button {
       align-items: center;
-      & > svg + span {
-        margin-left: 5px;
-      }
       &.-secondary {
         &:not([disabled]){
           color: #fff;
