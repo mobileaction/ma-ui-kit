@@ -45,6 +45,25 @@ export const checkedValue = () => ({
 
 checkedValue.storyName = 'checked/unchecked/-children';
 
+export const customChange = () => ({
+  components: { MaSwitch },
+  data: () => ({
+    checked: true,
+  }),
+  methods: {
+    onChange(checked) {
+      this.checked = checked;
+    },
+  },
+  template: `
+      <div class="m-2">
+        <ma-switch :checked="this.checked" @change="this.onChange"/>
+      </div>
+    `,
+});
+
+customChange.storyName = 'custom Change';
+
 export const colors = () => ({
   components: { MaSwitch },
   template: `

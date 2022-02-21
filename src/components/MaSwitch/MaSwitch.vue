@@ -1,8 +1,6 @@
 <template>
     <a-switch
-        v-bind="$attrs"
-        v-on="$listeners"
-        v-model="vModel"
+        v-bind="propsToPass"
         :loading="loading"
         :checked-children="checkedChildren"
         :un-checked-children="unCheckedChildren"
@@ -12,6 +10,7 @@
         class="ma-switch"
         :class="classNames"
         @change="$emit('change',$event)"
+        @click="$emit('click',$event)"
     >
     </a-switch>
 </template>
@@ -33,6 +32,12 @@ export default {
         [`ma-${this.color}`]: true,
       };
     },
+    propsToPass() {
+      // Checked will be passed to the Switch component only if it is not undefined
+      return this.checked ? {
+        checked: this.checked,
+      } : {};
+    },
   },
   props: {
     size: { type: String, default: 'default' },
@@ -42,7 +47,7 @@ export default {
     defaultChecked: { type: Boolean },
     loading: { type: Boolean },
     disabled: { type: Boolean },
-    vModel: { type: Boolean },
+    checked: { type: Boolean, default: undefined },
   },
 };
 </script>
