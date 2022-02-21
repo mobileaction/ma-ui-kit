@@ -2,6 +2,7 @@
     <a-switch
         v-bind="$attrs"
         v-on="$listeners"
+        v-model="vModel"
         :loading="loading"
         :checked-children="checkedChildren"
         :un-checked-children="unCheckedChildren"
@@ -41,6 +42,7 @@ export default {
     defaultChecked: { type: Boolean },
     loading: { type: Boolean },
     disabled: { type: Boolean },
+    vModel: { type: Boolean },
   },
 };
 </script>
