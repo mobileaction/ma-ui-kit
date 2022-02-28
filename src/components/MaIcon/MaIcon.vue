@@ -27,6 +27,11 @@ import {
   faEye,
   faEyeSlash,
   faCopy,
+  faChartLine,
+  faBell,
+  faBellSlash,
+  faLock,
+  faComment,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -46,6 +51,11 @@ library.add(
     faEye,
     faEyeSlash,
     faCopy,
+    faChartLine,
+    faBell,
+    faBellSlash,
+    faLock,
+    faComment,
 );
 
 export default {
