@@ -11,8 +11,10 @@
   >
     <ma-icon :icon="icon" v-if="icon === 'spinner'" spin class="ma-btn-icon"/>
     <ma-icon :icon="icon" v-else-if="icon && icon !== 'spinner'" class="ma-btn-icon"/>
-    <ma-icon :icon="leftIcon" size="xs" v-else-if="leftIcon" class="ma-left-btn"/>
-    <slot/>
+    <span v-if="onlyIconWithText" class="ma-btn-span-with-icon">
+      <slot/>
+    </span>
+    <slot v-else/>
   </a-button>
 </template>
 
@@ -63,24 +65,24 @@ export default {
     },
   },
   computed: {
+    onlyIconWithText() {
+      return (this.icon || this.leftIcon) && this.$slots.default;
+    },
     classNames () {
       return {
         '-icon': this.icon || this.leftIcon,
         [`-${this.variant}`]: true,
+        [`-size-${this.size}`]: true,
         'rounded-[2px]': this.shape !== 'circle' && this.shape !== 'round',
       };
     },
   },
 };
 </script>
-
-<style lang="scss">
+<style lang="scss" scoped>
   @import '~ant-design-vue/lib/button/style/index.css';
     .ma-button {
       align-items: center;
-      & > svg + span {
-        margin-left: 5px;
-      }
       &.-secondary {
         &:not([disabled]){
           color: #fff;
@@ -90,6 +92,21 @@ export default {
         &:hover {
           &:not([disabled]){
             background-color: #62C3B2;
+          }
+        }
+        &.icon {
+          color: white;
+        }
+      }
+      &.-success {
+        &:not([disabled]){
+          color: #fff;
+          background-color: #11b95c;
+          border: 1px solid #11b95c;
+        }
+        &:hover {
+          &:not([disabled]){
+            background-color: #11a853;
           }
         }
         &.icon {
@@ -151,6 +168,21 @@ export default {
       }
       .ma-btn-icon {
         margin-top: 4px;
+      }
+      .ma-btn-span-with-icon {
+        margin-left: 4px;
+      }
+      &.-size-small {
+        height: auto;
+        min-height: 24px;
+        padding:0 8px;
+        font-size: 12px;
+        .ma-btn-content {
+          padding: 2px 0;
+        }
+        .translatedKw {
+          font-size: 0.70rem;
+        }
       }
     }
 </style>
