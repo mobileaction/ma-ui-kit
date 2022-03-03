@@ -1,0 +1,5 @@
+!\.eslintrc\.js
+!\.babelrc\.js
+dist/
+node_modules/
+stats/
