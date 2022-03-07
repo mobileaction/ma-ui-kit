@@ -63,6 +63,18 @@ export const LeftIcon = () => ({
 });
 LeftIcon.storyName = 'Left Icon';
 
+export const Link = () => ({
+  components: { MaButton },
+  template: `
+    <div class="m-2">
+      <ma-button variant="link" size="small"> Small Link </ma-button> <br/>
+      <ma-button variant="link"> Link </ma-button> <br/>
+      <ma-button variant="link" size="large"> Large Link </ma-button>
+    </div>
+    `,
+});
+Link.storyName = 'Link';
+
 export const Loading = () => ({
   components: { MaButton },
   template: `

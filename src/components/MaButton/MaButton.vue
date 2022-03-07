@@ -98,6 +98,18 @@ export default {
           color: white;
         }
       }
+      &.-link {
+        &:not([disabled]){
+          padding: 0;
+          border: none;
+          color: #1890ff;
+        }
+        &:hover {
+          &:not([disabled]){
+            color:#40a9ff;
+          }
+        }
+      }
       &.-success {
         &:not([disabled]){
           color: #fff;
