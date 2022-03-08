@@ -27,6 +27,18 @@ export const Secondary = () => ({
     `,
 });
 
+export const Primary = () => ({
+    components: { MaButton },
+    template: `
+    <div class="m-2">
+      <ma-button variant="primary" size="small">Primary</ma-button>
+      <ma-button variant="primary">Primary</ma-button>
+    </div>
+    
+    `,
+});
+Primary.storyName = 'primary';
+
 export const Success = () => ({
     components: { MaButton },
     template: `

@@ -99,6 +99,21 @@
           color: white;
         }
       }
+      &.-primary {
+        &:not([disabled]){
+          color: #fff;
+          background-color: #4052b1;
+          border: 1px solid #4052b1;
+        }
+        &:hover {
+          &:not([disabled]){
+            background-color: #4052b1cf;
+          }
+        }
+        &.icon {
+          color: white;
+        }
+      }
       &.-link {
         &:not([disabled]){
           padding: 0;
