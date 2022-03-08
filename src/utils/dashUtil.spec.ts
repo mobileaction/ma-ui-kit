@@ -1,7 +1,7 @@
-import $_ from './dashUtil';
+import $_ from './dashUtil.ts';
 
 describe('utils', () => {
-  it('should return given string with unshifted dash', () => {
-    expect($_('default')).toEqual('-default');
-  });
+    it('should return given string with unshifted dash', () => {
+        expect($_('default')).toEqual('-default');
+    });
 });

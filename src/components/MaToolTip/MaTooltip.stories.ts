@@ -1,17 +1,17 @@
 import MaTooltip from './MaTooltip.vue';
-import { Input as AInput} from 'ant-design-vue';
+import { Input as AInput } from 'ant-design-vue';
 
 export default {
-  title: 'MaTooltip',
+    title: 'MaTooltip',
 
-  parameters: {
-    component: MaTooltip,
-  },
+    parameters: {
+        component: MaTooltip,
+    },
 };
 
 export const Base = () => ({
-  components: { MaTooltip },
-  template: `
+    components: { MaTooltip },
+    template: `
       <div class="m-2">
         <ma-tooltip title="Title">
           <span> Hover me</span>
@@ -23,8 +23,8 @@ export const Base = () => ({
 Base.storyName = 'Base';
 
 export const Circle = () => ({
-  components: { MaTooltip },
-  template: `
+    components: { MaTooltip },
+    template: `
       <div class="m-2">
         <ma-tooltip type="circle"/>
       </div>
@@ -34,8 +34,8 @@ export const Circle = () => ({
 Circle.storyName = 'Circle';
 
 export const Disabled = () => ({
-  components: { MaTooltip },
-  template: `
+    components: { MaTooltip },
+    template: `
     <div class="m-2">
       <ma-tooltip disabled/>
     </div>
@@ -45,8 +45,8 @@ export const Disabled = () => ({
 Disabled.storyName = 'Disabled';
 
 export const Loading = () => ({
-  components: { MaTooltip },
-  template: `
+    components: { MaTooltip },
+    template: `
     <div class="m-2">
       <ma-tooltip loading/>
     </div>
@@ -56,8 +56,8 @@ export const Loading = () => ({
 Loading.storyName = 'Loading';
 
 export const Sizes = () => ({
-  components: { MaTooltip },
-  template: `
+    components: { MaTooltip },
+    template: `
       <div class="m-2">
         <ma-tooltip size="small"/>
         <ma-tooltip/>
@@ -69,8 +69,8 @@ export const Sizes = () => ({
 Sizes.storyName = 'Sizes';
 
 export const Trigger = () => ({
-  components: { MaTooltip, AInput },
-  template: `
+    components: { MaTooltip, AInput },
+    template: `
       <div class="m-2">
         <ma-tooltip title="Triggered" trigger="click">
           <span class="mr-10">Click me</span>

@@ -3,19 +3,19 @@ import MaPopover from './MaPopover.vue';
 import MaButton from './../MaButton/MaButton.vue';
 
 export default {
-  title: 'MaPopover',
-  decorators: [withKnobs],
-  parameters: {
-    component: MaPopover,
-  },
+    title: 'MaPopover',
+    decorators: [withKnobs],
+    parameters: {
+        component: MaPopover,
+    },
 };
 
 export const Base = () => ({
-  components: { MaPopover },
-  data() {
-    return {};
-  },
-  template: `
+    components: { MaPopover },
+    data() {
+        return {};
+    },
+    template: `
        <div class="m-2">
             <ma-popover title="Title" content="Content">
               <template #content>
@@ -30,8 +30,8 @@ export const Base = () => ({
 Base.storyName = 'base';
 
 export const Trigger = () => ({
-  components: { MaPopover, MaButton },
-  template: `
+    components: { MaPopover, MaButton },
+    template: `
       <div class="m-2">
       <ma-popover title="Title" content="Content" trigger="click">
         <ma-button> Click </ma-button>

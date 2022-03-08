@@ -1,51 +1,55 @@
 <template>
-  <a-button
-    class="ma-delete-button"
-    :class="classNames"
-    :disabled="disabled"
-    :type="type === 'circle' ? 'danger' : 'default'"
-    :shape="type"
-    :size="size"
-    @click="$emit('click',$event)"
-  >
-    <ma-icon :size="iconSize" v-if="loading" icon="spinner" spin/>
-    <ma-icon :size="iconSize" v-else icon="trash-alt"/>
-  </a-button>
+    <a-button
+        class="ma-delete-button"
+        :class="classNames"
+        :disabled="disabled"
+        :type="type === 'circle' ? 'danger' : 'default'"
+        :shape="type"
+        :size="size"
+        @click="$emit('click',$event)"
+    >
+        <ma-icon
+            v-if="loading" :size="iconSize"
+            icon="spinner"
+            spin
+        />
+        <ma-icon v-else :size="iconSize" icon="trash-alt"/>
+    </a-button>
 </template>
 
 <script lang="ts">
-import Button from 'ant-design-vue/lib/button';
-import MaIcon from '../MaIcon/MaIcon.vue';
+    import Button from 'ant-design-vue/lib/button/index.js';
+    import MaIcon from '../MaIcon/MaIcon.vue';
 
-export default {
-  name: 'ma-delete-button',
-  components: {
-    MaIcon,
-    AButton: Button,
-  },
-  props: {
-    loading: { type: Boolean, default:false },
-    disabled: { type: Boolean, default:false },
-    type: { type: String, default: null },
-    size: { type: String, default: 'default' },
-  },
-  computed: {
-   iconSize () {
-      if(this.size === "small"){
-        return 'xs';
-      }
-      else if(this.size === "large"){
-        return 'lg';
-      }
-      else return '1x';
-    },
-    classNames () {
-      return {
-        [`-size-${this.size}`]: true,
-      };
-    },
-  },
-};
+    export default {
+        name: 'ma-delete-button',
+        components: {
+            MaIcon,
+            AButton: Button,
+        },
+        props: {
+            loading: { type: Boolean, default: false },
+            disabled: { type: Boolean, default: false },
+            type: { type: String, default: null },
+            size: { type: String, default: 'default' },
+        },
+        computed: {
+            iconSize () {
+                if (this.size === 'small'){
+                    return 'xs';
+                } else if (this.size === 'large'){
+                    return 'lg';
+                } else {
+                    return '1x';
+                }
+            },
+            classNames () {
+                return {
+                    [`-size-${this.size}`]: true,
+                };
+            },
+        },
+    };
 </script>
 
 <style lang="scss" scoped>

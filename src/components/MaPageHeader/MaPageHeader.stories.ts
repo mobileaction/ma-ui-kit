@@ -2,15 +2,15 @@ import MaPageHeader from './MaPageHeader.vue';
 import MaButton from './../MaButton/MaButton.vue';
 
 export default {
-  title: 'MaPageHeader',
-  parameters: {
-    component: MaPageHeader,
-  },
+    title: 'MaPageHeader',
+    parameters: {
+        component: MaPageHeader,
+    },
 };
 
 export const Base = () => ({
-  components: { MaPageHeader, MaButton },
-  template: `
+    components: { MaPageHeader, MaButton },
+    template: `
       <div class="m-2">
         <ma-page-header title="Page Title" subTitle="This is a subtitle"/>
       </div>
@@ -18,8 +18,8 @@ export const Base = () => ({
 });
 
 export const Extra = () => ({
-  components: { MaPageHeader, MaButton },
-  template: `
+    components: { MaPageHeader, MaButton },
+    template: `
       <div class="m-2">
         <ma-page-header title="Page Title" subTitle="This is a subtitle">
           <template #extra>

@@ -1,35 +1,34 @@
-// @ts-ignore
 import Inputmask from 'inputmask';
-import InputMaskDirective from '@/directives/InputMaskDirective';
+import InputMaskDirective from '@/directives/InputMaskDirective.ts';
 
 jest.mock('inputmask', () => jest.fn());
 
 describe('@/directives/InputMaskDirective', () => {
-  let mockMask: jest.Mock;
+    let mockMask: jest.Mock;
 
-  beforeEach(() => {
-    mockMask = jest.fn();
-    Inputmask.mockImplementation(() => ({
-      mask: mockMask,
-    }));
-  });
-  it('should call inputmask mask method', () => {
-    const el: HTMLElement = document.createElement('div');
-
-    const binding = {
-      value: 'value',
-      arg: 'autoUnmask',
-    };
-
-    InputMaskDirective.bind(el, binding);
-
-    expect(Inputmask).toHaveBeenNthCalledWith(1, {
-      mask: binding.value,
-      autoUnmask: true,
-      showMaskOnFocus: true,
-      showMaskOnHover: true,
+    beforeEach(() => {
+        mockMask = jest.fn();
+        Inputmask.mockImplementation(() => ({
+            mask: mockMask,
+        }));
     });
+    it('should call inputmask mask method', () => {
+        const el: HTMLElement = document.createElement('div');
 
-    expect(mockMask).toHaveBeenNthCalledWith(1, el);
-  });
+        const binding = {
+            value: 'value',
+            arg: 'autoUnmask',
+        };
+
+        InputMaskDirective.bind(el, binding);
+
+        expect(Inputmask).toHaveBeenNthCalledWith(1, {
+            mask: binding.value,
+            autoUnmask: true,
+            showMaskOnFocus: true,
+            showMaskOnHover: true,
+        });
+
+        expect(mockMask).toHaveBeenNthCalledWith(1, el);
+    });
 });
