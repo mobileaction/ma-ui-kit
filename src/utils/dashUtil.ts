@@ -1,5 +1,5 @@
 const $_ = function (data: string): string {
-  return `-${data}`;
+    return `-${data}`;
 };
 
 export default $_;

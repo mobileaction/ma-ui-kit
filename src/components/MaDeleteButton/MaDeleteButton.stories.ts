@@ -1,16 +1,16 @@
 import MaDeleteButton from './MaDeleteButton.vue';
 
 export default {
-  title: 'MaDeleteButton',
+    title: 'MaDeleteButton',
 
-  parameters: {
-    component: MaDeleteButton,
-  },
+    parameters: {
+        component: MaDeleteButton,
+    },
 };
 
 export const Base = () => ({
-  components: { MaDeleteButton },
-  template: `
+    components: { MaDeleteButton },
+    template: `
       <div class="m-2">
         <ma-delete-button/>
       </div>
@@ -20,8 +20,8 @@ export const Base = () => ({
 Base.storyName = 'Base';
 
 export const Circle = () => ({
-  components: { MaDeleteButton },
-  template: `
+    components: { MaDeleteButton },
+    template: `
       <div class="m-2">
         <ma-delete-button type="circle"/>
       </div>
@@ -31,8 +31,8 @@ export const Circle = () => ({
 Circle.storyName = 'Circle';
 
 export const Disabled = () => ({
-  components: { MaDeleteButton },
-  template: `
+    components: { MaDeleteButton },
+    template: `
     <div class="m-2">
       <ma-delete-button disabled/>
     </div>
@@ -42,8 +42,8 @@ export const Disabled = () => ({
 Disabled.storyName = 'Disabled';
 
 export const Loading = () => ({
-  components: { MaDeleteButton },
-  template: `
+    components: { MaDeleteButton },
+    template: `
     <div class="m-2">
       <ma-delete-button loading/>
     </div>
@@ -53,8 +53,8 @@ export const Loading = () => ({
 Loading.storyName = 'Loading';
 
 export const Sizes = () => ({
-  components: { MaDeleteButton },
-  template: `
+    components: { MaDeleteButton },
+    template: `
       <div class="m-2">
         <ma-delete-button size="small"/>
         <ma-delete-button/>

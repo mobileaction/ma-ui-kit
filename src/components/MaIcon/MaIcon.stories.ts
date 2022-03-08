@@ -1,16 +1,16 @@
 import MaIcon from './MaIcon.vue';
 
 export default {
-  title: 'MaIcon',
+    title: 'MaIcon',
 
-  parameters: {
-    component: MaIcon,
-  },
+    parameters: {
+        component: MaIcon,
+    },
 };
 
 export const Plus = () => ({
-  components: { MaIcon },
-  template: `
+    components: { MaIcon },
+    template: `
     <div>
       <div class="m-2">
         <ma-icon icon="plus" size="xs"/>
@@ -26,8 +26,8 @@ export const Plus = () => ({
 Plus.storyName = 'plus';
 
 export const Spinner = () => ({
-  components: { MaIcon },
-  template: `
+    components: { MaIcon },
+    template: `
     <div>
       <div class="m-2">
         <ma-icon icon="spinner" size="xs"/>
@@ -43,8 +43,8 @@ export const Spinner = () => ({
 Spinner.storyName = 'spinner';
 
 export const InfoCircle = () => ({
-  components: { MaIcon },
-  template: `
+    components: { MaIcon },
+    template: `
     <div>
       <div class="m-2">
         <ma-icon icon="info-circle" size="xs"/>
@@ -61,8 +61,8 @@ export const InfoCircle = () => ({
 InfoCircle.storyName = 'info-circle';
 
 export const TrashAlt = () => ({
-  components: { MaIcon },
-  template: `
+    components: { MaIcon },
+    template: `
     <div>
       <div class="m-2">
         <ma-icon icon="trash-alt" size="xs"/>
@@ -78,8 +78,8 @@ export const TrashAlt = () => ({
 TrashAlt.storyName = 'trash-alt';
 
 export const Download = () => ({
-  components: { MaIcon },
-  template: `
+    components: { MaIcon },
+    template: `
     <div>
       <div class="m-2">
         <ma-icon icon="download" size="xs"/>
@@ -95,8 +95,8 @@ export const Download = () => ({
 Download.storyName = 'download';
 
 export const QuestionCircle = () => ({
-  components: { MaIcon },
-  template: `
+    components: { MaIcon },
+    template: `
     <div>
       <div class="m-2">
         <ma-icon icon="question-circle" size="xs"/>
@@ -112,8 +112,8 @@ export const QuestionCircle = () => ({
 QuestionCircle.storyName = 'question-circle';
 
 export const Envelope = () => ({
-  components: { MaIcon },
-  template: `
+    components: { MaIcon },
+    template: `
     <div>
       <div class="m-2">
         <ma-icon icon="envelope" size="xs"/>
@@ -129,8 +129,8 @@ export const Envelope = () => ({
 Envelope.storyName = 'envelope';
 
 export const User = () => ({
-  components: { MaIcon },
-  template: `
+    components: { MaIcon },
+    template: `
     <div>
       <div class="m-2">
         <ma-icon icon="user" size="xs"/>
@@ -147,8 +147,8 @@ User.storyName = 'user';
 
 
 export const Colors = () => ({
-  components: { MaIcon },
-  template: `
+    components: { MaIcon },
+    template: `
       <div class="m-p-10 m-d-flex">
         <div class="m-d-flex m-bg-purple-800">
           <p class="m-mx-10 m-p-10">

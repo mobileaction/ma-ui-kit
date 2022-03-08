@@ -1,99 +1,97 @@
 <template>
-  <a-tabs
-      type="card"
-      :size="size"
-      class="ma-tabs"
-      tab-position="top"
-      v-model="selectedTab"
-      :class="classNames"
-  >
-    <a-tab-pane
-        v-for="(tab,i) in tabPanelList"
-        :key="tab.type"
-        lazy
+    <a-tabs
+        v-model="selectedTab"
+        type="card"
+        :size="size"
+        class="ma-tabs"
+        tab-position="top"
+        :class="classNames"
     >
-      <span slot="tab" class="ma-tab-name">
-        {{ tab.label }}
-        <span v-if="showCount && tab.totalElements" class="ma-count">
-          ({{ tab.totalElements }})
-        </span>
-         <div v-if="tab.tooltip" class="ma-tooltip">
-            <a-tooltip>
-              <template slot="title">
-                   {{ tab.tooltip }}
-              </template>
-                 <ma-icon icon="question-circle"/>
-            </a-tooltip>
-        </div>
-        <div v-if="tab.isNew" class="ma-new-icon">
-            NEW
-        </div>
-      </span>
-    </a-tab-pane>
-    <slot slot="tabBarExtraContent"></slot>
-  </a-tabs>
+        <a-tab-pane
+            v-for="(tab) in tabPanelList"
+            :key="tab.type"
+            lazy
+        >
+            <span slot="tab" class="ma-tab-name">
+                {{ tab.label }}
+                <span v-if="showCount && tab.totalElements" class="ma-count">
+                    ({{ tab.totalElements }})
+                </span>
+                <div v-if="tab.tooltip" class="ma-tooltip">
+                    <a-tooltip>
+                        <template slot="title">
+                            {{ tab.tooltip }}
+                        </template>
+                        <ma-icon icon="question-circle"/>
+                    </a-tooltip>
+                </div>
+                <div v-if="tab.isNew" class="ma-new-icon">
+                    NEW
+                </div>
+            </span>
+        </a-tab-pane>
+        <slot slot="tabBarExtraContent"/>
+    </a-tabs>
 </template>
 
 <script>
-import Tabs  from 'ant-design-vue/lib/tabs';
-import Tooltip  from 'ant-design-vue/lib/tooltip';
-import MaIcon from '../MaIcon/MaIcon.vue';
+    import Tabs  from 'ant-design-vue/lib/tabs/index.js';
+    import Tooltip  from 'ant-design-vue/lib/tooltip/index.js';
+    import MaIcon from '../MaIcon/MaIcon.vue';
 
-const { TabPane } = Tabs;
-import MaPropValidator from '../../base/MaPropValidator.js';
+    const { TabPane } = Tabs;
+    import MaPropValidator from '../../base/MaPropValidator.js';
 
-export default {
-  name: 'ma-tabs',
-  components: {
-    ATooltip: Tooltip,
-    ATabs: Tabs,
-    ATabPane: TabPane,
-    MaPropValidator,
-    MaIcon,
-  },
-  data() {
-    return {
-      selectedTab: '',
-    }
-  },
-  props: {
-    tabPanelList: {
-      type: Array,
-      default: () => [],
-      validator: MaPropValidator.listItemsHasFields(['type']),
-    },
-    variant: {
-      type: String,
-      default: 'module',
-    },
-    showCount: {
-      type: Boolean,
-      default: false,
-    },
-    size: {
-      type: String,
-      default: 'default'
-    }
-  },
-  computed: {
-    classNames () {
-      return {
-        [`-${this.variant}`]: true,
-      };
-    },
-  },
-  methods: {
-  },
-  mounted() {
-    this.selectedTab = this.tabPanelList.map(tab => tab.active === true)[0].type || this.tabPanelList[0].type;
-  },
-  watch: {
-    selectedTab() {
-      this.$emit('activeTab', this.selectedTab);
-      console.log('Selected Tab', this.selectedTab);
-    }
-  }
-};
+    export default {
+        name: 'ma-tabs',
+        components: {
+            ATooltip: Tooltip,
+            ATabs: Tabs,
+            ATabPane: TabPane,
+            MaIcon,
+        },
+        props: {
+            tabPanelList: {
+                type: Array,
+                default: () => [],
+                validator: MaPropValidator.listItemsHasFields(['type']),
+            },
+            variant: {
+                type: String,
+                default: 'module',
+            },
+            showCount: {
+                type: Boolean,
+                default: false,
+            },
+            size: {
+                type: String,
+                default: 'default',
+            },
+        },
+        data() {
+            return {
+                selectedTab: '',
+            };
+        },
+        computed: {
+            classNames () {
+                return {
+                    [`-${this.variant}`]: true,
+                };
+            },
+        },
+        methods: {
+        },
+        mounted() {
+            this.selectedTab = this.tabPanelList.map(tab => tab.active === true)[0].type || this.tabPanelList[0].type;
+        },
+        watch: {
+            selectedTab() {
+                this.$emit('activeTab', this.selectedTab);
+            },
+        },
+    };
 </script>
 
 <style lang="scss">

@@ -1,16 +1,16 @@
 import MaTrackButton from './MaTrackButton.vue';
 
 export default {
-  title: 'MaTrackButton',
+    title: 'MaTrackButton',
 
-  parameters: {
-    component: MaTrackButton,
-  },
+    parameters: {
+        component: MaTrackButton,
+    },
 };
 
 export const Orange = () => ({
-  components: { MaTrackButton },
-  template: `
+    components: { MaTrackButton },
+    template: `
       <div class="m-2">
         <ma-track-button keyword="keyword" translated-keyword="translated" color="orange"/>
         <ma-track-button keyword="long keyword" color="orange" loading/>
@@ -24,8 +24,8 @@ export const Orange = () => ({
 Orange.storyName = 'orange';
 
 export const LightGreen = () => ({
-  components: { MaTrackButton },
-  template: `
+    components: { MaTrackButton },
+    template: `
       <div class="m-2">
         <ma-track-button keyword="keyword" translated-keyword="translated" color="light-green"/>
         <ma-track-button keyword="long keyword" color="light-green" loading/>
@@ -40,8 +40,8 @@ export const LightGreen = () => ({
 LightGreen.storyName = 'light-green';
 
 export const LightBlue = () => ({
-  components: { MaTrackButton },
-  template: `
+    components: { MaTrackButton },
+    template: `
     <div class="m-2">
     <ma-track-button keyword="keyword" translated-keyword="translated" color="light-blue"/>
     <ma-track-button keyword="long keyword" color="light-blue" loading/>
@@ -55,8 +55,8 @@ export const LightBlue = () => ({
 LightBlue.storyName = 'light-blue';
 
 export const DrakBlue = () => ({
-  components: { MaTrackButton },
-  template: `
+    components: { MaTrackButton },
+    template: `
     <div class="m-2">
     <ma-track-button keyword="keyword" translated-keyword="translated" color="dark-blue"/>
     <ma-track-button keyword="long keyword" color="dark-blue" loading/>
@@ -70,8 +70,8 @@ export const DrakBlue = () => ({
 DrakBlue.storyName = 'dark-blue';
 
 export const Grey = () => ({
-  components: { MaTrackButton },
-  template: `
+    components: { MaTrackButton },
+    template: `
     <div class="m-2">
     <ma-track-button keyword="keyword" translated-keyword="translated keyword" color="grey"/>
     <ma-track-button keyword="long keyword" color="grey" loading/>
@@ -85,8 +85,8 @@ export const Grey = () => ({
 Grey.storyName = 'grey';
 
 export const LightRed = () => ({
-  components: { MaTrackButton },
-  template: `
+    components: { MaTrackButton },
+    template: `
     <div class="m-2">
     <ma-track-button keyword="keyword" translated-keyword="translated" color="light-red"/>
     <ma-track-button keyword="loading" color="light-red"loading/>

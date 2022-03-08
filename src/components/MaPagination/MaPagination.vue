@@ -1,35 +1,41 @@
 <template>
     <a-pagination
         v-bind="$attrs"
-        v-on="$listeners"
-        :page-sizes="[20, 30, 50, 100, 200]"
-        :current-page.sync="pagination.currentPage"
+        :page-size-options="[20, 30, 50, 100, 200]"
+        :current-page="pagination.currentPage"
         :page-size="pagination.pageSize"
         :total="pagination.total"
-        @change="v => pagination.currentPage = v"
-        @show-size-change="v => pagination.pageSize = v"
+        v-on="$listeners"
+        @change="onPageChange"
+        @show-size-change="onPageSizeChange"
     />
 </template>
 
 <script>
-  import Pagination from 'ant-design-vue/lib/pagination';
+    import Pagination from 'ant-design-vue/lib/pagination/index.js';
 
-  export default {
-    name: 'ma-pagination',
-    components: {
-      APagination: Pagination,
-  },
-  data() {
-    return {
-      current: 2,
+    export default {
+        name: 'ma-pagination',
+        components: {
+            APagination: Pagination,
+        },
+        props: {
+            pagination: { type: Object, default: () => ({}) },
+        },
+        data() {
+            return {
+                current: 2,
+            };
+        },
+        methods: {
+            onPageChange(page) {
+                this.$emit('update:pagination', { ...this.pagination, currentPage: page });
+            },
+            onPageSizeChange(pageSize) {
+                this.$emit('update:pagination', { ...this.pagination, pageSize });
+            },
+        },
     };
-  },
-  props: {
-    pagination: { type: Object, default: () => ({}) },
-  },
-  methods: {
-  },
-};
 </script>
 
 <style>

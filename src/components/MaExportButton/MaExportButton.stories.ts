@@ -2,17 +2,17 @@ import { withKnobs } from '@storybook/addon-knobs';
 import MaExportButton from './MaExportButton.vue';
 
 export default {
-  title: 'MaExportButton',
-  decorators: [withKnobs],
+    title: 'MaExportButton',
+    decorators: [withKnobs],
 
-  parameters: {
-    component: MaExportButton,
-  },
+    parameters: {
+        component: MaExportButton,
+    },
 };
 
 export const Base = () => ({
-  components: { MaExportButton },
-  template: `
+    components: { MaExportButton },
+    template: `
        <div class="m-2">
             <ma-export-button/>
        </div>
@@ -21,8 +21,8 @@ export const Base = () => ({
 });
 
 export const Tooltip = () => ({
-  components: { MaExportButton },
-  template: `
+    components: { MaExportButton },
+    template: `
        <div class="m-2">
             <ma-export-button tooltip="Export CSV" />
             <ma-export-button tooltip="Export CSV" tooltip-placement="right"/>
@@ -34,8 +34,8 @@ export const Tooltip = () => ({
 Base.storyName = 'base';
 
 export const Disabled = () => ({
-  components: { MaExportButton },
-  template: `
+    components: { MaExportButton },
+    template: `
       <div class="m-2">
         <ma-export-button disabled/>
       </div>
@@ -45,8 +45,8 @@ export const Disabled = () => ({
 Disabled.storyName = 'disabled';
 
 export const Loading = () => ({
-  components: { MaExportButton },
-  template: `
+    components: { MaExportButton },
+    template: `
        <div class="m-2">
         <ma-export-button loading/>
        </div>

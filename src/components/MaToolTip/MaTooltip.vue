@@ -1,33 +1,31 @@
 <template>
-  <a-tooltip
-      class="ma-tooltip"
-      v-bind="$attrs"
-      :placement="placement"
-  >
-    <template slot="title">
-     {{ title }}
-    </template>
-    <slot/>
-  </a-tooltip>
+    <a-tooltip
+        class="ma-tooltip"
+        v-bind="$attrs"
+        :placement="placement"
+    >
+        <template slot="title">
+            {{ title }}
+        </template>
+        <slot/>
+    </a-tooltip>
 </template>
 
 <script lang="ts">
-import Tooltip from 'ant-design-vue/lib/tooltip';
-import MaIcon from '../MaIcon/MaIcon.vue';
+    import Tooltip from 'ant-design-vue/lib/tooltip/index.js';
 
-export default {
-  name: 'ma-tooltip',
-  components: {
-    MaIcon,
-    ATooltip: Tooltip,
-  },
-  props: {
-    placement: { type: String, default: 'top' },
-    title: { type: String, default: '' },
-  },
-  computed: {
-  },
-};
+    export default {
+        name: 'ma-tooltip',
+        components: {
+            ATooltip: Tooltip,
+        },
+        props: {
+            placement: { type: String, default: 'top' },
+            title: { type: String, default: '' },
+        },
+        computed: {
+        },
+    };
 </script>
 
 <style lang="scss" scoped>

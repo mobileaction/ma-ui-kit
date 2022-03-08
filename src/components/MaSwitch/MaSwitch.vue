@@ -11,45 +11,44 @@
         :class="classNames"
         @change="$emit('change',$event)"
         @click="$emit('click',$event)"
-    >
-    </a-switch>
+    />
 </template>
 
 <script>
-import Switch from 'ant-design-vue/lib/switch';
+    import Switch from 'ant-design-vue/lib/switch/index.js';
 
-export default {
-  name: 'MaSwitch',
-  components: {
-    ASwitch: Switch,
-  },
-  data() {
-    return {};
-  },
-  computed: {
-    classNames() {
-      return {
-        [`ma-${this.color}`]: true,
-      };
-    },
-    propsToPass() {
-      // Checked will be passed to the Switch component only if it is not undefined
-      return this.checked ? {
-        checked: this.checked,
-      } : {};
-    },
-  },
-  props: {
-    size: { type: String, default: 'default' },
-    checkedChildren: { type: String },
-    unCheckedChildren: { type: String },
-    color: { type: String },
-    defaultChecked: { type: Boolean },
-    loading: { type: Boolean },
-    disabled: { type: Boolean },
-    checked: { type: Boolean, default: undefined },
-  },
-};
+    export default {
+        name: 'ma-switch',
+        components: {
+            ASwitch: Switch,
+        },
+        props: {
+            size: { type: String, default: 'default' },
+            checkedChildren: { type: String },
+            unCheckedChildren: { type: String },
+            color: { type: String },
+            defaultChecked: { type: Boolean },
+            loading: { type: Boolean },
+            disabled: { type: Boolean },
+            checked: { type: Boolean, default: undefined },
+        },
+        data() {
+            return {};
+        },
+        computed: {
+            classNames() {
+                return {
+                    [`ma-${this.color}`]: true,
+                };
+            },
+            propsToPass() {
+                // Checked will be passed to the Switch component only if it is not undefined
+                return this.checked ? {
+                    checked: this.checked,
+                } : {};
+            },
+        },
+    };
 </script>
 
 <style lang="scss">

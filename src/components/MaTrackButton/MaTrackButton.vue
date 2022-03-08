@@ -1,93 +1,89 @@
 <template>
-  <a-button
-      v-bind="$attrs"
-      v-on="$listeners"
-      class="ma-button"
-      :class="classNames"
-      :disabled="disabled"
-      @click="$emit('click',$event)"
-  >
-     <span class="ma-btn-content items-center">
-       <span class="flex flex-wrap content-center mr-1">
-         <span>
-           <span v-if="!loading">
-             <ma-icon v-if="tracked" icon="check" class="ma-btn-icon"/>
-             <ma-icon v-else icon="plus" class="ma-btn-icon"/>
-           </span>
-           <span v-else-if="loading">
-             <ma-icon icon="spinner" spin/>
-           </span>
-         </span>
-         </span>
-       <span class="text-left leading-tight">
-         <p>
-          {{ keyword }}
-         </p>
-         <span v-if="translatedKeyword" class="translatedKw text-xs">
-            (en) {{ translatedKeyword }}
-         </span>
-       </span>
-     </span>
-  </a-button>
+    <a-button
+        v-bind="$attrs"
+        class="ma-button"
+        :class="classNames"
+        :disabled="disabled"
+        v-on="$listeners"
+        @click="$emit('click',$event)"
+    >
+        <span class="ma-btn-content items-center">
+            <span class="flex flex-wrap content-center mr-1">
+                <span>
+                    <span v-if="!loading">
+                        <ma-icon v-if="tracked" icon="check" class="ma-btn-icon"/>
+                        <ma-icon v-else icon="plus" class="ma-btn-icon"/>
+                    </span>
+                    <span v-else-if="loading">
+                        <ma-icon icon="spinner" spin/>
+                    </span>
+                </span>
+            </span>
+            <span class="text-left leading-tight">
+                <p>
+                    {{ keyword }}
+                </p>
+                <span v-if="translatedKeyword" class="translatedKw text-xs">
+                    (en) {{ translatedKeyword }}
+                </span>
+            </span>
+        </span>
+    </a-button>
 </template>
 
 <script>
-import Button from 'ant-design-vue/lib/button';
-import MaIcon from '../MaIcon/MaIcon.vue';
+    import Button from 'ant-design-vue/lib/button/index.js';
+    import MaIcon from '../MaIcon/MaIcon.vue';
 
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faTrashAlt, faSpinner } from '@fortawesome/free-solid-svg-icons';
-import MaButton from "../MaButton/MaButton.vue";
-library.add(faTrashAlt, faSpinner);
+    import { library } from '@fortawesome/fontawesome-svg-core';
+    import { faTrashAlt, faSpinner } from '@fortawesome/free-solid-svg-icons';
+    library.add(faTrashAlt, faSpinner);
 
-const VALID_BUTTON_VARIANT = [
-  'passive',
-  'primary',
-  'secondary',
-  'tertiary',
-  'success',
-  'info',
-  'warning',
-  'danger',
-  'link',
-];
-export default {
-  name: 'ma-track-button',
-  components: {
-    MaButton,
-    AButton: Button,
-    FontAwesomeIcon,
-    MaIcon,
-  },
-  props: {
-    variant: {
-      type: String,
-      default: 'primary',
-    },
-    leftIcon: {
-      type: String,
-    },
-    trackAll: { type: Boolean },
-    color: { type: String, default: '' },
-    size: { type: String, default: 'm' },
-    loading: { type: Boolean, default:false },
-    disabled: { type: Boolean, default:false },
-    showButtonIcon: { type: Boolean, default:false },
-    tracked: { type: Boolean, default:false },
-    keyword: { type: String, required:true },
-    translatedKeyword: { type: String, default: '' },
-  },
-  computed: {
-    classNames () {
-      return {
-        [`-tracked-${this.color}`]: this.tracked,
-        [`-size-${this.size}`]: true,
-        [`-${this.color}`]: true,
-      };
-    },
-  },
-};
+    //const VALID_BUTTON_VARIANT = [
+    //    'passive',
+    //    'primary',
+    //    'secondary',
+    //    'tertiary',
+    //    'success',
+    //    'info',
+    //    'warning',
+    //    'danger',
+    //    'link',
+    //];
+    export default {
+        name: 'ma-track-button',
+        components: {
+            AButton: Button,
+            MaIcon,
+        },
+        props: {
+            variant: {
+                type: String,
+                default: 'primary',
+            },
+            leftIcon: {
+                type: String,
+            },
+            trackAll: { type: Boolean },
+            color: { type: String, default: '' },
+            size: { type: String, default: 'm' },
+            loading: { type: Boolean, default: false },
+            disabled: { type: Boolean, default: false },
+            showButtonIcon: { type: Boolean, default: false },
+            tracked: { type: Boolean, default: false },
+            keyword: { type: String, required: true },
+            translatedKeyword: { type: String, default: '' },
+        },
+        computed: {
+            classNames () {
+                return {
+                    [`-tracked-${this.color}`]: this.tracked,
+                    [`-size-${this.size}`]: true,
+                    [`-${this.color}`]: true,
+                };
+            },
+        },
+    };
 </script>
 
 <style lang="scss" scoped>

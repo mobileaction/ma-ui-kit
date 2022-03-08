@@ -1,16 +1,16 @@
 import MaButton from './MaButton.vue';
 
 export default {
-  title: 'MaButton',
+    title: 'MaButton',
 
-  parameters: {
-    component: MaButton,
-  },
+    parameters: {
+        component: MaButton,
+    },
 };
 
 export const Base = () => ({
-  components: { MaButton },
-  template: `
+    components: { MaButton },
+    template: `
       <div class="m-2">
         <ma-button> Button </ma-button>
       </div>
@@ -18,8 +18,8 @@ export const Base = () => ({
 });
 
 export const Secondary = () => ({
-  components: { MaButton },
-  template: `
+    components: { MaButton },
+    template: `
       <div class="m-2">
         <ma-button variant="secondary" left-icon="plus"> Button </ma-button>
         <ma-button variant="secondary" left-icon="plus" disabled> Button </ma-button>
@@ -28,8 +28,8 @@ export const Secondary = () => ({
 });
 
 export const Success = () => ({
-  components: { MaButton },
-  template: `
+    components: { MaButton },
+    template: `
     <div class="m-2">
       <ma-button variant="success" size="small">Success</ma-button>
       <ma-button variant="success" >Success</ma-button>
@@ -40,8 +40,8 @@ export const Success = () => ({
 Success.storyName = 'success';
 
 export const Danger = () => ({
-  components: { MaButton },
-  template: `
+    components: { MaButton },
+    template: `
     <div class="m-2">
       <ma-button variant="danger" size="small">Danger</ma-button>
       <ma-button variant="danger">Danger</ma-button>
@@ -52,8 +52,8 @@ export const Danger = () => ({
 Danger.storyName = 'danger';
 
 export const LeftIcon = () => ({
-  components: { MaButton },
-  template: `
+    components: { MaButton },
+    template: `
     <div class="m-2">
       <ma-button icon="plus" size="small"> Button </ma-button>
       <ma-button icon="plus"> Button </ma-button>
@@ -64,8 +64,8 @@ export const LeftIcon = () => ({
 LeftIcon.storyName = 'Left Icon';
 
 export const Link = () => ({
-  components: { MaButton },
-  template: `
+    components: { MaButton },
+    template: `
     <div class="m-2">
       <ma-button variant="link" size="small"> Small Link </ma-button> <br/>
       <ma-button variant="link"> Link </ma-button> <br/>
@@ -76,8 +76,8 @@ export const Link = () => ({
 Link.storyName = 'Link';
 
 export const Loading = () => ({
-  components: { MaButton },
-  template: `
+    components: { MaButton },
+    template: `
     <div class="m-2">
     <ma-button icon="spinner" spin> Button </ma-button>
     </div>
@@ -86,8 +86,8 @@ export const Loading = () => ({
 Loading.storyName = 'Loading';
 
 export const Disabled = () => ({
-  components: { MaButton },
-  template: `
+    components: { MaButton },
+    template: `
     <div class="m-2">
     <ma-button icon="plus" disabled>Button </ma-button>
     </div>
@@ -97,8 +97,8 @@ export const Disabled = () => ({
 Disabled.storyName = 'Disabled';
 
 export const Variants = () => ({
-  components: { MaButton },
-  template: `
+    components: { MaButton },
+    template: `
     <div class="m-2">
       <p>Info</p>
       <ma-button variant="info" icon="user"/>
@@ -113,8 +113,8 @@ export const Variants = () => ({
 Variants.storyName = 'Variants';
 
 export const Sizes = () => ({
-  components: { MaButton },
-  template: `
+    components: { MaButton },
+    template: `
     <div class="m-2">
     <ma-button size="small"> small </ma-button>
     <ma-button> Default </ma-button>
@@ -126,8 +126,8 @@ export const Sizes = () => ({
 Sizes.storyName = 'Sizes';
 
 export const Shapes = () => ({
-  components: { MaButton },
-  template: `
+    components: { MaButton },
+    template: `
     <div class="m-2">
     <ma-button> Default </ma-button>
     <ma-button shape="round"> Round </ma-button>

@@ -1,16 +1,16 @@
 import MaCard from './MaCard.vue';
 
 export default {
-  title: 'MaCard',
+    title: 'MaCard',
 
-  parameters: {
-    component: MaCard,
-  },
+    parameters: {
+        component: MaCard,
+    },
 };
 
 export const Base = () => ({
-  components: { MaCard },
-  template: `
+    components: { MaCard },
+    template: `
       <div class="m-2">
         <ma-card title="Card Title">
           <template #extra>
@@ -28,8 +28,8 @@ export const Base = () => ({
 });
 
 export const NoBorder = () => ({
-  components: { MaCard },
-  template: `
+    components: { MaCard },
+    template: `
       <div class="p-8 bg-gray-200">
         <ma-card title="Card Title" no-border>
           <p>Content</p>
@@ -46,8 +46,8 @@ export const NoBorder = () => ({
 NoBorder.storyName = 'no-border';
 
 export const NoTitle= () => ({
-  components: { MaCard },
-  template: `
+    components: { MaCard },
+    template: `
       <div class="p-8 bg-gray-200">
         <ma-card no-border>
           <p>Content</p>
@@ -64,8 +64,8 @@ export const NoTitle= () => ({
 NoTitle.storyName = 'no-title';
 
 export const Loading= () => ({
-  components: { MaCard },
-  template: `
+    components: { MaCard },
+    template: `
       <div class="p-8 bg-gray-200">
         <ma-card title="Card Title" no-border loading>
           <p>Content</p>
