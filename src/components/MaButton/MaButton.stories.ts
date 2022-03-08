@@ -27,18 +27,6 @@ export const Secondary = () => ({
     `,
 });
 
-export const Primary = () => ({
-    components: { MaButton },
-    template: `
-    <div class="m-2">
-      <ma-button variant="primary" size="small">Primary</ma-button>
-      <ma-button variant="primary">Primary</ma-button>
-    </div>
-    
-    `,
-});
-Primary.storyName = 'primary';
-
 export const Success = () => ({
     components: { MaButton },
     template: `
@@ -57,11 +45,36 @@ export const Danger = () => ({
     <div class="m-2">
       <ma-button variant="danger" size="small">Danger</ma-button>
       <ma-button variant="danger">Danger</ma-button>
+      <ma-button variant="danger" icon="trash-alt"/>
     </div>
     
     `,
 });
 Danger.storyName = 'danger';
+
+export const Info = () => ({
+    components: { MaButton },
+    template: `
+    <div class="m-2">
+      <ma-button variant="info" size="small">Info</ma-button>
+      <ma-button variant="info">Info</ma-button>
+      <ma-button variant="info" icon="user"/>
+    </div>
+    `,
+});
+Info.storyName = 'info';
+
+export const Warning = () => ({
+    components: { MaButton },
+    template: `
+    <div class="m-2">
+      <ma-button variant="warning" size="small">Info</ma-button>
+      <ma-button variant="warning">Info</ma-button>
+      <ma-button variant="warning" icon="envelope"/>
+    </div>
+    `,
+});
+Warning.storyName = 'warning';
 
 export const LeftIcon = () => ({
     components: { MaButton },
@@ -107,22 +120,6 @@ export const Disabled = () => ({
 });
 
 Disabled.storyName = 'Disabled';
-
-export const Variants = () => ({
-    components: { MaButton },
-    template: `
-    <div class="m-2">
-      <p>Info</p>
-      <ma-button variant="info" icon="user"/>
-      <p>Danger</p>
-      <ma-button variant="danger" icon="trash-alt"/>
-      <p>Warning</p>
-      <ma-button variant="warning" icon="envelope"/>     
-    </div>
-    `,
-});
-
-Variants.storyName = 'Variants';
 
 export const Sizes = () => ({
     components: { MaButton },
