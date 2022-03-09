@@ -6,7 +6,6 @@
         :disabled="disabled"
         :size="size"
         :shape="shape"
-        v-on="$listeners"
         @click="$emit('click',$event)"
     >
         <ma-icon
