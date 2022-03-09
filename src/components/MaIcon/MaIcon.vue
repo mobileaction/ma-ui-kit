@@ -32,6 +32,7 @@
         faBellSlash,
         faLock,
         faComment,
+        faTimes,
     } from '@fortawesome/free-solid-svg-icons';
 
     library.add(
@@ -55,7 +56,8 @@
         faBell,
         faBellSlash,
         faLock,
-        faComment
+        faComment,
+        faTimes,
     );
 
     export default {

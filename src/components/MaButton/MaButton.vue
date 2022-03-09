@@ -103,6 +103,7 @@
           padding: 0;
           border: none;
           color: #1890ff;
+          background: none;
         }
         &:hover {
           &:not([disabled]){
