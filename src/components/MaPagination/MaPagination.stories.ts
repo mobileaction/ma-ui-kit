@@ -211,7 +211,7 @@ export const CustomTotal = () => ({
       `,
 });
 
-CustomTotal.storyName = 'CustomTotal';
+CustomTotal.storyName = 'Custom Total';
 
 export const SmallSize = () => ({
     components: { MaPagination },
@@ -279,4 +279,4 @@ export const PaginationWithTable = () => ({
       `,
 });
 
-PaginationWithTable.storyName = 'pagination with table';
+PaginationWithTable.storyName = 'Pagination With Table';
