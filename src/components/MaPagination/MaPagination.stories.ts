@@ -1,7 +1,5 @@
 import { withKnobs } from '@storybook/addon-knobs';
-import { Table as ATable } from 'ant-design-vue';
 import MaPagination from './MaPagination.vue';
-import 'ant-design-vue/dist/antd.css';
 
 export default {
     title: 'MaPagination',
@@ -12,82 +10,175 @@ export default {
     },
 };
 
-const sampleColumns = [
-    {
-        title: 'Name',
-        dataIndex: 'name',
-    },
-    {
-        title: 'Age',
-        dataIndex: 'age',
-    },
-    {
-        title: 'Address',
-        dataIndex: 'address',
-    },
-];
-
-const tableData = [];
-for (let i = 0; i < 46; i++) {
-    tableData.push({
-        key: i,
-        name: `Edward King ${i}`,
-        age: 32,
-        address: `London, Park Lane no. ${i}`,
-    });
-}
-
-export const Base = () => ({
+export const Basic = () => ({
     components: { MaPagination },
     data() {
         return {
-            pagination: {
-                pageSize: 10,
-                total: 100,
-                currentPage: 1,
-            },
+            pageSize: 10,
+            total: 50,
+            current: 1,
         };
     },
     template: `
-       <div class="m-p-10">
+       <div class="m-2">
             <ma-pagination
-                :pagination="pagination"
+                :page-size.sync="pageSize"
+                :total.sync="total"
+                :current.sync="current"
             />
        </div>
        
       `,
 });
 
-Base.storyName = 'Base';
+Basic.storyName = 'Basic';
 
-export const PaginationWithTable = () => ({
-    components: { MaPagination, ATable },
+export const More = () => ({
+    components: { MaPagination },
     data() {
         return {
-            pagination: {
-                pageSize: 10,
-                total: tableData.length,
-                currentPage: 1,
-            },
-            tableData,
-            sampleColumns,
+            pageSize: 10,
+            total: 100,
+            current: 1,
         };
     },
-    computed: {
-        shownData() {
-            return this.tableData.slice(
-                (this.pagination.currentPage - 1) * this.pagination.pageSize,
-                this.pagination.currentPage * this.pagination.pageSize
-            );
-        },
-    },
     template: `
-       <div class="m-p-10">
-        <a-table :columns="sampleColumns" :data-source="shownData" bordered :pagination="false">
-        </a-table>
-        <ma-pagination :pagination.sync="pagination" />
+       <div class="m-2">
+            <ma-pagination
+                :page-size.sync="pageSize"
+                :total.sync="total"
+                :current.sync="current"
+            />
        </div>
       `,
 });
 
-PaginationWithTable.storyName = 'pagination with table';
+More.storyName = 'More';
+
+export const Changer = () => ({
+    components: { MaPagination },
+    data() {
+        return {
+            pageSize: 10,
+            total: 500,
+            current: 1,
+        };
+    },
+    template: `
+       <div class="m-2">
+            <ma-pagination
+                :page-size.sync="pageSize"
+                :total.sync="total"
+                :current.sync="current"
+                :show-size-changer="true"
+            />
+       </div>
+       
+      `,
+});
+
+Changer.storyName = 'Changer';
+
+export const Disabled = () => ({
+    components: { MaPagination },
+    data() {
+        return {
+            pageSize: 10,
+            total: 500,
+            current: 1,
+        };
+    },
+    template: `
+       <div class="m-2">
+            <ma-pagination
+                :page-size.sync="pageSize"
+                :total.sync="total"
+                :current.sync="current"
+                :show-size-changer="true"
+                :disabled="true"
+            />
+       </div>
+       
+      `,
+});
+
+Disabled.storyName = 'Disabled';
+
+
+export const Jumper = () => ({
+    components: { MaPagination },
+    data() {
+        return {
+            pageSize: 10,
+            total: 500,
+            current: 1,
+        };
+    },
+    template: `
+       <div class="m-2">
+            <ma-pagination
+                :page-size.sync="pageSize"
+                :total.sync="total"
+                :current.sync="current"
+                :show-size-changer="true"
+                :show-quick-jumper="true"
+            />
+       </div>
+       
+      `,
+});
+
+Jumper.storyName = 'Jumper';
+
+export const Total = () => ({
+    components: { MaPagination },
+    data() {
+        return {
+            pageSize: 10,
+            total: 500,
+            current: 1,
+        };
+    },
+    template: `
+       <div class="m-2">
+            <ma-pagination
+                :page-size.sync="pageSize"
+                :total.sync="total"
+                :current.sync="current"
+                :show-size-changer="true"
+                :show-quick-jumper="true"
+                :show-total="true"
+            />
+       </div>
+      `,
+});
+
+Total.storyName = 'Total';
+
+export const SmallSize = () => ({
+    components: { MaPagination },
+    data() {
+        return {
+            pageSize: 10,
+            total: 500,
+            current: 1,
+        };
+    },
+    template: `
+       <div class="m-2">
+            <ma-pagination
+                :page-size.sync="pageSize"
+                :total.sync="total"
+                :current.sync="current"
+                :show-size-changer="true"
+                :show-quick-jumper="true"
+                :show-total="true"
+                size="small"
+            />
+       </div>
+       
+      `,
+});
+
+SmallSize.storyName = 'Small Size';
+
