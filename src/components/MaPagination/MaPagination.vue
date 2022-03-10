@@ -2,7 +2,7 @@
     <a-pagination
         class="ma-pagination"
         v-bind="$attrs"
-        :page-size-options="[10, 20, 30, 50, 100, 200]"
+        :page-size-options="pageSizeOptions"
         :page-size="pageSize"
         :current="current"
         :total="total"
@@ -10,8 +10,7 @@
         :show-size-changer="showSizeChanger"
         :disabled="disabled"
         :size="size"
-        :show-total="this.showTotalFunction"
-        v-on="$listeners"
+        :show-total="showTotalFunction"
         @change="onPageChange"
         @showSizeChange="onPageSizeChange"
     />
@@ -25,50 +24,19 @@
             APagination: Pagination,
         },
         props: {
-            pageSize: {
-                type: Number,
-                default: 10,
-            },
-            pageSizeOptions: {
-                type: Array,
-                default: () => [10, 20, 30, 50, 100, 200],
-            },
-            total: {
-                type: Number,
-                default: 0,
-            },
-            current: {
-                type: Number,
-                default: 1,
-            },
-            showQuickJumper: {
-                type: Boolean,
-                default: false,
-            },
-            showSizeChanger: {
-                type: Boolean,
-                default: false,
-            },
-            showTotal: {
-                type: Boolean,
-                default: false,
-            },
-            customShowTotal: {
-                type: Function,
-                default: null,
-            },
-            disabled: {
-                type: Boolean,
-                default: false,
-            },
-            size: {
-                type: String,
-                default: '',
-            },
+            pageSize: { type: Number, default: 10 },
+            pageSizeOptions: { type: Array, default: () => [10, 20, 30, 50, 100, 200] },
+            total: { type: Number, default: 0 },
+            current: { type: Number, default: 1 },
+            showQuickJumper: { type: Boolean },
+            showSizeChanger: { type: Boolean },
+            showTotal: { type: Boolean },
+            disabled: { type: Boolean },
+            size: { type: String, default: '' },
         },
         computed: {
             showTotalFunction() {
-                return this.customShowTotal ? this.customShowTotal : (this.showTotal ? this.defaultTotalFunction : null);
+                return this.showTotal ? total => `Total ${total}` : null;
             },
         },
         methods: {
@@ -79,10 +47,6 @@
                 this.$emit('update:current', 1);
                 this.$emit('update:pageSize', pageSize);
             },
-            defaultTotalFunction(total){
-                return `Total ${total}`;
-            },
-
         },
     };
 </script>
@@ -90,7 +54,6 @@
 <style lang="scss" scoped>
 @import '~ant-design-vue/lib/pagination/style/index.css';
 @import '~ant-design-vue/lib/select/style/index.css';
-
 
 .ant-pagination {
   &.ma-pagination {
@@ -159,6 +122,7 @@
         border-color: #4356b5;
       }
     }
+    @apply m-3
   }
 }
 </style>
