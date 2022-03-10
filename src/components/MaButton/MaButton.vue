@@ -104,6 +104,7 @@
           border: none;
           color: #1890ff;
           background: none;
+          box-shadow: none;
         }
         &:hover {
           &:not([disabled]){
