@@ -88,10 +88,15 @@
 </script>
 
 <style lang="scss" scoped>
-@import '~ant-design-vue/dist/antd.css';
+@import '~ant-design-vue/lib/pagination/style/index.css';
+@import '~ant-design-vue/lib/select/style/index.css';
+
 
 .ant-pagination {
   &.ma-pagination {
+    ::v-deep.anticon svg {
+      display: inline-block;
+    }
     ::v-deep svg { vertical-align: baseline; }
     ::v-deep.ant-pagination-item-active{
       background-color: #4356b5;
