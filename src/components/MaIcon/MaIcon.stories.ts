@@ -9,7 +9,7 @@ export default {
     },
 };
 
-export const Spinner = () => ({
+export const Sizes = () => ({
     components: { MaIcon },
     template: `
       <div>
@@ -24,7 +24,7 @@ export const Spinner = () => ({
       </div>
     `,
 });
-Spinner.storyName = 'spinner';
+Sizes.storyName = 'sizes';
 
 export const Icons = () => ({
     components: { MaIcon },
