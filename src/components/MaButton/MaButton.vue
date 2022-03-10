@@ -6,7 +6,6 @@
         :disabled="disabled"
         :size="size"
         :shape="shape"
-        v-on="$listeners"
         @click="$emit('click',$event)"
     >
         <ma-icon
@@ -104,6 +103,7 @@
           padding: 0;
           border: none;
           color: #1890ff;
+          background: none;
         }
         &:hover {
           &:not([disabled]){
