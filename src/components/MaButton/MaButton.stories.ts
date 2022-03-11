@@ -141,6 +141,8 @@ export const Shapes = () => ({
     <ma-button> Default </ma-button>
     <ma-button shape="round"> Round </ma-button>
     <ma-button shape="circle" icon="info-circle"/>
+    <ma-button variant="success" shape="round">Confirm</ma-button>
+    <ma-button variant="danger" shape="round">Cancel</ma-button>
     </div>
     `,
 });
