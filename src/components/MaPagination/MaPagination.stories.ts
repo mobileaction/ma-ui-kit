@@ -25,6 +25,7 @@ export const Basic = () => ({
                 :page-size.sync="pageSize"
                 :total.sync="total"
                 :current.sync="current"
+                :hide-total="true"
             />
        </div>
        
@@ -48,6 +49,7 @@ export const More = () => ({
                 :page-size.sync="pageSize"
                 :total.sync="total"
                 :current.sync="current"
+                :hide-total="true"
             />
        </div>
       `,
@@ -71,6 +73,7 @@ export const Changer = () => ({
                 :total.sync="total"
                 :current.sync="current"
                 :show-size-changer="true"
+                :hide-total="true"
             />
        </div>
        
@@ -96,6 +99,7 @@ export const Disabled = () => ({
                 :current.sync="current"
                 :show-size-changer="true"
                 :disabled="true"
+                :hide-total="true"
             />
        </div>
        
@@ -122,6 +126,7 @@ export const Jumper = () => ({
                 :current.sync="current"
                 :show-size-changer="true"
                 :show-quick-jumper="true"
+                :hide-total="true"
             />
        </div>
        
@@ -139,6 +144,15 @@ export const Total = () => ({
             current: 1,
         };
     },
+    methods: {
+        //current and pageSize sync automatically, these functions can be used for any other side effects
+        onPageChange(page){
+            this.current = page;
+        },
+        onPageSizeChange(pageSize){
+            this.pageSize = pageSize;
+        },
+    },
     template: `
        <div class="m-2">
             <ma-pagination
@@ -147,7 +161,8 @@ export const Total = () => ({
                 :current.sync="current"
                 :show-size-changer="true"
                 :show-quick-jumper="true"
-                :show-total="true"
+                @onPageChange="onPageChange"
+                @onPageSizeChange="onPageSizeChange"
             />
        </div>
       `,
@@ -172,7 +187,6 @@ export const SmallSize = () => ({
                 :current.sync="current"
                 :show-size-changer="true"
                 :show-quick-jumper="true"
-                :show-total="true"
                 size="small"
             />
        </div>

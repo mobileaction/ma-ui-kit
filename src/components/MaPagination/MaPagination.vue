@@ -25,27 +25,29 @@
         },
         props: {
             pageSize: { type: Number, default: 10 },
-            pageSizeOptions: { type: Array, default: () => [10, 20, 30, 50, 100, 200] },
+            pageSizeOptions: { type: Array, default: () => ['10', '20', '30', '50', '100', '200'] },
             total: { type: Number, default: 0 },
             current: { type: Number, default: 1 },
             showQuickJumper: { type: Boolean },
             showSizeChanger: { type: Boolean },
-            showTotal: { type: Boolean },
+            hideTotal: { type: Boolean },
             disabled: { type: Boolean },
             size: { type: String, default: '' },
         },
         computed: {
             showTotalFunction() {
-                return this.showTotal ? total => `Total ${total}` : null;
+                return this.hideTotal ? null : total => `Total ${total}`;
             },
         },
         methods: {
             onPageChange(page) {
                 this.$emit('update:current', page);
+                this.$emit('onPageChange', page);
             },
             onPageSizeChange(current, pageSize) {
                 this.$emit('update:current', 1);
                 this.$emit('update:pageSize', pageSize);
+                this.$emit('onPageSizeChange', pageSize);
             },
         },
     };
