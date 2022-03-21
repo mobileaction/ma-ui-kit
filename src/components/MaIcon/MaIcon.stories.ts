@@ -589,6 +589,16 @@ export const Icons = () => ({
             <ma-icon icon="book"/>
             <div> book </div>
           </div>
+
+          <div @click="copyIcon('calendar')" class="cursor-pointer">
+            <ma-icon icon="calendar"/>
+            <div> calendar </div>
+          </div>
+
+          <div @click="copyIcon('calendar-alt')" class="cursor-pointer">
+            <ma-icon icon="calendar-alt"/>
+            <div> calendar-alt </div>
+          </div>
       </div>
       
       </div>

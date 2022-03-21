@@ -84,9 +84,6 @@
   @import '~ant-design-vue/lib/button/style/index.css';
     .ma-button {
       align-items: center;
-      display: inline-flex;
-      justify-content: center;
-      font-size: 13px;
       &.rounded-border {
         border-radius: 2px;
       }
@@ -217,6 +214,8 @@
       }
       &.-shape-circle {
         width:24px;
+        display: inline-flex;
+        justify-content: center;
       }
     }
 </style>
