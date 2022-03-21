@@ -159,3 +159,16 @@ export const Shapes = () => ({
 });
 
 Shapes.storyName = 'Shapes';
+
+export const CircleSizes = () => ({
+    components: { MaButton },
+    template: `
+    <div class="m-2">
+    <ma-button shape="circle" size="small" icon="info-circle"/>
+    <ma-button shape="circle"  icon="info-circle"/>
+    <ma-button shape="circle" size="large" icon="info-circle"/>
+    </div>
+    `,
+});
+
+CircleSizes.storyName = 'Circle Sizes';
