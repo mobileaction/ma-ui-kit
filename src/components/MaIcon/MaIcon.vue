@@ -11,6 +11,7 @@
     import { library } from '@fortawesome/fontawesome-svg-core';
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
     import {
+        faFilter,
         faPlus,
         faInfoCircle,
         faTrashAlt,
@@ -176,6 +177,7 @@
 
     // solid icons
     library.add(
+        faFilter,
         faPlus,
         faInfoCircle,
         faTrashAlt,
