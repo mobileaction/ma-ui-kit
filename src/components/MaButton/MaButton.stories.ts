@@ -21,11 +21,23 @@ export const Secondary = () => ({
     components: { MaButton },
     template: `
       <div class="m-2">
-        <ma-button variant="secondary" left-icon="plus"> Button </ma-button>
-        <ma-button variant="secondary" left-icon="plus" disabled> Button </ma-button>
+        <ma-button variant="secondary" left-icon="plus"> Secondary </ma-button>
+        <ma-button variant="secondary" left-icon="plus" disabled> Secondary </ma-button>
       </div>
     `,
 });
+
+export const Tertiary = () => ({
+    components: { MaButton },
+    template: `
+      <div class="m-2 p-2" style="background-color: #32355b">
+        <ma-button variant="tertiary" icon="plus">Tertiary </ma-button>
+        <ma-button variant="tertiary" icon="envelope"> Add New App </ma-button>
+        <ma-button variant="tertiary" icon="envelope" disabled> Custom Alert </ma-button>
+      </div>
+    `,
+});
+Tertiary.storyName = 'tertiary';
 
 export const Success = () => ({
     components: { MaButton },
@@ -34,7 +46,6 @@ export const Success = () => ({
       <ma-button variant="success" size="small">Success</ma-button>
       <ma-button variant="success" >Success</ma-button>
     </div>
-    
     `,
 });
 Success.storyName = 'success';

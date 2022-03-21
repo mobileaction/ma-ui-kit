@@ -73,7 +73,7 @@
                     '-icon': this.icon || this.leftIcon,
                     [`-${this.variant}`]: true,
                     [`-size-${this.size}`]: true,
-                    'rounded-[2px]': this.shape !== 'circle' && this.shape !== 'round',
+                    'rounded-border': this.shape !== 'circle' && this.shape !== 'round',
                 };
             },
         },
@@ -83,6 +83,9 @@
   @import '~ant-design-vue/lib/button/style/index.css';
     .ma-button {
       align-items: center;
+      &.rounded-border {
+        border-radius: 2px;
+      }
       &.-secondary {
         &:not([disabled]){
           color: #fff;
@@ -92,6 +95,23 @@
         &:hover {
           &:not([disabled]){
             background-color: #62C3B2;
+          }
+        }
+        &.icon {
+          color: white;
+        }
+      }
+      &.-tertiary {
+        &:not([disabled]){
+          border-style: none;
+          --tw-text-opacity: 1;
+          color: #fff;;
+          background: #4e5172;
+        }
+        &:hover {
+          &:not([disabled]){
+            color: #32355C;
+            background: #E7EBEF;
           }
         }
         &.icon {
@@ -126,9 +146,6 @@
         &.icon {
           color: white;
         }
-      }
-      &.-orange {
-        background: #F2935F;
       }
       &.-danger {
         &:not([disabled]) {
