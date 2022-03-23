@@ -73,6 +73,7 @@
                     '-icon': this.icon || this.leftIcon,
                     [`-${this.variant}`]: true,
                     [`-size-${this.size}`]: true,
+                    [`-shape-${this.shape}`]: true,
                     'rounded-border': this.shape !== 'circle' && this.shape !== 'round',
                 };
             },
@@ -197,14 +198,10 @@
           padding: 8px 20px;
         }
       }
-      .ma-btn-icon {
-        margin-top: 4px;
-      }
       .ma-btn-span-with-icon {
         margin-left: 4px;
       }
       &.-size-small {
-        height: auto;
         min-height: 24px;
         padding:0 8px;
         font-size: 12px;
@@ -214,6 +211,11 @@
         .translatedKw {
           font-size: 0.70rem;
         }
+      }
+      &.-shape-circle {
+        width:24px;
+        display: inline-flex;
+        justify-content: center;
       }
     }
 </style>
