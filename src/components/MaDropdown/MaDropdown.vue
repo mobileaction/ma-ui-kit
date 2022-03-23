@@ -8,7 +8,16 @@
                     <template slot="title">
                         {{ tooltip.content }}
                     </template>
-                    <ma-button v-if="isButton" :icon="buttonIcon" @click="e => e.preventDefault()">
+                    <ma-button v-if="buttonIcon !== ''" :icon="buttonIcon" @click="e => e.preventDefault()">
+                        <div v-if="selectedItem">
+                            <img v-if="hasImage" :src="selectedItem.image">
+                            {{ selectedItem.title }} <ma-icon icon="caret-down"/>
+                        </div>
+                        <div v-else>
+                            {{ content }} <ma-icon icon="caret-down"/>
+                        </div>
+                    </ma-button>
+                    <ma-button v-else @click="e => e.preventDefault()">
                         <div v-if="selectedItem">
                             <img v-if="hasImage" :src="selectedItem.image">
                             {{ selectedItem.title }} <ma-icon icon="caret-down"/>
@@ -18,10 +27,33 @@
                         </div>
                     </ma-button>
                 </a-tooltip>
+                <div v-else>
+                    <ma-button v-if="buttonIcon !== ''" :icon="buttonIcon" @click="e => e.preventDefault()">
+                        <div v-if="selectedItem">
+                            <img v-if="hasImage" :src="selectedItem.image">
+                            {{ selectedItem.title }} <ma-icon icon="caret-down"/>
+                        </div>
+                        <div v-else>
+                            {{ content }} <ma-icon icon="caret-down"/>
+                        </div>
+                    </ma-button>
+                    <ma-button v-else @click="e => e.preventDefault()">
+                        <div v-if="selectedItem">
+                            <img v-if="hasImage" :src="selectedItem.image">
+                            {{ selectedItem.title }} <ma-icon icon="caret-down"/>
+                        </div>
+                        <div v-else>
+                            {{ content }} <ma-icon icon="caret-down"/>
+                        </div>
+                    </ma-button>
+                </div>
             </div>
             <div v-else>
                 <a-tooltip v-if="tooltip" :placement="tooltip.placement ? tooltip.placement : 'top' ">
-                    <a else class="ant-dropdown-link" @click="e => e.preventDefault()">
+                    <template slot="title">
+                        {{ tooltip.content }}
+                    </template>
+                    <a class="ant-dropdown-link" @click="e => e.preventDefault()">
                         <div v-if="selectedItem">
                             <img v-if="hasImage" :src="selectedItem.image">
                             {{ selectedItem.title }} <ma-icon icon="caret-down"/>
@@ -29,6 +61,13 @@
                         <div v-else> {{ content }} <ma-icon icon="caret-down"/> </div>
                     </a>
                 </a-tooltip>
+                <a v-else class="ant-dropdown-link" @click="e => e.preventDefault()">
+                    <div v-if="selectedItem">
+                        <img v-if="hasImage" :src="selectedItem.image">
+                        {{ selectedItem.title }} <ma-icon icon="caret-down"/>
+                    </div>
+                    <div v-else> {{ content }} <ma-icon icon="caret-down"/> </div>
+                </a>
             </div>
         </div>
         <a-menu slot="overlay">
@@ -41,25 +80,54 @@
             >
                 <div class="flex flex-row justify-between">
                     <!--dropdown menu item name image icon part-->
-                    <div>
-                        <img v-if="image" :src="image">
-                        <ma-icon v-if="item.icon" :icon="item.icon"/>
-                        <div>
-                            <div v-if="item.bold" class="font-bold">
-                                {{ item.title }}
+                    <div class="mr-1">
+                        <a-tooltip v-if="item.tooltip" placement="top">
+                            <template slot="title">
+                                {{ item.tooltip }}
+                            </template>
+                            <img v-if="item.image" :src="item.image">
+                            <ma-icon v-if="item.icon" :icon="item.icon"/>
+                            <div>
+                                <div v-if="item.bold" class="font-bold">
+                                    {{ item.title }}
+                                </div>
+                                <div v-else>
+                                    {{ item.title }}
+                                </div>
                             </div>
-                            <div v-else>
-                                {{ item.title }}
+                            <div v-if="item.description">
+                                {{ item.description }}
                             </div>
-                        </div>
-                        <div v-if="item.description">
-                            {{ item.description }}
+                        </a-tooltip>
+                        <div v-else>
+                            <img v-if="item.image" :src="item.image">
+                            <ma-icon v-if="item.icon" :icon="item.icon"/>
+                            <div>
+                                <div v-if="item.bold" class="font-bold">
+                                    {{ item.title }}
+                                </div>
+                                <div v-else>
+                                    {{ item.title }}
+                                </div>
+                            </div>
+                            <div v-if="item.description">
+                                {{ item.description }}
+                            </div>
                         </div>
                     </div>
                     <!--dropdown menu item check property and button group part-->
                     <div class="flex flex-row">
                         <div v-if="item.checked" class="mr-2">
                             <ma-button variant="link" icon="check"/>
+                        </div>
+                        <div v-if="extraIcon" class="mr-2">
+                            <a-tooltip v-if="extraIcon.tooltip">
+                                <template slot="title">
+                                    {{ extraIcon.tooltip }}
+                                </template>
+                                <ma-button variant="link" :icon="extraIcon.icon"/>
+                            </a-tooltip>
+                            <ma-button v-else variant="link" :icon="extraIcon.icon"/>
                         </div>
                         <div v-if="buttonGroup.length > 0">
                             <div
@@ -121,11 +189,12 @@
             menuItemButton: { type: Object, default: null },
             title: { type: String, default: null },
             trigger: { type: Array, default: () => ['hover'] },
-            content: { type: String, default: null },
+            content: { type: String, default: '' },
             type: { type: String, default: 'button' },
             icon: { type: String, default: '' },
             header: { type: String, default: '' },
             buttonGroup: { type: Array, default: () => [] },
+            extraIcon: { type: Object, default: null },
             tooltip: { type: Object, default: null },
         },
         data() {
@@ -169,7 +238,7 @@
   line-height: 27px;
   padding: 0 15px;
   font-size: 13px;
-  width: auto;
+  min-width: 50px !important;
   .ma-menu-item{
     left: 2px;
     bottom: 1px;

@@ -62,13 +62,6 @@ export const Trigger = () => ({
       <ma-dropdown
           class="m-2"
           :menu-items="menuItems"
-          :trigger="['hover, click']"
-          content="hover and click me"
-      >
-      </ma-dropdown>
-      <ma-dropdown
-          class="m-2"
-          :menu-items="menuItems"
           :trigger="['contextmenu']"
           content="right click on here"
           type="text"
