@@ -129,9 +129,9 @@
                             </a-tooltip>
                             <ma-button v-else variant="link" :icon="extraIcon.icon"/>
                         </div>
-                        <div v-if="buttonGroup.length > 0">
+                        <div v-if="item.buttonGroup && item.buttonGroup.length > 0">
                             <div
-                                v-for="(button, index) in buttonGroup"
+                                v-for="(button, index) in item.buttonGroup"
                                 :key="index"
                                 class="flex flex-row mr-1"
                             >
@@ -161,8 +161,9 @@
                 class="ma-menu-item"
                 @click="$emit('menuItemClick', $event);"
             >
-                <ma-icon v-if="menuItemButton.icon" :icon="menuItemButton.icon"/>
-                {{ menuItemButton.name }}
+                <ma-button v-if="menuItemButton.icon" :icon="menuItemButton.icon" variant="link">
+                    {{ menuItemButton.name }}
+                </ma-button>
             </a-menu-item>
         </a-menu>
     </a-dropdown>
@@ -193,7 +194,6 @@
             type: { type: String, default: 'button' },
             icon: { type: String, default: '' },
             header: { type: String, default: '' },
-            buttonGroup: { type: Array, default: () => [] },
             extraIcon: { type: Object, default: null },
             tooltip: { type: Object, default: null },
         },

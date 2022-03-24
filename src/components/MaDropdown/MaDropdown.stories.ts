@@ -15,14 +15,13 @@ export const Trigger = () => ({
         return {
             menuItems: [
                 { key: 1, title: 'Item1' },
-                { key: 22, title: 'Item2' },
+                { key: 22, title: 'Item2',  buttonGroup: [
+                    { icon: 'trash', tooltip: 'Delete' },
+                ] },
                 { key: 333, title: 'Item3', checked: true },
             ],
             tooltip: { content: 'this is a tooltip', placement: 'top' },
             menuItemButton: { icon: 'plus', name: 'Add New Group' },
-            buttonGroup: [
-                { icon: 'trash', tooltip: 'Delete' },
-            ],
         };
     },
     template:
@@ -37,7 +36,6 @@ export const Trigger = () => ({
           icon="book"
           :tooltip="tooltip"
           :menu-item-button="menuItemButton"
-          :button-group="buttonGroup"
       >
       </ma-dropdown>
       <ma-dropdown
