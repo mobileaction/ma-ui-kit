@@ -8,16 +8,18 @@
         :shape="shape"
         @click="$emit('click',$event)"
     >
-        <ma-icon
-            v-if="icon === 'spinner'" :icon="icon"
-            spin
-            class="ma-btn-icon"
-        />
-        <ma-icon v-else-if="icon && icon !== 'spinner'" :icon="icon" class="ma-btn-icon"/>
-        <span v-if="onlyIconWithText" class="ma-btn-span-with-icon">
-            <slot/>
-        </span>
-        <slot v-else/>
+        <div class="flex items-center">
+            <ma-icon
+                v-if="icon === 'spinner' || loading " icon="spinner"
+                spin
+                class="ma-btn-icon"
+            />
+            <ma-icon v-else-if="icon && icon !== 'spinner'" :icon="icon" class="ma-btn-icon"/>
+            <span v-if="onlyIconWithText" class="ma-btn-span-with-icon">
+                <slot/>
+            </span>
+            <slot v-else/>
+        </div>
     </a-button>
 </template>
 
@@ -73,8 +75,8 @@
                     '-icon': this.icon || this.leftIcon,
                     [`-${this.variant}`]: true,
                     [`-size-${this.size}`]: true,
-                    [`-shape-${this.shape}`]: true,
-                    'rounded-border': this.shape !== 'circle' && this.shape !== 'round',
+                    [`-shape-${this.shape}`]: this.shape,
+                    [`rounded-border`]: this.shape !== 'circle' && this.shape !== 'round',
                 };
             },
         },
@@ -211,6 +213,9 @@
         .translatedKw {
           font-size: 0.70rem;
         }
+      }
+      &.-size-default {
+        padding:0 12px;
       }
       &.-shape-circle {
         width:24px;
