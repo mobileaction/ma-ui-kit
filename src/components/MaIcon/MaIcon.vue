@@ -317,4 +317,10 @@
   .ma-white {
     color: #fff;
   }
+  .ma-green {
+    color:rgb(72, 187, 120);
+  }
+  .ma-red {
+    color:rgb(245, 101, 101);
+  }
 </style>
