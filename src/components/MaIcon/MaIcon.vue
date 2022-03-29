@@ -11,6 +11,7 @@
     import { library } from '@fortawesome/fontawesome-svg-core';
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
     import {
+        faFilter,
         faPlus,
         faInfoCircle,
         faTrashAlt,
@@ -178,6 +179,7 @@
 
     // solid icons
     library.add(
+        faFilter,
         faPlus,
         faInfoCircle,
         faTrashAlt,
@@ -314,5 +316,11 @@
 <style lang="scss" scoped>
   .ma-white {
     color: #fff;
+  }
+  .ma-green {
+    color:rgb(72, 187, 120);
+  }
+  .ma-red {
+    color:rgb(245, 101, 101);
   }
 </style>
