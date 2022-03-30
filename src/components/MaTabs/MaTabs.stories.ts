@@ -15,6 +15,7 @@ export const Base = () => ({
     components: { MaTabs },
     data() {
         return {
+            activeTab: '',
             list: [
                 {
                     type: 'item1',
@@ -32,12 +33,28 @@ export const Base = () => ({
             ],
         };
     },
+    methods: {
+        changeTab(value) {
+            this.activeTab = value;
+        },
+    },
     template: `
        <div class="m-p-15">
             <ma-tabs
               :tab-panel-list="list"
               show-count
-            />
+              @activeTab="changeTab"
+            >
+            <template #item1>
+              item one
+            </template>
+            <template #item2>
+              item two
+            </template>
+            <template #item3>
+              item three
+            </template>
+            </ma-tabs>
        </div>
       `,
 });

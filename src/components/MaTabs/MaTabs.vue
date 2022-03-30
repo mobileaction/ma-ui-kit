@@ -29,6 +29,7 @@
                     NEW
                 </div>
             </span>
+            <slot :name="tab.type"/>
         </a-tab-pane>
         <slot slot="tabBarExtraContent"/>
     </a-tabs>
