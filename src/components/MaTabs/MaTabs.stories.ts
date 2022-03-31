@@ -20,7 +20,6 @@ export const Base = () => ({
                 {
                     type: 'item1',
                     label: 'Item 1',
-                    active: true,
                 },
                 {
                     type: 'item2',
@@ -43,6 +42,7 @@ export const Base = () => ({
             <ma-tabs
               :tab-panel-list="list"
               show-count
+              :selected.sync="activeTab"
               @activeTab="changeTab"
             >
             <template #item1>
@@ -78,7 +78,6 @@ export const Header = () => ({
                 {
                     type: 'item3',
                     label: 'Item 3',
-                    active: true,
                 },
             ],
         };
@@ -88,6 +87,7 @@ export const Header = () => ({
         <ma-tabs
             :tab-panel-list="list"
             variant="header"
+            selected="item2"
         >
           <ma-button name="tabBarExtraContent">
             Extra
@@ -117,7 +117,6 @@ export const NewTab = () => ({
                     type: 'item3',
                     label: 'Item 3',
                     isNew: true,
-                    active: true,
                 },
             ],
         };
@@ -141,7 +140,6 @@ export const ShowCount = () => ({
                 {
                     type: 'item1',
                     label: 'Item 1',
-                    active: true,
                     totalElements: '4',
                 },
                 {
@@ -177,7 +175,6 @@ export const ShowTooltip = () => ({
                 {
                     type: 'item1',
                     label: 'Item 1',
-                    active: true,
                     totalElements: '4',
                     tooltip: 'Title tooltip',
                 },
@@ -218,7 +215,6 @@ export const Sizes = () => ({
                 {
                     type: 'item1',
                     label: 'Item 1',
-                    active: true,
                 },
                 {
                     type: 'item2',
