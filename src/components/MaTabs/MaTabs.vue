@@ -6,6 +6,7 @@
         class="ma-tabs"
         tab-position="top"
         :class="classNames"
+        @change="handleTabChange"
     >
         <a-tab-pane
             v-for="(tab) in tabPanelList"
@@ -29,6 +30,7 @@
                     NEW
                 </div>
             </span>
+            <slot :name="tab.type"/>
         </a-tab-pane>
         <slot slot="tabBarExtraContent"/>
     </a-tabs>
@@ -68,6 +70,10 @@
                 type: String,
                 default: 'default',
             },
+            selected: {
+                type: String,
+                default: '',
+            },
         },
         data() {
             return {
@@ -82,14 +88,13 @@
             },
         },
         methods: {
+            handleTabChange(tab) {
+                this.$emit('activeTab', tab);
+                this.$emit('update:selected', tab);
+            },
         },
         mounted() {
-            this.selectedTab = this.tabPanelList.map(tab => tab.active === true)[0].type || this.tabPanelList[0].type;
-        },
-        watch: {
-            selectedTab() {
-                this.$emit('activeTab', this.selectedTab);
-            },
+            this.selectedTab = this.selected !== '' ? this.selected : this.tabPanelList[0].type;
         },
     };
 </script>
