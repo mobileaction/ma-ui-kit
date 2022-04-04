@@ -36,8 +36,7 @@ export const Trigger = () => ({
       <div class="m-2">
       <ma-dropdown
           class="m-2"
-          content="Click Mejhdfjshfjshfjshf sjdfhksf"
-          type="button"
+          content="Click Me"
           :menu-items="menuItems"
           selected-image="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/33/93/f9/3393f926-c05c-ab64-8655-6728f8f5fbe5/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/60x60.png"
           :menu-item-button="menuItemButton"
@@ -46,7 +45,6 @@ export const Trigger = () => ({
       <ma-dropdown
           class="m-2"
           content="Click Me"
-          type="button"
           button-variant="info"
           :menu-item-button="menuItemButton"
       >
@@ -65,7 +63,6 @@ export const Trigger = () => ({
           class="m-2"
           :menu-items="menuItems"
           content="Click Me"
-          type="button"
           icon="book"
           icon-color="green"
           :auto-content-change="false"
