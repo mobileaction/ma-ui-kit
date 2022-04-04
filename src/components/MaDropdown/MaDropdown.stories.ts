@@ -24,6 +24,11 @@ export const Trigger = () => ({
             iconClass: 'green',
             tooltip: { content: 'this is a tooltip', placement: 'top' },
             menuItemButton: { icon: 'plus', name: 'Add New Group' },
+            data: [
+                { code: 'test1', name: 'test 1111 ajkshdas asd' },
+                { code: 'test2', name: 'test 2' },
+                { code: 'test3', name: 'test 3' },
+            ],
         };
     },
     template:
@@ -31,19 +36,34 @@ export const Trigger = () => ({
       <div class="m-2">
       <ma-dropdown
           class="m-2"
-          :menu-items="menuItems"
-          :trigger="['click']"
-          content="Click Me"
+          content="Click Mejhdfjshfjshfjshf sjdfhksf"
           type="button"
+          :menu-items="menuItems"
           selected-image="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/33/93/f9/3393f926-c05c-ab64-8655-6728f8f5fbe5/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/60x60.png"
-          :tooltip="tooltip"
           :menu-item-button="menuItemButton"
       >
       </ma-dropdown>
       <ma-dropdown
           class="m-2"
+          content="Click Me"
+          type="button"
+          button-variant="info"
+          :menu-item-button="menuItemButton"
+      >
+        <template #externalMenuItems>
+          <div slot="overlay">
+            <div
+                v-for="(item) in data"
+                :key="item.code"
+            >
+              <span class="mr-2"> {{ item.name }}</span>
+            </div>
+          </div>
+        </template>
+      </ma-dropdown>
+      <ma-dropdown
+          class="m-2"
           :menu-items="menuItems"
-          :trigger="['click']"
           content="Click Me"
           type="button"
           icon="book"

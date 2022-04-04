@@ -1,5 +1,5 @@
 <template>
-    <a-dropdown :trigger="trigger">
+    <a-dropdown :trigger="trigger" @visibleChange="$emit('visibleChange',$event)">
         <div>
             <div v-if="isButton">
                 <a-tooltip
@@ -10,6 +10,7 @@
                     </template>
                     <ma-button
                         :shape="buttonShape"
+                        :variant="buttonVariant"
                         :class="buttonClass"
                         @click="e => e.preventDefault()"
                     >
@@ -17,18 +18,18 @@
                             <ma-icon v-if="buttonIcon !== ''" :icon="buttonIcon" :color="iconColor"/>
                             <img v-if="hasImage && selectedItem.image" :src="selectedItem.image" class="ma-dropdown-image">
                             <div v-if="autoContentChange">
-                                {{ selectedItem.title }}
-                                <ma-icon icon="caret-down"/>
+                                <span class="ma-button-text">{{ selectedItem.title }}</span>
+                                <ma-icon class="ml-2" icon="caret-down"/>
                             </div>
                             <div v-else>
-                                {{ content }}
-                                <ma-icon v-if="arrowVisibility" icon="caret-down"/>
+                                <span class="ma-button-text"> {{ content }}</span>
+                                <ma-icon v-if="arrowVisibility" class="ml-2" icon="caret-down"/>
                             </div>
                         </div>
                         <div v-else class="flex flex-row justify-start items-center">
                             <ma-icon v-if="buttonIcon !== ''" :icon="buttonIcon" :color="iconColor"/>
                             <img v-if="selectedImage !== '' " :src="selectedImage" class="ma-dropdown-image">
-                            {{ content }} <ma-icon v-if="arrowVisibility" icon="caret-down"/>
+                            <span class="ma-button-text">{{ content }}</span> <ma-icon v-if="arrowVisibility" class="ml-2" icon="caret-down"/>
                         </div>
                     </ma-button>
                 </a-tooltip>
@@ -36,24 +37,26 @@
                     <ma-button
                         :shape="buttonShape"
                         :class="buttonClass"
+                        :variant="buttonVariant"
                         @click="e => e.preventDefault()"
                     >
                         <div v-if="selectedItem" class="flex flex-row justify-start items-center">
                             <ma-icon v-if="buttonIcon !== ''" :icon="buttonIcon" :color="iconColor"/>
                             <img v-if="hasImage && selectedItem.image" :src="selectedItem.image" class="ma-dropdown-image">
                             <div v-if="autoContentChange">
-                                {{ selectedItem.title }}
-                                <ma-icon v-if="arrowVisibility" icon="caret-down"/>
+                                <span class="ma-button-text">{{ selectedItem.title }}</span>
+                                <ma-icon v-if="arrowVisibility" class="ml-2" icon="caret-down"/>
                             </div>
                             <div v-else>
-                                {{ content }}
-                                <ma-icon v-if="arrowVisibility" icon="caret-down"/>
+                                <span class="ma-button-text">{{ content }}</span>
+                                <ma-icon v-if="arrowVisibility" class="ml-2" icon="caret-down"/>
                             </div>
                         </div>
                         <div v-else class="flex flex-row justify-start items-center">
                             <ma-icon v-if="buttonIcon !== ''" :icon="buttonIcon" :color="iconColor"/>
                             <img v-if="selectedImage !== '' " :src="selectedImage" class="ma-dropdown-image">
-                            {{ content }} <ma-icon v-if="arrowVisibility" icon="caret-down"/>
+                            <span class="ma-button-text">{{ content }} </span>
+                            <ma-icon v-if="arrowVisibility" class="ml-2" icon="caret-down"/>
                         </div>
                     </ma-button>
                 </div>
@@ -67,44 +70,52 @@
                         <div v-if="selectedItem" class="flex flex-row justify-start items-center">
                             <img v-if="hasImage && selectedItem.image" :src="selectedItem.image" class="ma-dropdown-image">
                             <div v-if="autoContentChange">
-                                {{ selectedItem.title }}
+                                <span class="ma-button-text">{{ selectedItem.title }}</span>
                                 <ma-icon v-if="arrowVisibility" icon="caret-down"/>
                             </div>
                             <div v-else>
-                                {{ content }}
-                                <ma-icon v-if="arrowVisibility" icon="caret-down"/>
+                                <span class="ma-button-text">{{ content }} </span>
+                                <ma-icon v-if="arrowVisibility" class="ml-2" icon="caret-down"/>
                             </div>
                         </div>
                         <div v-else class="flex flex-row justify-start items-center">
                             <img v-if="selectedImage !== '' " :src="selectedImage" class="ma-dropdown-image">
-                            {{ content }} <ma-icon v-if="arrowVisibility" icon="caret-down"/> </div>
+                            <span class="ma-button-text">{{ content }}</span> <ma-icon v-if="arrowVisibility" class="ml-2" icon="caret-down"/> </div>
                     </a>
                 </a-tooltip>
                 <a v-else class="ant-dropdown-link" @click="e => e.preventDefault()">
                     <div v-if="selectedItem" class="flex flex-row justify-start items-center">
                         <img v-if="hasImage && selectedItem.image" :src="selectedItem.image" class="ma-dropdown-image">
                         <div v-if="autoContentChange">
-                            {{ selectedItem.title }}
-                            <ma-icon v-if="arrowVisibility" icon="caret-down"/>
+                            <span class="ma-button-text">
+                                {{ selectedItem.title }}
+                            </span>
+                            <ma-icon v-if="arrowVisibility" class="ml-2" icon="caret-down"/>
                         </div>
                         <div v-else>
-                            {{ content }}
-                            <ma-icon v-if="arrowVisibility" icon="caret-down"/>
+                            <span class="ma-button-text">
+                                {{ content }}
+                            </span>
+                            <ma-icon v-if="arrowVisibility" class="ml-2" icon="caret-down"/>
                         </div>
                     </div>
                     <div v-else class="flex flex-row justify-start items-center">
                         <img v-if="selectedImage !== '' " :src="selectedImage" class="ma-dropdown-image">
-                        {{ content }} <ma-icon v-if="arrowVisibility" icon="caret-down"/>
+                        <span class="ma-button-text">{{ content }}</span> <ma-icon v-if="arrowVisibility" class="ml-2" icon="caret-down"/>
                     </div>
                 </a>
             </div>
         </div>
-        <a-menu slot="overlay">
+        <slot
+            v-if="menuItems.length === 0" slot="overlay"
+            name="externalMenuItems"
+            class="ma-menu-items-slot"
+        />
+        <a-menu v-else slot="overlay">
             <span v-if=" header !== '' " class="font-bold"> {{ header }}</span>
             <a-menu-item
                 v-for="(item, index) in menuItems"
                 :key="index"
-                class="ma-menu-item"
                 @click="click(item)"
             >
                 <div class="flex flex-row justify-between">
@@ -242,7 +253,7 @@
             menuItems: { type: Array, default: () => [] },
             menuItemButton: { type: Object, default: null },
             title: { type: String, default: null },
-            trigger: { type: Array, default: () => ['hover'] },
+            trigger: { type: Array, default: () => ['click'] },
             content: { type: String, default: '' },
             type: { type: String, default: 'button' },
             icon: { type: String, default: '' },
@@ -251,6 +262,7 @@
             tooltip: { type: Object, default: null },
             selectedImage: { type: String, default: '' },
             buttonShape: { type: String },
+            buttonVariant: { type: String },
             buttonClass: { type: String },
             iconColor: { type: String },
             arrowVisibility: { type: Boolean, default: true },
@@ -296,6 +308,18 @@
 .ant-dropdown{
   min-width: 50px !important;
   padding: 0px !important;
+  .ant-dropdown-content {
+    position: relative;
+    margin: 0;
+    padding: 4px;
+    text-align: left;
+    list-style-type: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-radius: 4px;
+    outline: none;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+  }
   .ma-menu-item{
     left: 2px;
     &:hover {
@@ -310,4 +334,12 @@
   border-radius: 4px;
   margin-right: 2px;
 }
+
+.ma-button-text{
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 </style>
