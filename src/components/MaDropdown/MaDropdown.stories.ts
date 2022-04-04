@@ -25,7 +25,7 @@ export const Trigger = () => ({
             tooltip: { content: 'this is a tooltip', placement: 'top' },
             menuItemButton: { icon: 'plus', name: 'Add New Group' },
             data: [
-                { code: 'test1', name: 'test 1111 ajkshdas asd' },
+                { code: 'test1', name: 'test 1' },
                 { code: 'test2', name: 'test 2' },
                 { code: 'test3', name: 'test 3' },
             ],
