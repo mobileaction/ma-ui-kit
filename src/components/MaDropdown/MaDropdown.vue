@@ -69,16 +69,16 @@
                     <a class="ant-dropdown-link" @click="e => e.preventDefault()">
                         <div v-if="selectedItem" class="flex flex-row justify-start items-center">
                             <img v-if="hasImage && selectedItem.image" :src="selectedItem.image" class="ma-dropdown-image">
-                            <div v-if="autoContentChange" class="ma-button-text">
+                            <div v-if="autoContentChange">
                                 <span>{{ selectedItem.title }}</span>
                                 <ma-icon v-if="arrowVisibility" icon="caret-down"/>
                             </div>
-                            <div v-else class="ma-button-text">
+                            <div v-else>
                                 <span>{{ content }} </span>
                                 <ma-icon v-if="arrowVisibility" class="ml-2" icon="caret-down"/>
                             </div>
                         </div>
-                        <div v-else class="flex flex-row justify-start items-center ma-button-text">
+                        <div v-else class="flex flex-row justify-start items-center">
                             <img v-if="selectedImage !== '' " :src="selectedImage" class="ma-dropdown-image">
                             <span>{{ content }}</span> <ma-icon v-if="arrowVisibility" class="ml-2" icon="caret-down"/> </div>
                     </a>
@@ -86,20 +86,20 @@
                 <a v-else class="ant-dropdown-link" @click="e => e.preventDefault()">
                     <div v-if="selectedItem" class="flex flex-row justify-start items-center">
                         <img v-if="hasImage && selectedItem.image" :src="selectedItem.image" class="ma-dropdown-image">
-                        <div v-if="autoContentChange" class="ma-button-text">
+                        <div v-if="autoContentChange">
                             <span>
                                 {{ selectedItem.title }}
                             </span>
                             <ma-icon v-if="arrowVisibility" class="ml-2" icon="caret-down"/>
                         </div>
-                        <div v-else class="ma-button-text">
+                        <div v-else>
                             <span>
                                 {{ content }}
                             </span>
                             <ma-icon v-if="arrowVisibility" class="ml-2" icon="caret-down"/>
                         </div>
                     </div>
-                    <div v-else class="flex flex-row justify-start items-center ma-button-text">
+                    <div v-else class="flex flex-row justify-start items-center">
                         <img v-if="selectedImage !== '' " :src="selectedImage" class="ma-dropdown-image">
                         <span>{{ content }}</span> <ma-icon v-if="arrowVisibility" class="ml-2" icon="caret-down"/>
                     </div>
