@@ -121,6 +121,8 @@
         faRedo,
         faVideo,
         faBook,
+        faMobile,
+        faTablet,
     } from '@fortawesome/free-solid-svg-icons';
 
     import {
@@ -288,7 +290,9 @@
         faBars,
         faRedo,
         faVideo,
-        faBook
+        faBook,
+        faMobile,
+        faTablet
     );
 
     export default {

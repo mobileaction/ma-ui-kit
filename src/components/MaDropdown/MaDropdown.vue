@@ -1,6 +1,7 @@
 <template>
     <a-dropdown :trigger="trigger" @visibleChange="$emit('visibleChange',$event)">
-        <div>
+        <slot v-if="icon === '' & content === '' " name="externalContent"/>
+        <div v-else>
             <div v-if="isButton">
                 <a-tooltip
                     v-if="tooltip" :placement="tooltip.placement ? tooltip.placement : 'top'"
@@ -9,13 +10,18 @@
                         {{ tooltip.content }}
                     </template>
                     <ma-button
+                        :disabled="disabled"
                         :shape="buttonShape"
                         :variant="buttonVariant"
                         :class="buttonClass"
                         @click="e => e.preventDefault()"
                     >
                         <div v-if="selectedItem" class="flex flex-row justify-start items-center">
-                            <ma-icon v-if="buttonIcon !== ''" :icon="buttonIcon" :color="iconColor"/>
+                            <ma-icon
+                                v-if="buttonIcon !== ''" :icon="buttonIcon"
+                                :color="iconColor"
+                                class="mr-1"
+                            />
                             <img v-if="hasImage && selectedItem.image" :src="selectedItem.image" class="ma-dropdown-image">
                             <div v-if="autoContentChange" class="ma-button-text">
                                 <span>{{ selectedItem.title }}</span>
@@ -27,7 +33,11 @@
                             </div>
                         </div>
                         <div v-else class="flex flex-row justify-start items-center ma-button-text">
-                            <ma-icon v-if="buttonIcon !== ''" :icon="buttonIcon" :color="iconColor"/>
+                            <ma-icon
+                                v-if="buttonIcon !== ''" :icon="buttonIcon"
+                                :color="iconColor"
+                                class="mr-1"
+                            />
                             <img v-if="selectedImage !== '' " :src="selectedImage" class="ma-dropdown-image">
                             <span>{{ content }}</span> <ma-icon v-if="arrowVisibility" class="ml-2" icon="caret-down"/>
                         </div>
@@ -35,13 +45,18 @@
                 </a-tooltip>
                 <div v-else>
                     <ma-button
+                        :disabled="disabled"
                         :shape="buttonShape"
                         :class="buttonClass"
                         :variant="buttonVariant"
                         @click="e => e.preventDefault()"
                     >
                         <div v-if="selectedItem" class="flex flex-row justify-start items-center">
-                            <ma-icon v-if="buttonIcon !== ''" :icon="buttonIcon" :color="iconColor"/>
+                            <ma-icon
+                                v-if="buttonIcon !== ''" :icon="buttonIcon"
+                                :color="iconColor"
+                                class="mr-1"
+                            />
                             <img v-if="hasImage && selectedItem.image" :src="selectedItem.image" class="ma-dropdown-image">
                             <div v-if="autoContentChange" class="ma-button-text">
                                 <span>{{ selectedItem.title }}</span>
@@ -53,7 +68,11 @@
                             </div>
                         </div>
                         <div v-else class="flex flex-row justify-start items-center ma-button-text">
-                            <ma-icon v-if="buttonIcon !== ''" :icon="buttonIcon" :color="iconColor"/>
+                            <ma-icon
+                                v-if="buttonIcon !== ''" :icon="buttonIcon"
+                                :color="iconColor"
+                                class="mr-1"
+                            />
                             <img v-if="selectedImage !== '' " :src="selectedImage" class="ma-dropdown-image">
                             <span>{{ content }} </span>
                             <ma-icon v-if="arrowVisibility" class="ml-2" icon="caret-down"/>
@@ -255,6 +274,7 @@
             title: { type: String, default: null },
             trigger: { type: Array, default: () => ['click'] },
             content: { type: String, default: '' },
+            disabled: { type: Boolean },
             type: { type: String, default: 'button' },
             icon: { type: String, default: '' },
             header: { type: String, default: '' },

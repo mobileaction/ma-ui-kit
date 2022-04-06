@@ -5,7 +5,8 @@
         :placement="placement"
     >
         <template slot="title">
-            {{ title }}
+            <span v-if="title !== ''">{{ title }} </span>
+            <slot v-else name="title"/>
         </template>
         <slot/>
     </a-tooltip>
