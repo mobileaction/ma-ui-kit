@@ -137,15 +137,15 @@
                 :key="index"
                 @click="click(item)"
             >
-                <div class="flex flex-row justify-between">
+                <div class="flex flex-row justify-start">
                     <!--dropdown menu item name image icon part-->
                     <div class="mr-1">
                         <a-tooltip v-if="item.tooltip" placement="top">
                             <template slot="title">
                                 {{ item.tooltip }}
                             </template>
-                            <div class="flex flex-col items-center">
-                                <div class="flex flex-row justify-center items-center">
+                            <div class="flex flex-col">
+                                <div class="flex flex-row justify-start items-center">
                                     <img v-if="item.image" :src="item.image" class="ma-dropdown-image">
                                     <ma-icon
                                         v-if="item.icon" :icon="item.icon"
@@ -166,7 +166,7 @@
                                 </div>
                             </div>
                         </a-tooltip>
-                        <div v-else class="flex flex-col items-center">
+                        <div v-else class="flex flex-col">
                             <div class="flex flex-row justify-start items-center">
                                 <img v-if="item.image" :src="item.image" class="ma-dropdown-image">
                                 <ma-icon
