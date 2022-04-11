@@ -13,7 +13,7 @@ export const Base = () => ({
     components: { MaTooltip },
     template: `
       <div class="m-2">
-        <ma-tooltip title="title">
+        <ma-tooltip color="white" title="title">
           <span> Hover me</span>
         </ma-tooltip>
       </div>

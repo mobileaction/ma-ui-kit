@@ -1,6 +1,6 @@
 <template>
     <a-tooltip
-        class="ma-tooltip"
+        :overlay-class-name="className"
         v-bind="$attrs"
         :placement="placement"
     >
@@ -23,14 +23,30 @@
         props: {
             placement: { type: String, default: 'top' },
             title: { type: String, default: '' },
+            color: { type: String, default: 'black' },
         },
         computed: {
+            className() {
+                return 'ma-tooltip-' + this.color;
+            },
         },
     };
 </script>
 
-<style lang="scss" scoped>
-  @import '~ant-design-vue/lib/button/style/index.css';
-    .ma-tooltip {
-    }
+<style lang="scss">
+
+.ma-tooltip-black {
+  z-index: 3000;
+.ant-tooltip-inner {
+  background-color: rgba(0, 0, 0, 0.80);
+}
+}
+.ma-tooltip-white {
+  z-index: 3000;
+  .ant-tooltip-inner {
+    border-color: #000000;
+    background: #ffffff;
+    color: #000000;
+  }
+}
 </style>
