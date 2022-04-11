@@ -104,7 +104,7 @@ export const Link = () => ({
     template: `
     <div class="m-2">
       <ma-button variant="link" size="small"> Small Link </ma-button> <br/>
-      <ma-button variant="link"> Link </ma-button> <br/>
+      <ma-button variant="link" icon="eye"> Link </ma-button> <br/>
       <ma-button variant="link" size="large"> Large Link </ma-button>
     </div>
     `,
@@ -115,7 +115,7 @@ export const Loading = () => ({
     components: { MaButton },
     template: `
     <div class="m-2">
-    <ma-button icon="spinner" spin> Button </ma-button>
+      <ma-button icon="plus" loading> Button </ma-button>
     </div>
     `,
 });
