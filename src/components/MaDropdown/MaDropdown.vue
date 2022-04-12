@@ -1,5 +1,5 @@
 <template>
-    <a-dropdown :trigger="trigger" @visibleChange="$emit('visibleChange',$event)">
+    <a-dropdown :trigger="trigger" @visible-change="$emit('visibleChange',$event)">
         <slot v-if="icon === '' & content === '' " name="externalContent"/>
         <div v-else>
             <div v-if="isButton">
