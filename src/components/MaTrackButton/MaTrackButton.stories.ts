@@ -8,6 +8,22 @@ export default {
     },
 };
 
+export const Base = () => ({
+    components: { MaTrackButton },
+    template: `
+      <div class="m-2">
+        <ma-track-button keyword="keyword" translated-keyword="translated"/>
+        <ma-track-button keyword="long keyword" loading/>
+        <ma-track-button keyword="keyword"/>
+        <ma-track-button keyword="keyword" tracked/>
+        <ma-track-button keyword="keyword" disabled/>
+        <ma-track-button keyword="keyword" size="s"/>
+        <ma-track-button keyword="keyword" size="s" disabled/>
+      </div>
+    `,
+});
+Base.storyName = 'base';
+
 export const Orange = () => ({
     components: { MaTrackButton },
     template: `

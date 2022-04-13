@@ -38,18 +38,6 @@
     import { library } from '@fortawesome/fontawesome-svg-core';
     import { faTrashAlt, faSpinner } from '@fortawesome/free-solid-svg-icons';
     library.add(faTrashAlt, faSpinner);
-
-    //const VALID_BUTTON_VARIANT = [
-    //    'passive',
-    //    'primary',
-    //    'secondary',
-    //    'tertiary',
-    //    'success',
-    //    'info',
-    //    'warning',
-    //    'danger',
-    //    'link',
-    //];
     export default {
         name: 'ma-track-button',
         components: {
@@ -57,19 +45,11 @@
             MaIcon,
         },
         props: {
-            variant: {
-                type: String,
-                default: 'primary',
-            },
-            leftIcon: {
-                type: String,
-            },
             trackAll: { type: Boolean },
-            color: { type: String, default: '' },
+            color: { type: String, default: 'default' },
             size: { type: String, default: 'm' },
             loading: { type: Boolean, default: false },
             disabled: { type: Boolean, default: false },
-            showButtonIcon: { type: Boolean, default: false },
             tracked: { type: Boolean, default: false },
             keyword: { type: String, required: true },
             translatedKeyword: { type: String, default: '' },
@@ -104,19 +84,17 @@
       .ma-btn-content {
         display: flex;
       }
-      &.-secondary {
-        &:not([disabled]){
-          color: #fff;
-          background-color: #46B9A4;
-          border: 1px solid #46B9A4;
-        }
-        &:hover {
-          &:not([disabled]){
-            background-color: #62C3B2;
+      &.-default {
+        &.-tracked-default {
+          background-color: #f3f3f3;
+          border-color: #d9d8d8;
+          color: #aaaaaa;
+          &:hover {
+            &:not([disabled]){
+              border-color: #656565;
+              color: #656565;
+            }
           }
-        }
-        &.icon {
-          color: white;
         }
       }
       &.-orange {
@@ -206,7 +184,7 @@
           background-color: #FCE4E2;
         }
       }
-      &.tracked-light-red {
+      &.-tracked-light-red {
         background-color: #FCE4E2;
       }
 
