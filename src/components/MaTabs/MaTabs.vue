@@ -94,7 +94,7 @@
             },
         },
         mounted() {
-            this.selectedTab = this.selected !== '' ? this.selected : this.tabPanelList[0].type;
+            this.selectedTab = this.selected !== '' ? this.selected : (this.tabPanelList[0] && this.tabPanelList[0].type ? this.tabPanelList[0].type : '');
         },
     };
 </script>
