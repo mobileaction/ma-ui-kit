@@ -79,7 +79,6 @@
   border-radius: 2px;
   height: 32px;
     padding: 5px 15px;
-    margin: 0;
     background-color: #fff;
     &:not(.disabled):hover {
       background-color: var(--white);
