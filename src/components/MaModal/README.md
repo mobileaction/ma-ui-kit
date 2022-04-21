@@ -1,4 +1,4 @@
-# MaDropdown
+# MaModal
 
 ## Props
 
