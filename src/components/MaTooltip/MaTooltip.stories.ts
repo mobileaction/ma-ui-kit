@@ -22,56 +22,6 @@ export const Base = () => ({
 
 Base.storyName = 'Base';
 
-export const Circle = () => ({
-    components: { MaTooltip },
-    template: `
-      <div class="m-2">
-        <ma-tooltip type="circle">
-          <template #title>
-            title
-          </template>
-        </ma-tooltip>
-      </div>
-    `,
-});
-
-Circle.storyName = 'Circle';
-
-export const Disabled = () => ({
-    components: { MaTooltip },
-    template: `
-    <div class="m-2">
-      <ma-tooltip disabled/>
-    </div>
-    `,
-});
-
-Disabled.storyName = 'Disabled';
-
-export const Loading = () => ({
-    components: { MaTooltip },
-    template: `
-    <div class="m-2">
-      <ma-tooltip loading/>
-    </div>
-    `,
-});
-
-Loading.storyName = 'Loading';
-
-export const Sizes = () => ({
-    components: { MaTooltip },
-    template: `
-      <div class="m-2">
-        <ma-tooltip size="small"/>
-        <ma-tooltip/>
-        <ma-tooltip size="large"/>
-      </div>
-    `,
-});
-
-Sizes.storyName = 'Sizes';
-
 export const Trigger = () => ({
     components: { MaTooltip, AInput },
     template: `
