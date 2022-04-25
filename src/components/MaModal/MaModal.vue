@@ -30,12 +30,15 @@
 </script>
 
 <style lang="scss">
-@import '~ant-design-vue/lib/modal/style/index.css';
+@import '~ant-design-vue/lib/modal/style';
+@import '~ant-design-vue/lib/icon/style/index.css';
 .ma-modal{
 .ant-modal{
 .ant-modal-content {
-.ant-modal-close {
-  top: 16px !important;
+.ant-modal-close-icon {
+  svg {
+    display: inline-block;
+  }
 }
 }
 }
