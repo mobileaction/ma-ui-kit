@@ -52,36 +52,59 @@ export const CustomFooter = () => ({
     data() {
         return {
             visible: false,
+            otherVisible: false,
         };
     },
     methods: {
         openModal(){
             this.visible = true;
         },
+        openOtherModal(){
+            this.otherVisible = true;
+        },
         close(){
             this.visible = false;
+        },
+        closeOther(){
+            this.otherVisible = false;
         },
     },
     template:
         `
+          <div>
           <div class="m-2">
-          <ma-button @click="openModal">Open Modal</ma-button>
+            <ma-button @click="openModal">Open Modal</ma-button>
+            <ma-modal
+                :visible="visible"
+                title="Basic Modal"
+                @cancel="close"
+            >
+              <template #footer>
+                <ma-button key="back" @click="close">Return</ma-button>
+                <ma-button key="submit" type="primary" @click="close">Submit</ma-button>
+              </template>
+              <div>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+              </div>
+            </ma-modal>
+          </div>
+          <div class="m-2">
+          <ma-button @click="openOtherModal">Open Modal</ma-button>
           <ma-modal 
-              :visible="visible" 
+              :visible="otherVisible" 
               title="Basic Modal"
-              @ok="close"
-              @cancel="close"
+              :footer="null"
+              @cancel="closeOther"
           >
-            <template #footer>
-              <ma-button key="back" @click="close">Return</ma-button>
-              <ma-button key="submit" type="primary" @click="close">Submit</ma-button>
-            </template>
             <div>
               <p>Some contents...</p>
               <p>Some contents...</p>
               <p>Some contents...</p>
             </div>
           </ma-modal>
+          </div>
           </div>
         `,
 });
