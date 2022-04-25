@@ -29,7 +29,15 @@
     };
 </script>
 
-<style scoped>
+<style lang="scss">
 @import '~ant-design-vue/lib/modal/style/index.css';
-
+.ma-modal{
+.ant-modal{
+.ant-modal-content {
+.ant-modal-close {
+  top: 16px !important;
+}
+}
+}
+}
 </style>
