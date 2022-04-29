@@ -1,6 +1,7 @@
 <template>
     <a-pagination
         class="ma-pagination"
+        :class="classNames"
         v-bind="$attrs"
         :page-size-options="pageSizeOptions"
         :page-size="pageSize"
@@ -9,7 +10,6 @@
         :show-quick-jumper="showQuickJumper"
         :show-size-changer="showSizeChanger"
         :disabled="disabled"
-        :size="size"
         :show-total="showTotalFunction"
         @change="onPageChange"
         @showSizeChange="onPageSizeChange"
@@ -38,6 +38,9 @@
             showTotalFunction() {
                 return this.hideTotal ? null : total => `Total ${total}`;
             },
+            classNames() {
+                return this.size === 'small' ? '-small' : '';
+            },
         },
         methods: {
             onPageChange(page) {
@@ -59,6 +62,46 @@
 
 .ant-pagination {
   &.ma-pagination {
+    &.-small {
+      font-size: 12px;
+      ::v-deep.ant-pagination-item{
+        min-width: 26px;
+        line-height: 26px;
+        height: 26px;
+      }
+      ::v-deep.ant-pagination-prev{
+        min-width: 26px;
+        line-height: 26px;
+        height: 26px;
+      }
+      ::v-deep.ant-pagination-next{
+        min-width: 26px;
+        line-height: 26px;
+        height: 26px;
+      }
+      ::v-deep.ant-pagination-options-size-changer{
+        .ant-select-selection--single{
+          min-width: 26px;
+          line-height: 26px;
+          height: 26px;
+          .ant-select-selection__rendered{
+            min-width: 26px;
+            line-height: 26px;
+            height: 26px;
+            font-size: 12px;
+          }
+        }
+      }
+      ::v-deep.ant-pagination-options-quick-jumper{
+        vertical-align: baseline;
+        input{
+          min-width: 26px;
+          line-height: 26px;
+          height: 26px;
+          width: 35px;
+        }
+      }
+    }
     ::v-deep.anticon svg {
       display: inline-block;
     }
