@@ -101,7 +101,7 @@
     "node-sass": "^6.0.1",
     "postcss": "^7",
     "rimraf": "3.0.2",
-    "rollup": "2.60.0",
+    "rollup": "2.71.1",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-scss": "3.0.0",
     "rollup-plugin-svg": "2.0.0",
