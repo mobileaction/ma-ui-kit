@@ -29,6 +29,8 @@
                 <div v-if="tab.isNew" class="ma-new-icon">
                     NEW
                 </div>
+
+                <img v-if="tab.image" class="ma-tab-image" :src="tab.image">
             </span>
             <slot :name="tab.type"/>
         </a-tab-pane>
@@ -157,6 +159,11 @@
     align-items: center;
     &:not(.is-disabled):hover {
       color: #333;
+    }
+    .ma-tab-image {
+      width: 36px;
+      height: 36px;
+      border-radius: 4px;
     }
   }
   .ma-new-icon {
