@@ -2,7 +2,6 @@ import MaTrackButton from './MaTrackButton.vue';
 
 export default {
     title: 'MaTrackButton',
-
     parameters: {
         component: MaTrackButton,
     },
