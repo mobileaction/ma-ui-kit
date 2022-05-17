@@ -328,6 +328,7 @@
 .ant-dropdown{
   min-width: 50px !important;
   padding: 0px !important;
+  z-index: 2050 !important;
   .ant-dropdown-content {
     position: relative;
     margin: 0;
