@@ -123,6 +123,7 @@
         faBook,
         faMobile,
         faTablet,
+        faSlidersH,
     } from '@fortawesome/free-solid-svg-icons';
 
     import {
@@ -292,7 +293,8 @@
         faVideo,
         faBook,
         faMobile,
-        faTablet
+        faTablet,
+        faSlidersH
     );
 
     export default {
