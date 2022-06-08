@@ -33,9 +33,14 @@ export const Clearable = () => ({
             value: 'Clear it',
         };
     },
+    methods: {
+        onClear(){
+            console.log('onclear');
+        },
+    },
     template: `
        <div class="m-2">
-            <ma-input v-model="value" :allow-clear="true" />
+            <ma-input v-model="value" :allow-clear="true" @clear="onClear"/>
        </div>
       `,
 });

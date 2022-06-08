@@ -60,6 +60,7 @@
             suffixIcon: { type: String, default: '' },
             visibilityToggle: { type: Boolean, default: true },
             trim: { type: Boolean, default: false },
+            lazy: { type: Boolean, default: false },
         },
         data() {
             return {
@@ -71,6 +72,9 @@
             onChange(event){
                 let newValue = this.trim && event.target.value ? event.target.value.trim() : event.target.value;
                 this.$emit('input', newValue);
+                if (event.type === 'click' && event.target.value === ''){
+                    this.$emit('clear');
+                }
             },
             onPaste(clipBoard){
                 this.$emit('paste-native', clipBoard);
@@ -79,7 +83,10 @@
                 this.$emit('keydown-enter', keyword);
             },
             onInput(event){
-                this.$emit('input', event);
+                if (!this.lazy) {
+                    let newValue = this.trim && event.target.value ? event.target.value.trim() : event.target.value;
+                    this.$emit('input', newValue);
+                }
             },
         },
         mounted() {
