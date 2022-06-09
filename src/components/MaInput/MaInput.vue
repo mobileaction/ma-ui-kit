@@ -2,6 +2,7 @@
     <component
         :is="component"
         v-model="data"
+        class="ma-input"
         :read-only="readOnly"
         :disabled="disabled"
         :auto-focus="autoFocus"
@@ -12,6 +13,7 @@
         :allow-clear="allowClear"
         :max-length="maxLength"
         :visibility-toggle="visibilityToggle"
+        :placeholder="placeholder"
         @input="onInput"
         @change="onChange"
         @paste.native="onPaste"
@@ -52,6 +54,7 @@
             autoFocus: { type: Boolean, default: false },
             size: { type: String, default: 'default' },
             type: { type: String, default: 'text' },
+            placeholder: { type: String, default: 'text' },
             rows: { type: Number, default: 2 },
             maxLength: { type: Number, default: undefined },
             autosize: { type: [Object, Boolean], default: false },
@@ -64,7 +67,7 @@
         },
         data() {
             return {
-                data: '',
+                data: this.value,
                 component: this.type === 'password' ? 'APassword' : 'AInput',
             };
         },
@@ -72,6 +75,7 @@
             onChange(event){
                 let newValue = this.trim && event.target.value ? event.target.value.trim() : event.target.value;
                 this.$emit('input', newValue);
+                //https://github.com/ant-design/ant-design/issues/16862#issuecomment-507616942
                 if (event.type === 'click' && event.target.value === ''){
                     this.$emit('clear');
                 }
@@ -89,13 +93,17 @@
                 }
             },
         },
-        mounted() {
-            this.data = this.value;
+        watch: {
+            value(newValue){
+                this.data = newValue;
+            },
         },
     };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 @import '~ant-design-vue/lib/input/style/index.css';
+.ma-input{
 
+}
 </style>

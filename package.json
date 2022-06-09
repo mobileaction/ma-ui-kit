@@ -1,6 +1,6 @@
 {
   "name": "@mobileaction/ma-ui-kit",
-  "version": "1.3.4",
+  "version": "1.3.8",
   "description": "MobileAction UI Components with Vue.js",
   "license": "MIT",
   "main": ".eslintrc.js",

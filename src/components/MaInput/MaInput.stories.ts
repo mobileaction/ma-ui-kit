@@ -73,7 +73,7 @@ export const PrefixIconWithTemplate = () => ({
     },
     template: `
        <div class="m-2">
-            <ma-input v-model="value">
+            <ma-input v-model="value" pla>
               <template v-slot:prefix>
                 <ma-icon
                     icon="info-circle"
@@ -110,6 +110,11 @@ export const ReadOnly = () => ({
         return {
             value: 'ReadOnly',
         };
+    },
+    mounted() {
+        window.setTimeout(()=>{
+            this.value='eee';
+        },4000);
     },
     template: `
        <div class="m-2">
