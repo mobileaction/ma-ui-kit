@@ -104,6 +104,9 @@
 <style lang="scss" scoped>
 @import '~ant-design-vue/lib/input/style/index.css';
 .ma-input{
-
+    ::v-deep .ant-input-suffix > * {
+      margin-left: 10px;
+    }
+    box-shadow: none;
 }
 </style>

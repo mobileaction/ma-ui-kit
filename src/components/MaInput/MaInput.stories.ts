@@ -98,7 +98,7 @@ export const SuffixIconWithProps = () => ({
     },
     template: `
        <div class="m-2">
-            <ma-input v-model="value" suffix-icon="info-circle"/>
+            <ma-input v-model="value" suffix-icon="info-circle" allow-clear/>
        </div>
       `,
 });
