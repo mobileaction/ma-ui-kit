@@ -107,6 +107,8 @@
     ::v-deep .ant-input-suffix > * {
       margin-left: 10px;
     }
-    box-shadow: none;
+    ::v-deep .ant-input:focus {
+      box-shadow: none;
+    }
 }
 </style>
