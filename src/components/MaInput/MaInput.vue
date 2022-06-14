@@ -110,5 +110,8 @@
     ::v-deep .ant-input:focus {
       box-shadow: none;
     }
+    &.ant-input:focus {
+      box-shadow: none;
+    }
 }
 </style>
