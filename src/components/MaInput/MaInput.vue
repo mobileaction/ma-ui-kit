@@ -113,5 +113,11 @@
     &.ant-input:focus {
       box-shadow: none;
     }
+    &.ant-input {
+      border-radius: 2px;
+    }
+    ::v-deep .ant-input {
+      border-radius: 2px;
+    }
 }
 </style>
