@@ -54,7 +54,7 @@
             autoFocus: { type: Boolean, default: false },
             size: { type: String, default: 'default' },
             type: { type: String, default: 'text' },
-            placeholder: { type: String, default: 'text' },
+            placeholder: { type: String, default: '' },
             rows: { type: Number, default: 2 },
             maxLength: { type: Number, default: undefined },
             autosize: { type: [Object, Boolean], default: false },
