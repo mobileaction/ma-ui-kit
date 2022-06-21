@@ -1,5 +1,13 @@
 <template>
-  <a-checkbox class="ma-checkbox"></a-checkbox>
+  <a-checkbox
+      :checked="data"
+      class="ma-checkbox"
+      :disabled="disabled"
+      :indeterminate="indeterminate"
+      @change="onChange"
+  >
+    {{label}}
+  </a-checkbox>
 </template>
 <script>
 import Checkbox from 'ant-design-vue/lib/checkbox/index';
@@ -9,10 +17,25 @@ export default {
   components: {
     ACheckbox: Checkbox,
   },
+  props: {
+    value: { type: Boolean, default: false },
+    disabled: { type: Boolean, default: false },
+    label: { type: String, default: undefined },
+    indeterminate: { type: Boolean, default: false },
+  },
+  data() {
+    return {
+      data: this.value,
+    };
+  },
   methods: {
-
-    onKeydown(keyword){
-      this.$emit('keydown-enter', keyword);
+    onChange(event) {
+      this.$emit('input', event.target.checked);
+    },
+  },
+  watch: {
+    value(newValue){
+      this.data = newValue;
     },
   },
 };
