@@ -9,12 +9,24 @@ export default {
 
 export const Base = () => ({
     components: { MaSlider },
+    data() {
+        return {
+            data: [10,30],
+        };
+    },
+    watch: {
+        data(to,fr) {
+            console.log(to,fr);
+        },
+    },
     template: `
        <div class="m-2">
             <ma-slider
+                v-model="data"
                 :min="0"
                 :max="100"
                 :step="10"
+                range
             />
        </div>
       `,
