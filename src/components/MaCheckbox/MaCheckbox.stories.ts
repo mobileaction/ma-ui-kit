@@ -1,8 +1,5 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { MaCheckbox, MaCheckboxGroup } from "./index";
-import { Checkbox } from "ant-design-vue";
-
-const { Group } = Checkbox;
 
 export default {
     title: 'MaCheckbox',
@@ -80,7 +77,7 @@ export const Indeterminate = () => ({
 Indeterminate.storyName = 'Indeterminate';
 
 export const CheckboxGroupBasic = () => ({
-    components: { MaCheckboxGroup, ACheckbox: Checkbox, ACheckboxGroup: Group, MaCheckbox },
+    components: { MaCheckboxGroup },
     data() {
         return {
             value: ['Apple'],
@@ -101,7 +98,7 @@ export const CheckboxGroupBasic = () => ({
 CheckboxGroupBasic.storyName = 'Checkbox Group Basic';
 
 export const CheckboxGroupWithTemplate = () => ({
-    components: { MaCheckboxGroup, ACheckbox: Checkbox, ACheckboxGroup: Group, MaCheckbox },
+    components: { MaCheckboxGroup, MaCheckbox },
     data() {
         return {
             value: ['Apple'],
