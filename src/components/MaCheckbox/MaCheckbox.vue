@@ -39,7 +39,8 @@ export default {
   },
   watch: {
     value(newValue){
-      this.data = newValue;
+      this.data = typeof newValue === 'boolean' ? newValue : undefined;
+      this.stringData = typeof newValue === 'string' ? newValue : undefined;
     },
   },
 };
