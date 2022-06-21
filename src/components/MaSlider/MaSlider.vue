@@ -1,6 +1,6 @@
 <template>
     <a-slider
-        v-bind="$attrs"
+        v-model="data"
         class="ma-slider"
         :class="classes"
         :step="step"
@@ -10,7 +10,7 @@
         :range="range"
         :vertical="vertical"
         :dots="dots"
-        @change="$emit('onChange',$event)"
+        @change="onChange"
         @afterChange="$emit('onAfterChange',$event)"
     />
 </template>
@@ -23,6 +23,7 @@
             ASlider: Slider,
         },
         props: {
+            value: { type: [Number,Array], default: 0 },
             min: { type: Number, default: 0 },
             max: { type: Number, default: 100 },
             step: { type: Number, default: 10 },
@@ -31,13 +32,28 @@
             vertical: { type: Boolean },
             dots: { type: Boolean },
             disabled: { type: Boolean, default: false },
-            size: { type: String, default: 'default' },
+        },
+        data() {
+            return {
+                data: this.value,
+            };
         },
         computed: {
             classes() {
                 return {
                     [`-vertical`]: this.vertical,
                 };
+            },
+        },
+        methods: {
+            onChange(event) {
+                this.$emit('onChange',event);
+                this.$emit('input', event);
+            },
+        },
+        watch: {
+            value(newValue){
+                this.data = newValue;
             },
         },
     };
