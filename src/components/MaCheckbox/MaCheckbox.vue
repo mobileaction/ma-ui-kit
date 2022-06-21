@@ -5,8 +5,10 @@
       :disabled="disabled"
       :indeterminate="indeterminate"
       @change="onChange"
+      :value="stringData"
   >
     {{label}}
+    <slot/>
   </a-checkbox>
 </template>
 <script>
@@ -18,19 +20,21 @@ export default {
     ACheckbox: Checkbox,
   },
   props: {
-    value: { type: Boolean, default: false },
+    value: { type: Boolean | String, default: false | undefined },
     disabled: { type: Boolean, default: false },
     label: { type: String, default: undefined },
     indeterminate: { type: Boolean, default: false },
   },
   data() {
     return {
-      data: this.value,
+      data: typeof this.value === 'boolean' ? this.value : undefined,
+      stringData: typeof this.value === 'string' ? this.value : undefined,
     };
   },
   methods: {
     onChange(event) {
       this.$emit('input', event.target.checked);
+      this.$emit('change', event.target.checked);
     },
   },
   watch: {
