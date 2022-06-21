@@ -21,9 +21,9 @@ export default {
   },
   props: {
     value: { type: Boolean | String, default: false | undefined },
-    disabled: { type: Boolean, default: false },
+    disabled: { type: Boolean },
     label: { type: String, default: undefined },
-    indeterminate: { type: Boolean, default: false },
+    indeterminate: { type: Boolean },
   },
   data() {
     return {
@@ -47,7 +47,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~ant-design-vue/lib/checkbox/style/index.css';
 .ma-checkbox{
 }
 </style>
