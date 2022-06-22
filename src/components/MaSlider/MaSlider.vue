@@ -23,7 +23,7 @@
             ASlider: Slider,
         },
         props: {
-            value: { type: [Number,Array], default: 0 },
+            value: { type: [Number, Array] },
             min: { type: Number, default: 0 },
             max: { type: Number, default: 100 },
             step: { type: Number, default: 10 },
@@ -31,7 +31,7 @@
             marks: { type: Object, default: () => ({}) },
             vertical: { type: Boolean },
             dots: { type: Boolean },
-            disabled: { type: Boolean, default: false },
+            secondary: { type: Boolean },
         },
         data() {
             return {
@@ -42,6 +42,7 @@
             classes() {
                 return {
                     [`-vertical`]: this.vertical,
+                    [`-secondary`]: this.secondary,
                 };
             },
         },
@@ -58,13 +59,40 @@
         },
     };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
   @import '~ant-design-vue/lib/slider/style/index.css';
   .ma-slider {
     &.-vertical {
       display: block;
       height: 200px;
-      marginLeft: 70px
+    }
+    &.-secondary {
+      .ant-slider-mark-text {
+        background-color: #1ECFB4 !important;
+        margin-left: 10px;
+        padding: 5px 10px;
+        border-radius:0.25rem;
+        color:white;
+        font-size: 0.75rem;
+        line-height: 1rem;
+      }
+      .ant-slider-mark-text:before {
+        content: ' ';
+        position: absolute;
+        top: 30%;
+        left: 0;
+        border-style: solid;
+        border-width: 5px 8px 5px 0;
+        border-color: transparent #1ECFB4 transparent transparent;
+        transform: translate(-100%);
+      }
+      .ant-slider-track {
+        background-color: #1ecfb4;
+      }
+      .ant-slider-handle {
+        border-color: #1ecfb4;
+      }
+
     }
   }
 </style>

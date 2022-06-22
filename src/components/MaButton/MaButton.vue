@@ -49,22 +49,13 @@
             MaIcon,
         },
         props: {
-            variant: {
-                type: String,
-                default: 'primary',
-            },
-            leftIcon: {
-                type: String,
-            },
-            icon: {
-                type: String,
-            },
+            variant: { type: String, default: 'primary' },
+            leftIcon: { type: String },
+            icon: { type: String },
             loading: { type: Boolean, default: false },
             disabled: { type: Boolean, default: false },
             size: { type: String, default: 'default' },
-            shape: {
-                type: String,
-            },
+            shape: { type: String, default: '' },
         },
         computed: {
             onlyIconWithText() {
