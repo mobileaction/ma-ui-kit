@@ -1,8 +1,8 @@
 <template>
     <a-pagination
+        v-bind="$attrs"
         class="ma-pagination"
         :class="classNames"
-        v-bind="$attrs"
         :page-size-options="pageSizeOptions"
         :page-size="pageSize"
         :current="current"
