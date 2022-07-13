@@ -70,7 +70,7 @@ export const Base = () => ({
     },
     template:
         `
-          <div class="m-2 p-2 w-12" style="background-color: #202348">
+          <div class="m-2 p-1 w-14" style="background-color: #202348">
               <ma-menu
                   :menu-list="parentMenu"
                   parent-menu

@@ -9,7 +9,7 @@
             v-for="(m, index) in menuList"
             :key="`sub-menu-${index}`"
             :index="m.titleShort"
-            class="ma-menu-item flex flex-col flex-grow-0 flex-shrink-0 items-center justify-center border-t border-sub-menu"
+            class="flex flex-col flex-grow-0 flex-shrink-0 items-center justify-center border-t bg-parent-menu"
             @mouseenter.native="$emit('package-change', m.titleShort)"
             @mouseleave.native="$emit('package-change', m.titleShort)"
         >
@@ -64,8 +64,8 @@
     };
 </script>
 
-<style>
-.ma-parent-menu{
+<style lang="scss">
+.ant-menu {
   background-color: transparent;
   color:#fff;
   border:none;
@@ -73,12 +73,34 @@
     --tw-bg-opacity: 1;
     background-color: rgba(50, 53, 92, var(--tw-bg-opacity));
   }
+  .ma-menu-icon  {
+    font-size: 20px;
+    user-select: none;
+    width: 20px;
+    height: 20px;
+    opacity: .5;
+  }
   .ant-menu-item {
+    display: flex;
     padding: 45px 0 !important;
+    font-size: 0.75rem;
+    font-weight: 200;
+    border-top:1px solid #33355c;
+    &:hover, &.is-active {
+      background-color: transparent;
+    }
+    &.ant-menu-item-selected {
+      .ma-menu-icon {
+        opacity: 1;
+      }
+      &:after {
+        border-right:none !important;
+      }
+    }
   }
-  .ma-menu-item {
-    padding: 45px 0 !important;
+  .ant-menu-item-selected {
+    color:#fff !important;
+    background: #585a7a !important;
   }
-
 }
 </style>
