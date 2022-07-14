@@ -68,12 +68,18 @@ export const Base = () => ({
             ],
         };
     },
+    methods: {
+        handleSelect(selected) {
+            console.log(selected);
+        },
+    },
     template:
         `
           <div class="m-2 p-1 w-14" style="background-color: #202348">
               <ma-menu
                   :menu-list="parentMenu"
                   parent-menu
+                  @select="handleSelect"
               />
           </div>
         `,

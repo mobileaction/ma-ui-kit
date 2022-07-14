@@ -4,11 +4,11 @@
         mode="inline"
         class="ma-parent-menu h-full bg-sub-menu relative mt-5 border-r-0"
         :collapse="collapse"
+        @select="$emit('select',$event)"
     >
         <a-menu-item
-            v-for="(m, index) in menuList"
-            :key="`sub-menu-${index}`"
-            :index="m.titleShort"
+            v-for="(m) in menuList"
+            :key="m.titleShort"
             class="flex flex-col flex-grow-0 flex-shrink-0 items-center justify-center border-t bg-parent-menu"
             @mouseenter.native="$emit('package-change', m.titleShort)"
             @mouseleave.native="$emit('package-change', m.titleShort)"
@@ -86,8 +86,10 @@
     font-size: 0.75rem;
     font-weight: 200;
     border-top:1px solid #33355c;
-    &:hover, &.is-active {
-      background-color: transparent;
+    margin-bottom: 0 !important;
+    &:hover{
+      color:#fff;
+      background: #585a7a;
     }
     &.ant-menu-item-selected {
       .ma-menu-icon {
