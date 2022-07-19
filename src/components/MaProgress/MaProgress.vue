@@ -2,11 +2,14 @@
     <a-progress
         :stroke-width="strokeWidth"
         :stroke-color="strokeColor"
+        v-bind="$attrs"
         :percent="percentage"
         :status="status"
         :type="type"
+        :width="width"
         :show-info="showText"
         :size="size"
+        :format="format"
         :stroke-line-cap="strokeLinecap"
     />
 </template>
@@ -23,10 +26,12 @@
             size: { type: String, default: 'default' },
             type: { type: String, default: 'line' },
             color: { type: String },
+            width: { type: Number },
             showText: { type: Boolean, default: true },
             percentage: { type: Number },
             strokeWidth: { type: Number, default: 10 },
             strokeColor: { type: String },
+            format: { type: Function },
             status: { type: String }, // success exception normal active(line only)
             strokeLinecap: { type: String, default: 'round' },
         },

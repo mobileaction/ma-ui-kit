@@ -19,6 +19,7 @@ export const Base = () => ({
            <ma-progress
                :percentage="70"
                :stroke-width="5"
+               :show-text="false"
            />
        </div>
       `,
@@ -35,8 +36,8 @@ export const Circle = () => ({
       <div class="m-2">
           <ma-progress
               type="circle"
-              :show-text="false"
-              :percentage="30"
+              :percentage="74.90815991200601"
+              :format="(p) => parseFloat(p).toFixed(0)"
               status="exception"
           />
       </div>
@@ -44,4 +45,22 @@ export const Circle = () => ({
 });
 
 Circle.storyName = 'circle';
+
+export const Dashboard = () => ({
+    components: { MaProgress },
+    data() {
+        return {};
+    },
+    template: `
+      <div class="m-2">
+          <ma-progress
+              type="dashboard"
+              :percentage="70"
+              :width="60"
+          />
+      </div>
+    `,
+});
+
+Dashboard.storyName = 'dashboard';
 
