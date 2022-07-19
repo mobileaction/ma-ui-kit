@@ -1,7 +1,7 @@
 <template>
     <a-progress
         :stroke-width="strokeWidth"
-        :stroke-color="strokeColor"
+        :stroke-color="rateColors"
         v-bind="$attrs"
         :percent="percentage"
         :status="status"
@@ -28,6 +28,7 @@
             color: { type: String },
             width: { type: Number },
             showText: { type: Boolean, default: true },
+            isRateColor: { type: Boolean },
             percentage: { type: Number },
             strokeWidth: { type: Number, default: 10 },
             strokeColor: { type: String },
@@ -39,16 +40,27 @@
             return {};
         },
         computed: {
-            classNames() {
-                return {
-                    [`ma-${this.color}`]: true,
-                };
-            },
-            propsToPass() {
-                // Checked will be passed to the Switch component only if it is not undefined
-                return this.checked ? {
-                    checked: this.checked,
-                } : {};
+            rateColors() {
+                // eslint-disable-next-line no-debugger
+                debugger;
+                if (!this.isRateColor) {
+                    return this.strokeColor;
+                }
+                const x = this.percentage;
+                switch (true) {
+                    case (x <= 20):
+                        return '#f56c6c';
+                    case (x <= 40):
+                        return '#e6a23c';
+                    case (x <= 60):
+                        return '#6f7ad3';
+                    case (x <= 80):
+                        return '#1989fa';
+                    case (x <= 100):
+                        return '#5cb87a';
+                    default:
+                        return '#fff';
+                }
             },
         },
     };

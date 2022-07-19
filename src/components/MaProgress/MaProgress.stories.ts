@@ -64,3 +64,40 @@ export const Dashboard = () => ({
 
 Dashboard.storyName = 'dashboard';
 
+export const IsRateColor = () => ({
+    components: { MaProgress },
+    data() {
+        return {};
+    },
+    template: `
+      <div class="m-2">
+          <ma-progress
+              type="dashboard"
+              :percentage="25"
+              :width="60"
+              is-rate-color
+          />
+          <ma-progress
+              type="dashboard"
+              :percentage="65"
+              :width="60"
+              is-rate-color
+          />
+          <ma-progress
+              type="dashboard"
+              :percentage="85"
+              :width="60"
+              is-rate-color
+          />
+          <ma-progress
+              type="dashboard"
+              :percentage="100"
+              :width="60"
+              is-rate-color
+          />
+      </div>
+    `,
+});
+
+IsRateColor.storyName = 'is-rate-color';
+
