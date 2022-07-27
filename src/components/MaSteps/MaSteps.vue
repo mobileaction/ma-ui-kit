@@ -3,6 +3,7 @@
         class="ma-steps"
         :current="data"
         :direction="direction"
+        :progress-dot="progressDot"
         @change="changeStep"
     >
         <slot/>
@@ -19,6 +20,7 @@
         props: {
             value: { type: Number, default: 0 },
             direction: { type: String, default: 'horizontal' },
+            progressDot: { type: Boolean, default: false },
         },
         data() {
             return {
@@ -41,6 +43,7 @@
 <style lang="scss" scoped>
 @import '~ant-design-vue/lib/steps/style/index.css';
 .ma-steps {
+  width: auto;
   ::v-deep.ant-steps-icon {
     .anticon {
       vertical-align: text-bottom;
