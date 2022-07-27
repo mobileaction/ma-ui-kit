@@ -18,7 +18,7 @@
     import Progress from 'ant-design-vue/lib/progress/index.js';
 
     export default {
-        name: 'ma-switch',
+        name: 'ma-progress',
         components: {
             AProgress: Progress,
         },
@@ -41,8 +41,6 @@
         },
         computed: {
             rateColors() {
-                // eslint-disable-next-line no-debugger
-                debugger;
                 if (!this.isRateColor) {
                     return this.strokeColor;
                 }
@@ -65,22 +63,3 @@
         },
     };
 </script>
-
-<style lang="scss">
-@import '~ant-design-vue/lib/switch/style/index.css';
-  .ma-switch {
-    &.ant-switch-checked {
-      background-color: #10ce66;
-    }
-    &.ma-yellow {
-      &.ant-switch-checked {
-        background-color: #FFB146;
-      }
-    }
-    &.ma-turquoise {
-      &.ant-switch-checked {
-        background-color: #00A592;
-      }
-    }
-  }
-</style>
