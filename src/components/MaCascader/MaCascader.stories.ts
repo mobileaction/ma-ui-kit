@@ -13,7 +13,7 @@ export const Base = () => ({
     components: { MaCascader },
     data() {
         return {
-            idValue: ['nanjing'],
+            idValue: ['zhejiang'],
             options: [
                 {
                     id: 'zhejiang',
@@ -26,13 +26,24 @@ export const Base = () => ({
             ],
         };
     },
+    methods: {
+        popupChange(a) {
+            console.log(a);
+            debugger;
+        },
+        changeDir(a) {
+            console.log(a);
+        },
+    },
     template: `
        <div class="m-2">
        <ma-cascader
-           v-model="idValue"
+           :defaultValue="idValue"
            :options="options"
            :field-names="{ label: 'name', value: 'id', children: 'children'}"
            expand-trigger="hover"
+           @popup-visible-change="popupChange"
+           @change="changeDir"
        />
        </div>
       `,
