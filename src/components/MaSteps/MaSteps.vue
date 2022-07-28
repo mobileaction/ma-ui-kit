@@ -68,16 +68,27 @@
       }
       .ant-steps-item-icon {
         background-color: #32355c;
-        border-color: #32355c;
-        &:hover{
-          background-color: #32355c;
-          border-color: #32355c;
-        }
+        border-color: #32355c !important;
         .ant-steps-icon {
           .anticon {
             vertical-align: text-bottom;
             color: #fff;
           }
+        }
+      }
+    }
+  }
+
+  ::v-deep.ant-steps-item-wait {
+    .ant-steps-item-container {
+      .ant-steps-item-icon {
+        background-color: #32355c;
+        border-color: #32355c !important;
+        &:hover {
+            color: #fff;
+        }
+        .ant-steps-icon {
+            color: #fff !important;
         }
       }
     }
