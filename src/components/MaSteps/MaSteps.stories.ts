@@ -79,23 +79,3 @@ export const TitleDescription = () => ({
 });
 TitleDescription.storyName = 'Title Description';
 
-export const ProgressDot = () => ({
-    components: {
-        MaSteps,
-        AStep,
-    },
-    data() {
-        return {
-            value: 0,
-        };
-    },
-    template: `
-       <div class="m-2">
-        <ma-steps v-model="value" progress-dot>
-          <a-step title="Inviting Mobile Action Account"/>
-          <a-step title="Verifying Integration"/>
-        </ma-steps>
-       </div>
-      `,
-});
-ProgressDot.storyName = 'Progress Dot';
