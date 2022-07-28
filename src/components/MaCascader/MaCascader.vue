@@ -1,5 +1,6 @@
 <template>
     <a-cascader
+        v-model="data"
         :options="options"
         :placeholder="placeholder"
         :field-names="fieldNames"
@@ -9,7 +10,6 @@
         :allow-clear="allowClear"
         :disabled="disabled"
         :size="size"
-        :popup-visible="popupVisible"
         @popup-visible-change="$emit('popup-visible-change',$event)"
         @change="$emit('change',$event)"
     />
@@ -24,6 +24,7 @@
             ACascader: Cascader,
         },
         props: {
+            value: { type: [Number, Array] },
             options: { type: [Object,Array], required: true },
             fieldNames: { type: Object, default: ()=> ({}) },
             defaultValue: { type: [Object,Array] },
@@ -34,13 +35,17 @@
             size: { type: String, default: 'default' },
             disabled: { type: Boolean },
             allowClear: { type: Boolean },
-            popupVisible: { type: Boolean },
             width: { type: Number },
         },
         data() {
-            return {};
+            return {
+                data: this.value,
+            };
         },
-        computed: {
+        watch: {
+            value(newValue){
+                this.data = newValue;
+            },
         },
     };
 </script>
